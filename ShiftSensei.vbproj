@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C5012B43-8E2F-47DF-BF9D-2CD9667AC077}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>ShiftSensei.My.MyApplication</StartupObject>
+    <RootNamespace>ShiftSensei</RootNamespace>
+    <AssemblyName>ShiftSensei</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ShiftSensei.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ShiftSensei.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminForm\Admin_Allocate.Designer.vb">
+      <DependentUpon>Admin_Allocate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Allocate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Account1.Designer.vb">
+      <DependentUpon>Admin_Account1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Account1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm\Admin_CreateShift.Designer.vb">
+      <DependentUpon>Admin_CreateShift.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm\Admin_CreateShift.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Schedule.Designer.vb">
+      <DependentUpon>Admin_Schedule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Schedule.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Nurse.Designer.vb">
+      <DependentUpon>Admin_Nurse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Nurse.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Profile.Designer.vb">
+      <DependentUpon>Admin_Profile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Profile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm\Admin_EditShift.Designer.vb">
+      <DependentUpon>Admin_EditShift.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm\Admin_EditShift.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm\CreateAccount.Designer.vb">
+      <DependentUpon>CreateAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm\CreateAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm\DeleteAccount.Designer.vb">
+      <DependentUpon>DeleteAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm\DeleteAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm\forgotPassword.Designer.vb">
+      <DependentUpon>forgotPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm\forgotPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Dashboard.Designer.vb">
+      <DependentUpon>Admin_Dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm\Admin_Dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NurseForm\Nurse_Profile.Designer.vb">
+      <DependentUpon>Nurse_Profile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NurseForm\Nurse_Profile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NurseForm\Nurse_Account.Designer.vb">
+      <DependentUpon>Nurse_Account.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NurseForm\Nurse_Account.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NurseForm\Nurse_Dashboard.Designer.vb">
+      <DependentUpon>Nurse_Dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NurseForm\Nurse_Dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NurseForm\Nurse_Schedule.Designer.vb">
+      <DependentUpon>Nurse_Schedule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NurseForm\Nurse_Schedule.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AdminForm\Admin_Allocate.resx">
+      <DependentUpon>Admin_Allocate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm\Admin_Account1.resx">
+      <DependentUpon>Admin_Account1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm\Admin_CreateShift.resx">
+      <DependentUpon>Admin_CreateShift.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm\Admin_Schedule.resx">
+      <DependentUpon>Admin_Schedule.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm\Admin_Nurse.resx">
+      <DependentUpon>Admin_Nurse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm\Admin_Profile.resx">
+      <DependentUpon>Admin_Profile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm\Admin_EditShift.resx">
+      <DependentUpon>Admin_EditShift.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm\CreateAccount.resx">
+      <DependentUpon>CreateAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm\DeleteAccount.resx">
+      <DependentUpon>DeleteAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm\forgotPassword.resx">
+      <DependentUpon>forgotPassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm\Admin_Dashboard.resx">
+      <DependentUpon>Admin_Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NurseForm\Nurse_Profile.resx">
+      <DependentUpon>Nurse_Profile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NurseForm\Nurse_Account.resx">
+      <DependentUpon>Nurse_Account.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NurseForm\Nurse_Dashboard.resx">
+      <DependentUpon>Nurse_Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NurseForm\Nurse_Schedule.resx">
+      <DependentUpon>Nurse_Schedule.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
