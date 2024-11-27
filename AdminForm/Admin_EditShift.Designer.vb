@@ -78,16 +78,20 @@ Partial Class Admin_EditShift
         '
         'DateTimePicker4
         '
+        Me.DateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.DateTimePicker4.Location = New System.Drawing.Point(176, 272)
         Me.DateTimePicker4.Name = "DateTimePicker4"
-        Me.DateTimePicker4.Size = New System.Drawing.Size(284, 26)
+        Me.DateTimePicker4.ShowUpDown = True
+        Me.DateTimePicker4.Size = New System.Drawing.Size(120, 26)
         Me.DateTimePicker4.TabIndex = 31
         '
         'DateTimePicker3
         '
+        Me.DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.DateTimePicker3.Location = New System.Drawing.Point(176, 215)
         Me.DateTimePicker3.Name = "DateTimePicker3"
-        Me.DateTimePicker3.Size = New System.Drawing.Size(284, 26)
+        Me.DateTimePicker3.ShowUpDown = True
+        Me.DateTimePicker3.Size = New System.Drawing.Size(120, 26)
         Me.DateTimePicker3.TabIndex = 30
         '
         'DateTimePicker2
