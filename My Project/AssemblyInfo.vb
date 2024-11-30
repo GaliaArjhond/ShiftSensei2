@@ -8,7 +8,7 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("ShiftSensei")>
+<Assembly: AssemblyTitle("ShiftSensei2")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("ShiftSensei")>
