@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Module Module1
+Module DataBase
     Public datacon As New MySqlConnection
     Dim server As String = "127.0.0.1"
     Dim dbase As String = "shiftsenseidb"
