@@ -432,6 +432,7 @@ Partial Class CreateAccount
         '
         'dtpEndDate
         '
+        Me.dtpEndDate.CustomFormat = "yyyy-MM-dd"
         Me.dtpEndDate.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpEndDate.Location = New System.Drawing.Point(30, 142)
         Me.dtpEndDate.Name = "dtpEndDate"
@@ -440,6 +441,7 @@ Partial Class CreateAccount
         '
         'dtpStartDate
         '
+        Me.dtpStartDate.CustomFormat = "yyyy-MM-dd"
         Me.dtpStartDate.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpStartDate.Location = New System.Drawing.Point(30, 65)
         Me.dtpStartDate.Name = "dtpStartDate"

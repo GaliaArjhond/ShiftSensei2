@@ -7,7 +7,7 @@ Public Class CreateAccount
     Dim dtable As DataTable
     Dim fname, mname, lname, password, email, address, phoneNumber,
         answer, nurseLicense As String
-    Dim departmentId, positionId, expLvlID, securityQuestionId As Integer
+    Dim departmentId, positionId, expLvlsId, securityQuestionId As Integer
     Dim dateOfBirth, startDate, endDate, startTime, endTime As DateTime
     Dim querry As String
 
@@ -50,7 +50,7 @@ Public Class CreateAccount
         End If
 
         If cmbExp.SelectedValue IsNot Nothing Then
-            expLvlID = CType(cmbExp.SelectedValue, Integer)
+            expLvlsId = CType(cmbExp.SelectedValue, Integer)
         Else
             MessageBox.Show("Please select an experience level.")
             Return
@@ -63,45 +63,29 @@ Public Class CreateAccount
             Return
         End If
 
+        querry = "INSERT INTO nurse (fname, mname, Lname, email, address, phoneNumber, nurseLicense, departmentId, positionId, expLvlsId, securityQuestionId, SecurityAnswerHash, passwordHash, dateOfBirth, startDate, endDate, startTime, endTime)  VALUES 
+                 ('" & fname & "','" & mname & "','" & lname & "','" & email & "','" & address & "','" & phoneNumber & "','" & nurseLicense & "','" & departmentId & "','" & positionId & "',
+                 '" & expLvlsId & "','" & securityQuestionId & "','" & answer & "','" & password & "','" & dateOfBirth & "','" & startDate & "','" & endDate & "','" & startTime & "','" & endTime & "')"
         If fname <> "" And mname <> "" And lname <> "" And email <> "" And address <> "" And phoneNumber <> "" And nurseLicense <> "" Then
-            querry = "INSERT INTO nurse (fname, mname, lname, email, address, phoneNumber, nurseLicense, departmentId, positionId, expLvlsId, securityQuestionId, answer, password, dateOfBirth, startDate, endDate, startTime, endTime) " &
-                 "VALUES (@Fname, @Mname, @Lname, @Email, @Address, @PhoneNumber, @nurseLicense @DepartmentId, @PositionId, @ExpLvlID, @SecurityQuestionId, @Answer, @Password, @DateOfBirth, @StartDate, @EndDate, @StartTime, @EndTime)"
-
             Try
-                cmd = New MySqlCommand(querry, datacon)
-                cmd.Parameters.AddWithValue("@Fname", fname)
-                cmd.Parameters.AddWithValue("@Mname", mname)
-                cmd.Parameters.AddWithValue("@Lname", lname)
-                cmd.Parameters.AddWithValue("@Email", email)
-                cmd.Parameters.AddWithValue("@Address", address)
-                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber)
-                cmd.Parameters.AddWithValue("@nurseLicense", nurseLicense)
-                cmd.Parameters.AddWithValue("@DepartmentId", departmentId)
-                cmd.Parameters.AddWithValue("@PositionId", positionId)
-                cmd.Parameters.AddWithValue("@ExpLvlID", expLvlID)
-                cmd.Parameters.AddWithValue("@SecurityQuestionId", securityQuestionId)
-                cmd.Parameters.AddWithValue("@Answer", answer)
-                cmd.Parameters.AddWithValue("@Password", password)
-                cmd.Parameters.AddWithValue("@DateOfBirth", dateOfBirth)
-                cmd.Parameters.AddWithValue("@StartDate", startDate)
-                cmd.Parameters.AddWithValue("@EndDate", endDate)
-                cmd.Parameters.AddWithValue("@StartTime", startTime)
-                cmd.Parameters.AddWithValue("@EndTime", endTime)
-
-                result = cmd.ExecuteNonQuery()
-                If result > 0 Then
-                    MsgBox("Account created successfully")
-                    txtFname.Clear()
-                    txtMname.Clear()
-                    txtLname.Clear()
-                    txtemail.Clear()
-                    txtphone.Clear()
-                    txtaddress.Clear()
-                    txtpassword.Clear()
-                    txtAnswer.Clear()
-                Else
-                    MsgBox("Failed to insert all fields")
-                End If
+                With cmd
+                    .Connection = datacon
+                    .CommandText = querry
+                    result = cmd.ExecuteNonQuery()
+                    If result > 0 Then
+                        MsgBox("Account created successfully")
+                        txtFname.Clear()
+                        txtMname.Clear()
+                        txtLname.Clear()
+                        txtemail.Clear()
+                        txtphone.Clear()
+                        txtaddress.Clear()
+                        txtpassword.Clear()
+                        txtAnswer.Clear()
+                    Else
+                        MsgBox("Failed to insert all fields")
+                    End If
+                End With
             Catch ex As Exception
                 MsgBox("Error: " & ex.Message)
             End Try
