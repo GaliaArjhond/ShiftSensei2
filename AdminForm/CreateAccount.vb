@@ -35,7 +35,9 @@ Public Class CreateAccount
         startTime = dtpStartTime.Value
         endTime = dtpEndTime.Value
 
+        ' Check if a department has been selected from the combo box
         If cmbDepartment.SelectedValue IsNot Nothing Then
+            'If a value is selected, convert it to an integer and assign it to the departmentId, positionId, expLvlsId variable
             departmentId = CType(cmbDepartment.SelectedValue, Integer)
         Else
             MessageBox.Show("Please select a department.")
@@ -67,7 +69,7 @@ Public Class CreateAccount
                  ('" & fname & "','" & mname & "','" & lname & "','" & email & "','" & address & "','" & phoneNumber & "','" & nurseLicense & "','" & departmentId & "','" & positionId & "',
                  '" & expLvlsId & "','" & securityQuestionId & "','" & answer & "','" & password & "','" & dateOfBirth.ToString("yyyy-MM-dd HH:mm:ss") & "','" & startDate.ToString("yyyy-MM-dd HH:mm:ss") & "',
                  '" & endDate.ToString("yyyy-MM-dd HH:mm:ss") & "','" & startTime.ToString("HH:mm:ss") & "','" & endTime.ToString("HH:mm:ss") & "')"
-        If fname <> "" And mname <> "" And lname <> "" And email <> "" And address <> "" And phoneNumber <> "" And nurseLicense <> "" Then
+        If fname <> "" And mname <> "" And lname <> "" And email <> "" And address <> "" And phoneNumber <> "" And nurseLicense <> "" And answer <> "" And password <> "" Then
             Try
                 With cmd
                     .Connection = datacon
@@ -83,6 +85,14 @@ Public Class CreateAccount
                         txtaddress.Clear()
                         txtpassword.Clear()
                         txtAnswer.Clear()
+                        dtpStartDate.Value = DateTime.Now
+                        dtpEndDate.Value = DateTime.Now
+                        dtpStartTime.Value = DateTime.Now
+                        dtpEndTime.Value = DateTime.Now
+                        cmbDepartment.SelectedIndex = -1
+                        cmbPosition.SelectedIndex = -1
+                        cmbExp.SelectedIndex = -1
+                        cmbSQ.SelectedIndex = -1
                     Else
                         MsgBox("Failed to insert all fields")
                     End If
