@@ -66,6 +66,10 @@ Partial Class CreateAccount
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btncreate = New System.Windows.Forms.Button()
         Me.btnback = New System.Windows.Forms.Button()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -95,6 +99,10 @@ Partial Class CreateAccount
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.RadioButton3)
+        Me.GroupBox1.Controls.Add(Me.RadioButton2)
+        Me.GroupBox1.Controls.Add(Me.RadioButton1)
+        Me.GroupBox1.Controls.Add(Me.Label19)
         Me.GroupBox1.Controls.Add(Me.txtaddress)
         Me.GroupBox1.Controls.Add(Me.txtphone)
         Me.GroupBox1.Controls.Add(Me.txtemail)
@@ -112,7 +120,7 @@ Partial Class CreateAccount
         Me.GroupBox1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(36, 101)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(342, 476)
+        Me.GroupBox1.Size = New System.Drawing.Size(342, 514)
         Me.GroupBox1.TabIndex = 29
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Personal Info"
@@ -120,7 +128,7 @@ Partial Class CreateAccount
         'txtaddress
         '
         Me.txtaddress.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtaddress.Location = New System.Drawing.Point(32, 419)
+        Me.txtaddress.Location = New System.Drawing.Point(32, 468)
         Me.txtaddress.Name = "txtaddress"
         Me.txtaddress.Size = New System.Drawing.Size(268, 22)
         Me.txtaddress.TabIndex = 19
@@ -128,7 +136,7 @@ Partial Class CreateAccount
         'txtphone
         '
         Me.txtphone.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtphone.Location = New System.Drawing.Point(32, 362)
+        Me.txtphone.Location = New System.Drawing.Point(32, 411)
         Me.txtphone.Name = "txtphone"
         Me.txtphone.Size = New System.Drawing.Size(268, 22)
         Me.txtphone.TabIndex = 18
@@ -136,7 +144,7 @@ Partial Class CreateAccount
         'txtemail
         '
         Me.txtemail.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtemail.Location = New System.Drawing.Point(32, 305)
+        Me.txtemail.Location = New System.Drawing.Point(32, 354)
         Me.txtemail.Name = "txtemail"
         Me.txtemail.Size = New System.Drawing.Size(268, 22)
         Me.txtemail.TabIndex = 17
@@ -144,7 +152,7 @@ Partial Class CreateAccount
         'dtpDateOfBIrth
         '
         Me.dtpDateOfBIrth.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpDateOfBIrth.Location = New System.Drawing.Point(32, 246)
+        Me.dtpDateOfBIrth.Location = New System.Drawing.Point(32, 295)
         Me.dtpDateOfBIrth.Name = "dtpDateOfBIrth"
         Me.dtpDateOfBIrth.Size = New System.Drawing.Size(268, 22)
         Me.dtpDateOfBIrth.TabIndex = 16
@@ -194,7 +202,7 @@ Partial Class CreateAccount
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(29, 222)
+        Me.Label29.Location = New System.Drawing.Point(29, 271)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(91, 16)
         Me.Label29.TabIndex = 10
@@ -203,7 +211,7 @@ Partial Class CreateAccount
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(29, 400)
+        Me.Label5.Location = New System.Drawing.Point(29, 449)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(62, 16)
         Me.Label5.TabIndex = 3
@@ -212,7 +220,7 @@ Partial Class CreateAccount
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(29, 343)
+        Me.Label4.Location = New System.Drawing.Point(29, 392)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(107, 16)
         Me.Label4.TabIndex = 2
@@ -221,7 +229,7 @@ Partial Class CreateAccount
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(29, 282)
+        Me.Label3.Location = New System.Drawing.Point(29, 331)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(48, 16)
         Me.Label3.TabIndex = 1
@@ -247,7 +255,7 @@ Partial Class CreateAccount
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(36, 603)
+        Me.GroupBox2.Location = New System.Drawing.Point(36, 646)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(342, 291)
         Me.GroupBox2.TabIndex = 30
@@ -334,7 +342,7 @@ Partial Class CreateAccount
         Me.GroupBox4.Controls.Add(Me.Label15)
         Me.GroupBox4.Controls.Add(Me.Label14)
         Me.GroupBox4.Controls.Add(Me.Label13)
-        Me.GroupBox4.Location = New System.Drawing.Point(406, 603)
+        Me.GroupBox4.Location = New System.Drawing.Point(406, 646)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(342, 216)
         Me.GroupBox4.TabIndex = 32
@@ -405,13 +413,14 @@ Partial Class CreateAccount
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Location = New System.Drawing.Point(406, 101)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(342, 476)
+        Me.GroupBox3.Size = New System.Drawing.Size(342, 514)
         Me.GroupBox3.TabIndex = 31
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Availability"
         '
         'dtpEndTime
         '
+        Me.dtpEndTime.CustomFormat = "hh:mm:ss" & Global.Microsoft.VisualBasic.ChrW(9)
         Me.dtpEndTime.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.dtpEndTime.Location = New System.Drawing.Point(34, 301)
@@ -422,6 +431,7 @@ Partial Class CreateAccount
         '
         'dtpStartTime
         '
+        Me.dtpStartTime.CustomFormat = "hh:mm:ss"
         Me.dtpStartTime.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.dtpStartTime.Location = New System.Drawing.Point(32, 225)
@@ -486,7 +496,7 @@ Partial Class CreateAccount
         '
         'btncreate
         '
-        Me.btncreate.Location = New System.Drawing.Point(36, 913)
+        Me.btncreate.Location = New System.Drawing.Point(36, 958)
         Me.btncreate.Name = "btncreate"
         Me.btncreate.Size = New System.Drawing.Size(233, 68)
         Me.btncreate.TabIndex = 33
@@ -495,19 +505,61 @@ Partial Class CreateAccount
         '
         'btnback
         '
-        Me.btnback.Location = New System.Drawing.Point(549, 913)
+        Me.btnback.Location = New System.Drawing.Point(549, 958)
         Me.btnback.Name = "btnback"
         Me.btnback.Size = New System.Drawing.Size(199, 68)
         Me.btnback.TabIndex = 34
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = True
         '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(29, 231)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(59, 16)
+        Me.Label19.TabIndex = 20
+        Me.Label19.Text = "Gender:"
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(94, 231)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(57, 20)
+        Me.RadioButton1.TabIndex = 21
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Male"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(157, 231)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(74, 20)
+        Me.RadioButton2.TabIndex = 22
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Female"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(246, 231)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(61, 20)
+        Me.RadioButton3.TabIndex = 23
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "Other"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
         'CreateAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(810, 653)
+        Me.ClientSize = New System.Drawing.Size(819, 653)
         Me.Controls.Add(Me.btnback)
         Me.Controls.Add(Me.btncreate)
         Me.Controls.Add(Me.GroupBox1)
@@ -579,4 +631,8 @@ Partial Class CreateAccount
     Friend WithEvents cmbExp As ComboBox
     Friend WithEvents cmbPosition As ComboBox
     Friend WithEvents cmbDepartment As ComboBox
+    Friend WithEvents RadioButton3 As RadioButton
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents RadioButton1 As RadioButton
+    Friend WithEvents Label19 As Label
 End Class

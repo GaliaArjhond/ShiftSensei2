@@ -217,9 +217,9 @@ Partial Class Admin_CreateShift
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(24, 45)
+        Me.DataGridView1.Location = New System.Drawing.Point(53, 45)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(872, 236)
+        Me.DataGridView1.Size = New System.Drawing.Size(828, 225)
         Me.DataGridView1.TabIndex = 20
         '
         'GroupBox1
@@ -280,6 +280,7 @@ Partial Class Admin_CreateShift
         '
         'DateTimePicker4
         '
+        Me.DateTimePicker4.CustomFormat = "hh:mm:ss"
         Me.DateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.DateTimePicker4.Location = New System.Drawing.Point(632, 111)
         Me.DateTimePicker4.Name = "DateTimePicker4"
@@ -289,6 +290,7 @@ Partial Class Admin_CreateShift
         '
         'DateTimePicker3
         '
+        Me.DateTimePicker3.CustomFormat = "hh:mm:ss"
         Me.DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.DateTimePicker3.Location = New System.Drawing.Point(632, 54)
         Me.DateTimePicker3.Name = "DateTimePicker3"

@@ -65,7 +65,8 @@ Public Class CreateAccount
 
         querry = "INSERT INTO nurse (fname, mname, Lname, email, address, phoneNumber, nurseLicense, departmentId, positionId, expLvlsId, securityQuestionId, SecurityAnswerHash, passwordHash, dateOfBirth, startDate, endDate, startTime, endTime)  VALUES 
                  ('" & fname & "','" & mname & "','" & lname & "','" & email & "','" & address & "','" & phoneNumber & "','" & nurseLicense & "','" & departmentId & "','" & positionId & "',
-                 '" & expLvlsId & "','" & securityQuestionId & "','" & answer & "','" & password & "','" & dateOfBirth & "','" & startDate & "','" & endDate & "','" & startTime & "','" & endTime & "')"
+                 '" & expLvlsId & "','" & securityQuestionId & "','" & answer & "','" & password & "','" & dateOfBirth.ToString("yyyy-MM-dd HH:mm:ss") & "','" & startDate.ToString("yyyy-MM-dd HH:mm:ss") & "',
+                 '" & endDate.ToString("yyyy-MM-dd HH:mm:ss") & "','" & startTime.ToString("HH:mm:ss") & "','" & endTime.ToString("HH:mm:ss") & "')"
         If fname <> "" And mname <> "" And lname <> "" And email <> "" And address <> "" And phoneNumber <> "" And nurseLicense <> "" Then
             Try
                 With cmd
@@ -163,5 +164,8 @@ Public Class CreateAccount
         End Try
     End Sub
 
-
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        Admin_Account1.Show()
+        Me.Hide()
+    End Sub
 End Class
