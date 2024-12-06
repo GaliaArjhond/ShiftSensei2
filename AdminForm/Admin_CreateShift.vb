@@ -13,11 +13,14 @@ Public Class Admin_CreateShift
     Private Sub Admin_CreateShift_Load(sender As Object, e As EventArgs) Handles Me.Load
         databaseConnect()
         LoadDepartments()
+        LoadshiftType()
     End Sub
 
     Private Sub ckbFair_CheckedChanged(sender As Object, e As EventArgs) Handles ckbFair.CheckedChanged
         If ckbFair.Checked Then
-
+            fairDistribution = True
+        Else
+            fairDistribution = False
         End If
     End Sub
 
@@ -39,6 +42,30 @@ Public Class Admin_CreateShift
         End Try
     End Sub
 
+    Enum shiftType
+        day
+        evening
+        night
+    End Enum
+    Private Sub LoadShiftType()
+        Try
+            query = "SELECT * FROM shiftsenseidb.shifttype"
+            cmd = New MySqlCommand(query, datacon)
+            adp = New MySqlDataAdapter(cmd)
+            ds = New DataSet()
+            adp.Fill(ds)
+            dtable = ds.Tables(0)
+
+            cmbShiftType.DataSource = dtable
+            cmbShiftType.ValueMember = "shiftId"
+            cmbShiftType.DisplayMember = "shiftTypeName"
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         shiftName = txtshiftName.Text
         startDate = dtpStartDate.Value
@@ -59,11 +86,7 @@ Public Class Admin_CreateShift
         End If
 
         query = "INSERT INTO shifts (shiftName, startDate, endDate, startTime, endTime, departmentId, fairDistributionCheck) 
-                 VALUES ('" & txtshiftName.Text & "', '" & dtpStartDate.Value.ToString("yyyy-MM-dd") & "', 
-                         '" & dtpEndDate.Value.ToString("yyyy-MM-dd") & "', 
-                         '" & dtpStartTime.Value.ToString("HH:mm:ss") & "', 
-                         '" & dtpEndTime.Value.ToString("HH:mm:ss") & "', 
-                         '" & departmentId & "', '" & fairDistribution & "')"
+                 VALUES ('" & shiftName & "', '" & startDate & "','" & endDate & "','" & startTime & "','" & endTime & "','" & departmentId & "', '" & fairDistribution & "')"
 
 
         If txtshiftName.Text <> "" And dtpStartDate.Value <= dtpEndDate.Value Then
@@ -93,6 +116,9 @@ Public Class Admin_CreateShift
         Else
             MessageBox.Show("Please complete all fields.")
         End If
+    End Sub
 
+    Private Sub btnAllocate_Click(sender As Object, e As EventArgs) Handles btnAllocate.Click
+        assignForm.Show()
     End Sub
 End Class

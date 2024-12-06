@@ -24,16 +24,16 @@ Partial Class assignForm
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewAvailableNurses = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewAssignedNurses = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewAvailableNurses, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewAssignedNurses, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -56,21 +56,21 @@ Partial Class assignForm
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Allocate Nurse"
         '
-        'DataGridView1
+        'DataGridViewAvailableNurses
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(29, 187)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(229, 370)
-        Me.DataGridView1.TabIndex = 1
+        Me.DataGridViewAvailableNurses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewAvailableNurses.Location = New System.Drawing.Point(29, 187)
+        Me.DataGridViewAvailableNurses.Name = "DataGridViewAvailableNurses"
+        Me.DataGridViewAvailableNurses.Size = New System.Drawing.Size(229, 370)
+        Me.DataGridViewAvailableNurses.TabIndex = 1
         '
-        'DataGridView2
+        'DataGridViewAssignedNurses
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(453, 187)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(229, 370)
-        Me.DataGridView2.TabIndex = 2
+        Me.DataGridViewAssignedNurses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewAssignedNurses.Location = New System.Drawing.Point(453, 187)
+        Me.DataGridViewAssignedNurses.Name = "DataGridViewAssignedNurses"
+        Me.DataGridViewAssignedNurses.Size = New System.Drawing.Size(229, 370)
+        Me.DataGridViewAssignedNurses.TabIndex = 2
         '
         'Label2
         '
@@ -127,19 +127,19 @@ Partial Class assignForm
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.DataGridViewAssignedNurses)
+        Me.Controls.Add(Me.DataGridViewAvailableNurses)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "assignForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "assignForm"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewAvailableNurses, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewAssignedNurses, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -147,8 +147,8 @@ Partial Class assignForm
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents DataGridViewAvailableNurses As DataGridView
+    Friend WithEvents DataGridViewAssignedNurses As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Button1 As Button

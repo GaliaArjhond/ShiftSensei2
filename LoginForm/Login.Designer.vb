@@ -23,8 +23,8 @@ Partial Class Login
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -45,17 +45,6 @@ Partial Class Login
         Me.Panel1.Size = New System.Drawing.Size(400, 561)
         Me.Panel1.TabIndex = 0
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Arial", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(79, 59)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(221, 37)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Shift Sensei: "
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -66,6 +55,17 @@ Partial Class Login
         Me.Label2.Size = New System.Drawing.Size(311, 37)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Scheduling System"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label1.Location = New System.Drawing.Point(79, 59)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(221, 37)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Shift Sensei: "
         '
         'Label3
         '
@@ -105,6 +105,7 @@ Partial Class Login
         '
         Me.TextBox2.Location = New System.Drawing.Point(467, 312)
         Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(46)
         Me.TextBox2.Size = New System.Drawing.Size(453, 26)
         Me.TextBox2.TabIndex = 5
         '

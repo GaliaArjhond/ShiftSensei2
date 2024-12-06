@@ -52,6 +52,8 @@ Partial Class Admin_CreateShift
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cmbShiftType = New System.Windows.Forms.ComboBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -226,6 +228,8 @@ Partial Class Admin_CreateShift
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox1.Controls.Add(Me.cmbShiftType)
+        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.btnAllocate)
         Me.GroupBox1.Controls.Add(Me.ckbFair)
@@ -315,14 +319,14 @@ Partial Class Admin_CreateShift
         '
         'dtpEndDate
         '
-        Me.dtpEndDate.Location = New System.Drawing.Point(163, 178)
+        Me.dtpEndDate.Location = New System.Drawing.Point(165, 234)
         Me.dtpEndDate.Name = "dtpEndDate"
         Me.dtpEndDate.Size = New System.Drawing.Size(238, 26)
         Me.dtpEndDate.TabIndex = 9
         '
         'dtpStartDate
         '
-        Me.dtpStartDate.Location = New System.Drawing.Point(163, 119)
+        Me.dtpStartDate.Location = New System.Drawing.Point(165, 175)
         Me.dtpStartDate.Name = "dtpStartDate"
         Me.dtpStartDate.Size = New System.Drawing.Size(238, 26)
         Me.dtpStartDate.TabIndex = 8
@@ -364,7 +368,7 @@ Partial Class Admin_CreateShift
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(34, 184)
+        Me.Label4.Location = New System.Drawing.Point(36, 240)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(85, 19)
         Me.Label4.TabIndex = 2
@@ -373,7 +377,7 @@ Partial Class Admin_CreateShift
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(32, 125)
+        Me.Label3.Location = New System.Drawing.Point(34, 181)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(84, 19)
         Me.Label3.TabIndex = 1
@@ -387,6 +391,24 @@ Partial Class Admin_CreateShift
         Me.Label2.Size = New System.Drawing.Size(98, 19)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Shift Name:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(34, 125)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(91, 19)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Shift Type:"
+        '
+        'cmbShiftType
+        '
+        Me.cmbShiftType.FormattingEnabled = True
+        Me.cmbShiftType.Location = New System.Drawing.Point(163, 117)
+        Me.cmbShiftType.Name = "cmbShiftType"
+        Me.cmbShiftType.Size = New System.Drawing.Size(238, 27)
+        Me.cmbShiftType.TabIndex = 18
+        Me.cmbShiftType.UseWaitCursor = True
         '
         'Admin_CreateShift
         '
@@ -443,4 +465,6 @@ Partial Class Admin_CreateShift
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents cmbShiftType As ComboBox
+    Friend WithEvents Label8 As Label
 End Class
