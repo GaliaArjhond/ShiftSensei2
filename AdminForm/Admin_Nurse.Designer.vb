@@ -22,7 +22,7 @@ Partial Class Admin_Nurse
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnDashboard = New System.Windows.Forms.Button()
@@ -41,7 +41,7 @@ Partial Class Admin_Nurse
         Me.Button12 = New System.Windows.Forms.Button()
         Me.btnload = New System.Windows.Forms.Button()
         Me.dataRecord = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dataRecord, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -258,26 +258,25 @@ Partial Class Admin_Nurse
         Me.dataRecord.Location = New System.Drawing.Point(258, 127)
         Me.dataRecord.Name = "dataRecord"
         Me.dataRecord.RowHeadersWidth = 51
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dataRecord.RowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dataRecord.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dataRecord.Size = New System.Drawing.Size(758, 501)
         Me.dataRecord.TabIndex = 8
         '
-        'Button1
+        'ComboBox1
         '
-        Me.Button1.Location = New System.Drawing.Point(882, 52)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(773, 50)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 32)
+        Me.ComboBox1.TabIndex = 9
         '
         'Admin_Nurse
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 680)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.dataRecord)
         Me.Controls.Add(Me.btnload)
         Me.Controls.Add(Me.Button12)
@@ -318,5 +317,5 @@ Partial Class Admin_Nurse
     Friend WithEvents Button12 As Button
     Friend WithEvents btnload As Button
     Friend WithEvents dataRecord As DataGridView
-    Friend WithEvents Button1 As Button
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
