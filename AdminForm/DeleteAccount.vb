@@ -35,77 +35,41 @@ Public Class DeleteAccount
         End Try
     End Sub
 
-
-
-
-
-    Private Sub cmbNurseName_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbNurseName.SelectedIndexChanged
-        If cmbNurseName.SelectedValue IsNot Nothing AndAlso TypeOf cmbNurseName.SelectedValue Is Integer Then
-
-            Dim nurseId As Integer = Convert.ToInt32(cmbNurseName.SelectedValue)
-
-            query = "SELECT nurseLicense FROM Nurse WHERE nurseId = @nurseId"
-            cmd = New MySqlCommand(query, datacon)
-            cmd.Parameters.AddWithValue("@nurseId", nurseId)
-
-            ' Execute the query and get the license number
-            Dim licenseNumber As String = cmd.ExecuteScalar()?.ToString()
-            ' Display the retrieved license number in a label
-            lblLicenseNumber.Text = "License Number: " & licenseNumber
-
-        Else
-            ' If no valid item is selected, clear the label
-            lblLicenseNumber.Text = "License Number:"
-        End If
-    End Sub
-
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
         Try
+            ' Check if a valid nurse is selected
             If cmbNurseName.SelectedValue Is Nothing OrElse Not IsNumeric(cmbNurseName.SelectedValue) Then
                 MessageBox.Show("Please select a valid nurse.")
+                Return
             End If
 
-            If String.IsNullOrEmpty(reason) Then
-                query = "INSERT INTO deletionlogs (nurseId, reason, deletionDate) VALUES ('" & nurseId & "','" & reason & "', NOW())"
+            ' Confirm deletion
+            If MessageBox.Show($"Are you sure you want to delete the account for nurse ID {nurseId}?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
+                ' Prepare the delete query
+                query = "DELETE FROM nurse WHERE nurseId = @nurseId"
                 Try
-                    With cmd
-                        .Connection = datacon
-                        .CommandText = query
-                        result = cmd.ExecuteNonQuery()
+                    Using cmd As New MySqlCommand(query, datacon)
+                        cmd.Parameters.AddWithValue("@nurseId", cmbNurseName.SelectedValue)
+
+                        ' Execute the delete command
+                        Dim result As Integer = cmd.ExecuteNonQuery()
                         If result > 0 Then
-                            MessageBox.Show("Deletion reason logged successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            ' Successfully deleted
+                            cmbNurseName.SelectedIndex = -1
+                            rtbReason.Clear()
+                            txtConfrimPassword.Clear()
+                            MessageBox.Show("Nurse account deleted successfully.")
                         Else
-                            MessageBox.Show("Failed to log deletion reason.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            MsgBox("Failed to delete the nurse account.")
                         End If
-                    End With
+                    End Using
                 Catch ex As Exception
-                    MessageBox.Show("Error: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MsgBox("Error: " & ex.Message)
                 End Try
             End If
-
-            If String.IsNullOrEmpty(txtConfrimPassword.Text) OrElse txtConfrimPassword.Text = password Then
-                If MessageBox.Show($"Are you sure you want to delete the account for nurse ID {nurseId}?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
-                    query = "DELETE FROM nurse WHERE nurseId = '" & nurseId & "'"
-                    Try
-                        With cmd
-                            .Connection = datacon
-                            .CommandText = query
-                            result = cmd.ExecuteNonQuery()
-                            If result > 0 Then
-                                cmbNurseName.SelectedIndex = -1
-                                rtbReason.Clear()
-                                txtConfrimPassword.Clear()
-                            Else
-                                MsgBox("Failed to insert all fields")
-                            End If
-                        End With
-                    Catch ex As Exception
-                        MsgBox("Error: " & ex.Message)
-                    End Try
-                End If
-            End If
         Catch ex As Exception
-            MsgBox("Please fill out all fields")
+            MsgBox("An unexpected error occurred: " & ex.Message)
         End Try
     End Sub
 End Class
+

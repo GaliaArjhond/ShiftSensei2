@@ -25,12 +25,9 @@ Partial Class DeleteAccount
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblLicenseNumber = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbNurseName = New System.Windows.Forms.ComboBox()
         Me.rtbReason = New System.Windows.Forms.RichTextBox()
-        Me.txtConfrimPassword = New System.Windows.Forms.TextBox()
         Me.btndelete = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
@@ -67,35 +64,15 @@ Partial Class DeleteAccount
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Nurse Name:"
         '
-        'lblLicenseNumber
-        '
-        Me.lblLicenseNumber.AutoSize = True
-        Me.lblLicenseNumber.Location = New System.Drawing.Point(257, 244)
-        Me.lblLicenseNumber.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblLicenseNumber.Name = "lblLicenseNumber"
-        Me.lblLicenseNumber.Size = New System.Drawing.Size(140, 19)
-        Me.lblLicenseNumber.TabIndex = 2
-        Me.lblLicenseNumber.Text = "License Number:"
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(56, 313)
+        Me.Label3.Location = New System.Drawing.Point(56, 253)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(170, 19)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Reason for Deletion: "
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(56, 535)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(195, 19)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Password Confirmation:"
         '
         'cmbNurseName
         '
@@ -107,22 +84,15 @@ Partial Class DeleteAccount
         '
         'rtbReason
         '
-        Me.rtbReason.Location = New System.Drawing.Point(261, 313)
+        Me.rtbReason.Location = New System.Drawing.Point(261, 253)
         Me.rtbReason.Name = "rtbReason"
         Me.rtbReason.Size = New System.Drawing.Size(296, 192)
         Me.rtbReason.TabIndex = 7
         Me.rtbReason.Text = ""
         '
-        'txtConfrimPassword
-        '
-        Me.txtConfrimPassword.Location = New System.Drawing.Point(261, 532)
-        Me.txtConfrimPassword.Name = "txtConfrimPassword"
-        Me.txtConfrimPassword.Size = New System.Drawing.Size(296, 26)
-        Me.txtConfrimPassword.TabIndex = 8
-        '
         'btndelete
         '
-        Me.btndelete.Location = New System.Drawing.Point(60, 613)
+        Me.btndelete.Location = New System.Drawing.Point(60, 477)
         Me.btndelete.Name = "btndelete"
         Me.btndelete.Size = New System.Drawing.Size(178, 34)
         Me.btndelete.TabIndex = 9
@@ -131,7 +101,7 @@ Partial Class DeleteAccount
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(379, 613)
+        Me.Button2.Location = New System.Drawing.Point(379, 477)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(178, 34)
         Me.Button2.TabIndex = 10
@@ -142,15 +112,12 @@ Partial Class DeleteAccount
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(605, 667)
+        Me.ClientSize = New System.Drawing.Size(605, 545)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btndelete)
-        Me.Controls.Add(Me.txtConfrimPassword)
         Me.Controls.Add(Me.rtbReason)
         Me.Controls.Add(Me.cmbNurseName)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.lblLicenseNumber)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -168,13 +135,10 @@ Partial Class DeleteAccount
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
-    Friend WithEvents lblLicenseNumber As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
     Friend WithEvents cmbNurseName As ComboBox
     Friend WithEvents rtbReason As RichTextBox
-    Friend WithEvents txtConfrimPassword As TextBox
     Friend WithEvents btndelete As Button
     Friend WithEvents Button2 As Button
 End Class
