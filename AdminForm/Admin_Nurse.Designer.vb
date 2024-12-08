@@ -41,6 +41,7 @@ Partial Class Admin_Nurse
         Me.Button12 = New System.Windows.Forms.Button()
         Me.btnload = New System.Windows.Forms.Button()
         Me.dataRecord = New System.Windows.Forms.DataGridView()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dataRecord, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,7 +52,7 @@ Partial Class Admin_Nurse
         Me.Panel2.BackColor = System.Drawing.Color.MidnightBlue
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(4, 4)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(214, 107)
         Me.Panel2.TabIndex = 1
@@ -64,7 +65,7 @@ Partial Class Admin_Nurse
         Me.Label1.Location = New System.Drawing.Point(29, 46)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(149, 28)
+        Me.Label1.Size = New System.Drawing.Size(188, 34)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Shift Sensei"
         '
@@ -160,7 +161,7 @@ Partial Class Admin_Nurse
         Me.Panel1.Controls.Add(Me.btnDashboard)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Location = New System.Drawing.Point(-4, -8)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(218, 1013)
         Me.Panel1.TabIndex = 0
@@ -196,7 +197,7 @@ Partial Class Admin_Nurse
         Me.TextBox1.Location = New System.Drawing.Point(258, 77)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(292, 26)
+        Me.TextBox1.Size = New System.Drawing.Size(292, 30)
         Me.TextBox1.TabIndex = 2
         '
         'Button9
@@ -256,16 +257,26 @@ Partial Class Admin_Nurse
         Me.dataRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dataRecord.Location = New System.Drawing.Point(258, 127)
         Me.dataRecord.Name = "dataRecord"
+        Me.dataRecord.RowHeadersWidth = 51
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dataRecord.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dataRecord.Size = New System.Drawing.Size(758, 501)
         Me.dataRecord.TabIndex = 8
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(773, 50)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 32)
+        Me.ComboBox1.TabIndex = 9
+        '
         'Admin_Nurse
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 680)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.dataRecord)
         Me.Controls.Add(Me.btnload)
         Me.Controls.Add(Me.Button12)
@@ -276,7 +287,7 @@ Partial Class Admin_Nurse
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Admin_Nurse"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Admin Nurse"
@@ -306,4 +317,5 @@ Partial Class Admin_Nurse
     Friend WithEvents Button12 As Button
     Friend WithEvents btnload As Button
     Friend WithEvents dataRecord As DataGridView
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
