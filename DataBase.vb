@@ -16,7 +16,6 @@ Module DataBase
                 dbase & ""
             Try
                 datacon.Open()
-                MsgBox("database connected!")
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try

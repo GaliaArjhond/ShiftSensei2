@@ -72,11 +72,13 @@ Public Class Admin_CreateShift
         endDate = dtpEndDate.Value
         startTime = dtpStartTime.Value
         endTime = dtpEndTime.Value
+        fairDistribution = ckbFair.Checked
 
-        If txtshiftName.Text = "" OrElse dtpStartDate.Value > dtpEndDate.Value Then
+        If String.IsNullOrEmpty(shiftName) OrElse startDate > endDate Then
             MessageBox.Show("Please ensure all fields are filled out correctly.")
             Return
         End If
+
 
         If cmbDepartment.SelectedValue IsNot Nothing Then
             departmentId = CType(cmbDepartment.SelectedValue, Integer)
@@ -87,35 +89,29 @@ Public Class Admin_CreateShift
 
         query = "INSERT INTO shifts (shiftName, startDate, endDate, startTime, endTime, departmentId, fairDistributionCheck) 
                  VALUES ('" & shiftName & "', '" & startDate & "','" & endDate & "','" & startTime & "','" & endTime & "','" & departmentId & "', '" & fairDistribution & "')"
+        Try
+            With cmd
+                .Connection = datacon
+                .CommandText = query
+                result = cmd.ExecuteNonQuery()
 
-
-        If txtshiftName.Text <> "" And dtpStartDate.Value <= dtpEndDate.Value Then
-            Try
-                With cmd
-                    .Connection = datacon
-                    .CommandText = query
-                    result = cmd.ExecuteNonQuery()
-
-                    If result > 0 Then
-                        MessageBox.Show("Shift created successfully.")
-                        ' Clear input fields
-                        txtshiftName.Clear()
-                        dtpStartDate.Value = DateTime.Now
-                        dtpEndDate.Value = DateTime.Now
-                        dtpStartTime.Value = DateTime.Now
-                        dtpEndTime.Value = DateTime.Now
-                        cmbDepartment.SelectedIndex = -1
-                        ckbFair.Checked = False
-                    Else
-                        MessageBox.Show("Failed to create shift.")
-                    End If
-                End With
-            Catch ex As Exception
-                MessageBox.Show("Error: " & ex.Message)
-            End Try
-        Else
-            MessageBox.Show("Please complete all fields.")
-        End If
+                If result > 0 Then
+                    MessageBox.Show("Shift created successfully.")
+                    ' Clear input fields
+                    txtshiftName.Clear()
+                    dtpStartDate.Value = DateTime.Now
+                    dtpEndDate.Value = DateTime.Now
+                    dtpStartTime.Value = DateTime.Now
+                    dtpEndTime.Value = DateTime.Now
+                    cmbDepartment.SelectedIndex = -1
+                    ckbFair.Checked = False
+                Else
+                    MessageBox.Show("Failed to create shift.")
+                End If
+            End With
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub btnAllocate_Click(sender As Object, e As EventArgs) Handles btnAllocate.Click

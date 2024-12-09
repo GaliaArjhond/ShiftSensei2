@@ -57,7 +57,6 @@ Public Class DeleteAccount
                             ' Successfully deleted
                             cmbNurseName.SelectedIndex = -1
                             rtbReason.Clear()
-                            txtConfrimPassword.Clear()
                             MessageBox.Show("Nurse account deleted successfully.")
                         Else
                             MsgBox("Failed to delete the nurse account.")
