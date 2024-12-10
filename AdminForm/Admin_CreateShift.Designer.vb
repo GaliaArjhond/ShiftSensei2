@@ -34,10 +34,13 @@ Partial Class Admin_CreateShift
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewShift = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cmbShiftType = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.btnCreateShift = New System.Windows.Forms.Button()
         Me.btnAllocate = New System.Windows.Forms.Button()
         Me.ckbFair = New System.Windows.Forms.CheckBox()
         Me.cmbDepartment = New System.Windows.Forms.ComboBox()
@@ -52,12 +55,10 @@ Partial Class Admin_CreateShift
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.cmbShiftType = New System.Windows.Forms.ComboBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewShift, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -200,14 +201,28 @@ Partial Class Admin_CreateShift
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.Label9)
-        Me.GroupBox2.Controls.Add(Me.DataGridView1)
+        Me.GroupBox2.Controls.Add(Me.DataGridViewShift)
         Me.GroupBox2.Location = New System.Drawing.Point(253, 364)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(945, 305)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Previously created shifts "
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.DarkGreen
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button2.Location = New System.Drawing.Point(678, 25)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(203, 40)
+        Me.Button2.TabIndex = 19
+        Me.Button2.Text = "Load Shift"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Label9
         '
@@ -217,20 +232,20 @@ Partial Class Admin_CreateShift
         Me.Label9.Size = New System.Drawing.Size(0, 19)
         Me.Label9.TabIndex = 24
         '
-        'DataGridView1
+        'DataGridViewShift
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(53, 45)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(828, 225)
-        Me.DataGridView1.TabIndex = 20
+        Me.DataGridViewShift.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewShift.Location = New System.Drawing.Point(53, 82)
+        Me.DataGridViewShift.Name = "DataGridViewShift"
+        Me.DataGridViewShift.Size = New System.Drawing.Size(828, 188)
+        Me.DataGridViewShift.TabIndex = 20
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Controls.Add(Me.cmbShiftType)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnCreateShift)
         Me.GroupBox1.Controls.Add(Me.btnAllocate)
         Me.GroupBox1.Controls.Add(Me.ckbFair)
         Me.GroupBox1.Controls.Add(Me.cmbDepartment)
@@ -252,18 +267,36 @@ Partial Class Admin_CreateShift
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Shift Details"
         '
-        'Button1
+        'cmbShiftType
         '
-        Me.Button1.BackColor = System.Drawing.Color.DarkGreen
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button1.Location = New System.Drawing.Point(695, 235)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(203, 40)
-        Me.Button1.TabIndex = 16
-        Me.Button1.Text = "Create Shift"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.cmbShiftType.FormattingEnabled = True
+        Me.cmbShiftType.Location = New System.Drawing.Point(163, 117)
+        Me.cmbShiftType.Name = "cmbShiftType"
+        Me.cmbShiftType.Size = New System.Drawing.Size(238, 27)
+        Me.cmbShiftType.TabIndex = 18
+        Me.cmbShiftType.UseWaitCursor = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(34, 125)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(91, 19)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Shift Type:"
+        '
+        'btnCreateShift
+        '
+        Me.btnCreateShift.BackColor = System.Drawing.Color.DarkGreen
+        Me.btnCreateShift.FlatAppearance.BorderSize = 0
+        Me.btnCreateShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCreateShift.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnCreateShift.Location = New System.Drawing.Point(695, 235)
+        Me.btnCreateShift.Name = "btnCreateShift"
+        Me.btnCreateShift.Size = New System.Drawing.Size(203, 40)
+        Me.btnCreateShift.TabIndex = 16
+        Me.btnCreateShift.Text = "Create Shift"
+        Me.btnCreateShift.UseVisualStyleBackColor = False
         '
         'btnAllocate
         '
@@ -392,24 +425,6 @@ Partial Class Admin_CreateShift
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Shift Name:"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(34, 125)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(91, 19)
-        Me.Label8.TabIndex = 17
-        Me.Label8.Text = "Shift Type:"
-        '
-        'cmbShiftType
-        '
-        Me.cmbShiftType.FormattingEnabled = True
-        Me.cmbShiftType.Location = New System.Drawing.Point(163, 117)
-        Me.cmbShiftType.Name = "cmbShiftType"
-        Me.cmbShiftType.Size = New System.Drawing.Size(238, 27)
-        Me.cmbShiftType.TabIndex = 18
-        Me.cmbShiftType.UseWaitCursor = True
-        '
         'Admin_CreateShift
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
@@ -429,7 +444,7 @@ Partial Class Admin_CreateShift
         Me.Panel1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewShift, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -448,7 +463,7 @@ Partial Class Admin_CreateShift
     Friend WithEvents btnCreate As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DataGridViewShift As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnAllocate As Button
     Friend WithEvents ckbFair As CheckBox
@@ -464,7 +479,8 @@ Partial Class Admin_CreateShift
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnCreateShift As Button
     Friend WithEvents cmbShiftType As ComboBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents Button2 As Button
 End Class
