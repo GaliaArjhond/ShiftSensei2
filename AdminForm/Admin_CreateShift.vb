@@ -85,20 +85,20 @@ Public Class Admin_CreateShift
             End If
 
             query = "SELECT 
-                        s.shiftId,
-                        s.shiftName,
-                        s.startDate,
-                        s.endDate,
-                        s.startTime,
-                        s.endTime,
-                        d.departmentName AS Department,
-                        st.shiftTypeName AS Shift_Type
-                    FROM 
-                        shiftsenseidb.shifts s
-                    JOIN 
-                        shiftsenseidb.department d ON s.departmentId = d.departmentId
-                    JOIN 
-                        shiftsenseidb.shifttype st ON s.shiftTypeId = st.shiftId;"
+                    s.shiftName,
+                    s.startDate,
+                    s.endDate,
+                    s.startTime,
+                    s.endTime,
+                    d.departmentName AS Department,
+                    st.shiftTypeName AS Shift_Type
+                FROM 
+                    shiftsenseidb.shifts s
+                JOIN 
+                    shiftsenseidb.department d ON s.departmentId = d.departmentId
+                JOIN 
+                    shiftsenseidb.shifttype st ON s.shiftTypeId = st.shiftId
+                ORDER BY s.createdAt DESC;"
 
             da = New MySqlDataAdapter(query, datacon)
             tableInfo = New DataTable
@@ -111,7 +111,6 @@ Public Class Admin_CreateShift
             DataGridViewShift.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
         Catch ex As Exception
-
             MsgBox("Error: " & ex.Message)
 
         Finally
@@ -120,6 +119,7 @@ Public Class Admin_CreateShift
                 datacon.Close()
             End If
         End Try
+
     End Sub
 
     Private Sub Admin_CreateShift_Load(sender As Object, e As EventArgs) Handles Me.Load
