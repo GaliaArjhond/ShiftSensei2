@@ -6,6 +6,12 @@ Public Class Admin_Nurse
 
     Private Sub Admin_Nurse_Load(sender As Object, e As EventArgs) Handles Me.Load
         databaseConnect()
+        Dim font As New Font("Arial Bold", 8)
+        dataRecord.DefaultCellStyle.Font = font
+        dataRecord.ColumnHeadersDefaultCellStyle.Font = font
+
+        dataRecord.DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        dataRecord.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
     End Sub
 
     Private Sub btnload_Click(sender As Object, e As EventArgs) Handles btnload.Click
