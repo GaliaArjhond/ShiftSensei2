@@ -12,8 +12,9 @@ Public Class Admin_CreateShift
     Dim shiftName As String
     Dim fairDistribution As Boolean
     Dim availableNurses As New List(Of Integer)
-    Dim departmentId, totalAvailableHours, totalShiftDuration, idealShifts, assignedShifts, shiftTypeId As Integer
+    Dim departmentId, totalAvailableHours, totalShiftDuration, idealShifts, assignedShifts, shiftTimeId, shiftId As Integer
     Dim startDate, endDate, startTime, endTime As DateTime
+
 
     Private Sub btnCreateShift_Click(sender As Object, e As EventArgs) Handles btnCreateShift.Click
         shiftName = txtshiftName.Text
@@ -32,7 +33,7 @@ Public Class Admin_CreateShift
 
         ' Check if a shift type has been selected
         If cmbShiftType.SelectedValue IsNot Nothing Then
-            shiftTypeId = CType(cmbShiftType.SelectedValue, Integer)
+            shiftTimeId = CType(cmbShiftType.SelectedValue, Integer)
         Else
             MessageBox.Show("Please select a shift type.")
             Return
@@ -45,8 +46,8 @@ Public Class Admin_CreateShift
         End If
 
         ' Insert query for creating a shift
-        query = "INSERT INTO shifts (shiftName, startDate, endDate, startTime, endTime, departmentId, shiftTypeId) VALUES 
-            ('" & shiftName & "','" & startDate.ToString("yyyy-MM-dd") & "','" & endDate.ToString("yyyy-MM-dd") & "','" & startTime.ToString("HH:mm:ss") & "','" & endTime.ToString("HH:mm:ss") & "','" & departmentId & "','" & shiftTypeId & "')"
+        query = "INSERT INTO shifts (shiftName, startDate, endDate, startTime, endTime, departmentId, shiftTimeId) VALUES 
+            ('" & shiftName & "','" & startDate.ToString("yyyy-MM-dd") & "','" & endDate.ToString("yyyy-MM-dd") & "','" & startTime.ToString("HH:mm:ss") & "','" & endTime.ToString("HH:mm:ss") & "','" & departmentId & "','" & shiftTimeId & "')"
 
         Try
             If shiftName <> "" Then
@@ -91,14 +92,16 @@ Public Class Admin_CreateShift
                     s.startTime,
                     s.endTime,
                     d.departmentName AS Department,
-                    st.shiftTypeName AS Shift_Type
+                    t.shiftTimeName AS Shift_Time
                 FROM 
                     shiftsenseidb.shifts s
                 JOIN 
                     shiftsenseidb.department d ON s.departmentId = d.departmentId
-                JOIN 
-                    shiftsenseidb.shifttype st ON s.shiftTypeId = st.shiftId
-                ORDER BY s.createdAt DESC;"
+                JOIN
+                    shiftsenseidb.shifttime t ON s.shiftTimeId = t.shiftTimeId
+                ORDER BY 
+                    s.createdAt DESC;
+"
 
             da = New MySqlDataAdapter(query, datacon)
             tableInfo = New DataTable
@@ -125,7 +128,29 @@ Public Class Admin_CreateShift
     Private Sub Admin_CreateShift_Load(sender As Object, e As EventArgs) Handles Me.Load
         databaseConnect()
         LoadDepartments()
-        LoadShiftType()
+        LoadShiftTime()
+
+        Dim font As New Font("Arial Bold", 8)
+        DataGridViewShift.DefaultCellStyle.Font = font
+        DataGridViewShift.ColumnHeadersDefaultCellStyle.Font = font
+        DataGridViewShift.DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        DataGridViewShift.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+
+        Dim editButton As New DataGridViewButtonColumn()
+        Dim deleteButton As New DataGridViewButtonColumn()
+
+        deleteButton.HeaderText = "Delete"
+        deleteButton.Text = "Delete"
+        deleteButton.Name = "deleteButton"
+        deleteButton.UseColumnTextForButtonValue = True
+
+        editButton.HeaderText = "Edit"
+        editButton.Text = "Edit"
+        editButton.Name = "editButton" ' Set the Name property
+        editButton.UseColumnTextForButtonValue = True
+
+        DataGridViewShift.Columns.Add(deleteButton)
+        DataGridViewShift.Columns.Add(editButton)
     End Sub
 
     Private Sub LoadDepartments()
@@ -145,9 +170,9 @@ Public Class Admin_CreateShift
             MessageBox.Show(ex.Message)
         End Try
     End Sub
-    Private Sub LoadShiftType()
+    Private Sub LoadShiftTime()
         Try
-            query = "SELECT * FROM shiftsenseidb.shifttype"
+            query = "SELECT * FROM shiftsenseidb.shiftTime"
             cmd = New MySqlCommand(query, datacon)
             adp = New MySqlDataAdapter(cmd)
             ds = New DataSet()
@@ -155,8 +180,8 @@ Public Class Admin_CreateShift
             dtable = ds.Tables(0)
 
             cmbShiftType.DataSource = dtable
-            cmbShiftType.ValueMember = "shiftId"
-            cmbShiftType.DisplayMember = "shiftTypeName"
+            cmbShiftType.ValueMember = "shiftTimeId"
+            cmbShiftType.DisplayMember = "shiftTimeName"
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -164,65 +189,31 @@ Public Class Admin_CreateShift
     End Sub
 
 
-
     Private Sub btnAllocate_Click(sender As Object, e As EventArgs) Handles btnAllocate.Click
         assignForm.Show()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
-        shiftName = txtshiftName.Text
-        startDate = dtpStartDate.Value
-        endDate = dtpEndDate.Value
-        startTime = dtpStartTime.Value
-        endTime = dtpEndTime.Value
+    Private Sub DataGridViewShift_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewShift.CellContentClick
+        If e.ColumnIndex >= 0 Then
+            ' Check if the clicked column is the "editButton"
+            If DataGridViewShift.Columns(e.ColumnIndex).Name = "editButton" Then
+                Admin_EditShift.Show()
+                ' Check if the clicked column is the "deleteButton"
+            ElseIf DataGridViewShift.Columns(e.ColumnIndex).Name = "deleteButton" Then
+                ' Show confirmation message box
+                Dim result As DialogResult = MessageBox.Show($"Are you sure you want to delete the this shift?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
-        ' Check if a department has been selected
-        If cmbDepartment.SelectedValue IsNot Nothing Then
-            departmentId = CType(cmbDepartment.SelectedValue, Integer)
-        Else
-            MessageBox.Show("Please select a department.")
-            Return
-        End If
-
-        ' Check if a shift type has been selected
-        If cmbShiftType.SelectedValue IsNot Nothing Then
-            shiftTypeId = CType(cmbShiftType.SelectedValue, Integer)
-        Else
-            MessageBox.Show("Please select a shift type.")
-            Return
-        End If
-
-        ' Insert query for creating a shift
-        query = "INSERT INTO shifts (shiftName, startDate, endDate, startTime, endTime, departmentId, shiftTypeId) VALUES 
-            ('" & shiftName & "','" & startDate.ToString("yyyy-MM-dd") & "','" & endDate.ToString("yyyy-MM-dd") & "','" & startTime.ToString("HH:mm:ss") & "','" & endTime.ToString("HH:mm:ss") & "','" & departmentId & "','" & shiftTypeId & "')"
-
-        Try
-            If shiftName <> "" Then
-                With cmd
-                    .Connection = datacon
-                    .CommandText = query
-                    result = cmd.ExecuteNonQuery()
-
+                If result = DialogResult.Yes Then
+                    query = "DELETE FROM shiftsenseidb.shifts WHERE shiftId =  '" & shiftId & "'"
                     If result > 0 Then
-                        MsgBox("Shift created successfully.")
-                        ' Clear form fields after successful insertion
-                        txtshiftName.Clear()
-                        dtpStartDate.Value = DateTime.Now
-                        dtpEndDate.Value = DateTime.Now
-                        dtpStartTime.Value = DateTime.Now
-                        dtpEndTime.Value = DateTime.Now
-                        cmbDepartment.SelectedIndex = -1
-                        cmbShiftType.SelectedIndex = -1
-                        ckbFair.Checked = False
+
+                        MessageBox.Show("Shift deleted successfully.")
                     Else
-                        MsgBox("Failed to create shift.")
+                        MsgBox("Failed to delete the nurse account.")
                     End If
-                End With
-            Else
-                MsgBox("Please fill out all fields.")
+                End If
             End If
-        Catch ex As Exception
-            MsgBox("Error: " & ex.ToString())
-        End Try
+        End If
     End Sub
+
 End Class

@@ -51,7 +51,6 @@ Public Class DeleteAccount
                     Using cmd As New MySqlCommand(query, datacon)
                         cmd.Parameters.AddWithValue("@nurseId", cmbNurseName.SelectedValue)
 
-                        ' Execute the delete command
                         Dim result As Integer = cmd.ExecuteNonQuery()
                         If result > 0 Then
                             ' Successfully deleted

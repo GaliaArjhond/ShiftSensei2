@@ -235,7 +235,7 @@ Partial Class Admin_CreateShift
         'DataGridViewShift
         '
         Me.DataGridViewShift.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewShift.Location = New System.Drawing.Point(53, 82)
+        Me.DataGridViewShift.Location = New System.Drawing.Point(53, 80)
         Me.DataGridViewShift.Name = "DataGridViewShift"
         Me.DataGridViewShift.Size = New System.Drawing.Size(828, 188)
         Me.DataGridViewShift.TabIndex = 20
