@@ -25,6 +25,10 @@ Partial Class CreateAccount
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.txtaddress = New System.Windows.Forms.TextBox()
         Me.txtphone = New System.Windows.Forms.TextBox()
         Me.txtemail = New System.Windows.Forms.TextBox()
@@ -66,10 +70,6 @@ Partial Class CreateAccount
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btncreate = New System.Windows.Forms.Button()
         Me.btnback = New System.Windows.Forms.Button()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -125,6 +125,48 @@ Partial Class CreateAccount
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Personal Info"
         '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(246, 231)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(61, 20)
+        Me.RadioButton3.TabIndex = 23
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "Other"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(157, 231)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(74, 20)
+        Me.RadioButton2.TabIndex = 22
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Female"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(94, 231)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(57, 20)
+        Me.RadioButton1.TabIndex = 21
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Male"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(29, 231)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(59, 16)
+        Me.Label19.TabIndex = 20
+        Me.Label19.Text = "Gender:"
+        '
         'txtaddress
         '
         Me.txtaddress.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -153,6 +195,7 @@ Partial Class CreateAccount
         '
         Me.dtpDateOfBIrth.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDateOfBIrth.Location = New System.Drawing.Point(32, 295)
+        Me.dtpDateOfBIrth.MaxDate = New Date(9000, 12, 31, 0, 0, 0, 0)
         Me.dtpDateOfBIrth.Name = "dtpDateOfBIrth"
         Me.dtpDateOfBIrth.Size = New System.Drawing.Size(268, 22)
         Me.dtpDateOfBIrth.TabIndex = 16
@@ -511,48 +554,6 @@ Partial Class CreateAccount
         Me.btnback.TabIndex = 34
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = True
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(29, 231)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(59, 16)
-        Me.Label19.TabIndex = 20
-        Me.Label19.Text = "Gender:"
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(94, 231)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(57, 20)
-        Me.RadioButton1.TabIndex = 21
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Male"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(157, 231)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(74, 20)
-        Me.RadioButton2.TabIndex = 22
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Female"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(246, 231)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(61, 20)
-        Me.RadioButton3.TabIndex = 23
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Other"
-        Me.RadioButton3.UseVisualStyleBackColor = True
         '
         'CreateAccount
         '

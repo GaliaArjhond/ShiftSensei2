@@ -35,6 +35,7 @@ Partial Class Admin_CreateShift
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnload = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.DataGridViewShift = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -57,7 +58,6 @@ Partial Class Admin_CreateShift
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DeleteRowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpDateRowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnload = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -215,6 +215,19 @@ Partial Class Admin_CreateShift
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Previously created shifts "
         '
+        'btnload
+        '
+        Me.btnload.BackColor = System.Drawing.Color.DarkGreen
+        Me.btnload.FlatAppearance.BorderSize = 0
+        Me.btnload.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnload.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnload.Location = New System.Drawing.Point(696, 35)
+        Me.btnload.Name = "btnload"
+        Me.btnload.Size = New System.Drawing.Size(203, 30)
+        Me.btnload.TabIndex = 19
+        Me.btnload.Text = "Load Shift"
+        Me.btnload.UseVisualStyleBackColor = False
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -339,6 +352,7 @@ Partial Class Admin_CreateShift
         'dtpStartDate
         '
         Me.dtpStartDate.Location = New System.Drawing.Point(165, 175)
+        Me.dtpStartDate.MaxDate = New Date(9000, 12, 31, 0, 0, 0, 0)
         Me.dtpStartDate.Name = "dtpStartDate"
         Me.dtpStartDate.Size = New System.Drawing.Size(238, 26)
         Me.dtpStartDate.TabIndex = 8
@@ -421,19 +435,6 @@ Partial Class Admin_CreateShift
         Me.UpDateRowToolStripMenuItem.Name = "UpDateRowToolStripMenuItem"
         Me.UpDateRowToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.UpDateRowToolStripMenuItem.Text = "UpDate Row"
-        '
-        'btnload
-        '
-        Me.btnload.BackColor = System.Drawing.Color.DarkGreen
-        Me.btnload.FlatAppearance.BorderSize = 0
-        Me.btnload.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnload.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnload.Location = New System.Drawing.Point(696, 35)
-        Me.btnload.Name = "btnload"
-        Me.btnload.Size = New System.Drawing.Size(203, 30)
-        Me.btnload.TabIndex = 19
-        Me.btnload.Text = "Load Shift"
-        Me.btnload.UseVisualStyleBackColor = False
         '
         'Admin_CreateShift
         '

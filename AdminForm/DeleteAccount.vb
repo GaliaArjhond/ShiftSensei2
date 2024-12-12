@@ -10,6 +10,12 @@ Public Class DeleteAccount
     Dim nurseId, passwordMatch As Integer
     Dim confirmPassword, reason, password As String
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Admin_Account1.Show()
+        Me.Hide()
+
+    End Sub
+
     Private Sub DeleteAccount_Load(sender As Object, e As EventArgs) Handles Me.Load
         databaseConnect()
         LoadNurses()
@@ -44,8 +50,7 @@ Public Class DeleteAccount
             End If
 
             ' Confirm deletion
-            If MessageBox.Show($"Are you sure you want to delete the account for nurse ID {nurseId}?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
-                ' Prepare the delete query
+            If MessageBox.Show("Are you sure you want to delete the account for this Nurse?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
                 query = "DELETE FROM nurse WHERE nurseId = @nurseId"
                 Try
                     Using cmd As New MySqlCommand(query, datacon)
