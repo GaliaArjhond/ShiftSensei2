@@ -84,7 +84,6 @@ Public Class Admin_CreateShift
                         dtpEndDate.Value = DateTime.Now
                         dtpStartTime.Value = DateTime.Now
                         dtpEndTime.Value = DateTime.Now
-                        ckbFair.Checked = False
                     Else
                         MsgBox("Failed to create shift.")
                     End If
@@ -128,6 +127,42 @@ Public Class Admin_CreateShift
 
     Private Sub btnload_Click(sender As Object, e As EventArgs) Handles btnload.Click
         LoadRecord()
+    End Sub
+
+    Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
+        Admin_Dashboard.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub btnSchedule_Click(sender As Object, e As EventArgs) Handles btnSchedule.Click
+        Admin_Schedule.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub btnNurse_Click(sender As Object, e As EventArgs) Handles btnNurse.Click
+        Admin_Nurse.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
+        Admin_Report.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
+        Admin_Profile.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub btnAccount_Click(sender As Object, e As EventArgs) Handles btnAccount.Click
+        Admin_Account1.Show()
+        Me.Hide()
+
     End Sub
 
     Private Sub LoadRecord()

@@ -22,7 +22,7 @@ Partial Class Admin_Nurse
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnDashboard = New System.Windows.Forms.Button()
@@ -65,7 +65,7 @@ Partial Class Admin_Nurse
         Me.Label1.Location = New System.Drawing.Point(29, 46)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(188, 34)
+        Me.Label1.Size = New System.Drawing.Size(149, 28)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Shift Sensei"
         '
@@ -197,7 +197,7 @@ Partial Class Admin_Nurse
         Me.TextBox1.Location = New System.Drawing.Point(258, 77)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(292, 30)
+        Me.TextBox1.Size = New System.Drawing.Size(292, 26)
         Me.TextBox1.TabIndex = 2
         '
         'Button9
@@ -258,8 +258,8 @@ Partial Class Admin_Nurse
         Me.dataRecord.Location = New System.Drawing.Point(258, 127)
         Me.dataRecord.Name = "dataRecord"
         Me.dataRecord.RowHeadersWidth = 51
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dataRecord.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dataRecord.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dataRecord.Size = New System.Drawing.Size(758, 501)
         Me.dataRecord.TabIndex = 8
         '
@@ -268,12 +268,12 @@ Partial Class Admin_Nurse
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(773, 50)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 32)
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 27)
         Me.ComboBox1.TabIndex = 9
         '
         'Admin_Nurse
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 680)
         Me.Controls.Add(Me.ComboBox1)

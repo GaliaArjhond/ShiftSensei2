@@ -160,6 +160,11 @@ Public Class assignForm
         End If
     End Sub
 
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Admin_CreateShift.Show()
+        Me.Hide()
+
+    End Sub
 
     Private Sub dataAssigned_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataAssigned.CellContentClick
         ' Ensure that the clicked column is the Deallocate button column
