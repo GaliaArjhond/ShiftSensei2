@@ -22,6 +22,7 @@ Partial Class Admin_CreateShift
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnDashboard = New System.Windows.Forms.Button()
@@ -34,7 +35,6 @@ Partial Class Admin_CreateShift
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.DataGridViewShift = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -42,7 +42,6 @@ Partial Class Admin_CreateShift
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btnCreateShift = New System.Windows.Forms.Button()
         Me.btnAllocate = New System.Windows.Forms.Button()
-        Me.ckbFair = New System.Windows.Forms.CheckBox()
         Me.cmbDepartment = New System.Windows.Forms.ComboBox()
         Me.dtpEndTime = New System.Windows.Forms.DateTimePicker()
         Me.dtpStartTime = New System.Windows.Forms.DateTimePicker()
@@ -55,11 +54,16 @@ Partial Class Admin_CreateShift
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.DeleteRowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpDateRowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnload = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridViewShift, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel2
@@ -201,7 +205,7 @@ Partial Class Admin_CreateShift
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox2.Controls.Add(Me.Button2)
+        Me.GroupBox2.Controls.Add(Me.btnload)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.DataGridViewShift)
         Me.GroupBox2.Location = New System.Drawing.Point(253, 364)
@@ -210,19 +214,6 @@ Partial Class Admin_CreateShift
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Previously created shifts "
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.DarkGreen
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button2.Location = New System.Drawing.Point(678, 25)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(203, 40)
-        Me.Button2.TabIndex = 19
-        Me.Button2.Text = "Load Shift"
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'Label9
         '
@@ -235,9 +226,9 @@ Partial Class Admin_CreateShift
         'DataGridViewShift
         '
         Me.DataGridViewShift.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewShift.Location = New System.Drawing.Point(53, 80)
+        Me.DataGridViewShift.Location = New System.Drawing.Point(38, 75)
         Me.DataGridViewShift.Name = "DataGridViewShift"
-        Me.DataGridViewShift.Size = New System.Drawing.Size(828, 188)
+        Me.DataGridViewShift.Size = New System.Drawing.Size(860, 199)
         Me.DataGridViewShift.TabIndex = 20
         '
         'GroupBox1
@@ -247,7 +238,6 @@ Partial Class Admin_CreateShift
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.btnCreateShift)
         Me.GroupBox1.Controls.Add(Me.btnAllocate)
-        Me.GroupBox1.Controls.Add(Me.ckbFair)
         Me.GroupBox1.Controls.Add(Me.cmbDepartment)
         Me.GroupBox1.Controls.Add(Me.dtpEndTime)
         Me.GroupBox1.Controls.Add(Me.dtpStartTime)
@@ -310,17 +300,6 @@ Partial Class Admin_CreateShift
         Me.btnAllocate.TabIndex = 15
         Me.btnAllocate.Text = "Allocate Nurse"
         Me.btnAllocate.UseVisualStyleBackColor = False
-        '
-        'ckbFair
-        '
-        Me.ckbFair.AutoSize = True
-        Me.ckbFair.Location = New System.Drawing.Point(461, 177)
-        Me.ckbFair.Name = "ckbFair"
-        Me.ckbFair.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.ckbFair.Size = New System.Drawing.Size(203, 23)
-        Me.ckbFair.TabIndex = 14
-        Me.ckbFair.Text = "Fair Distribution Check"
-        Me.ckbFair.UseVisualStyleBackColor = True
         '
         'cmbDepartment
         '
@@ -425,11 +404,43 @@ Partial Class Admin_CreateShift
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Shift Name:"
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteRowToolStripMenuItem, Me.UpDateRowToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(140, 48)
+        '
+        'DeleteRowToolStripMenuItem
+        '
+        Me.DeleteRowToolStripMenuItem.Name = "DeleteRowToolStripMenuItem"
+        Me.DeleteRowToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.DeleteRowToolStripMenuItem.Text = "Delete Row"
+        '
+        'UpDateRowToolStripMenuItem
+        '
+        Me.UpDateRowToolStripMenuItem.Name = "UpDateRowToolStripMenuItem"
+        Me.UpDateRowToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.UpDateRowToolStripMenuItem.Text = "UpDate Row"
+        '
+        'btnload
+        '
+        Me.btnload.BackColor = System.Drawing.Color.DarkGreen
+        Me.btnload.FlatAppearance.BorderSize = 0
+        Me.btnload.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnload.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnload.Location = New System.Drawing.Point(696, 35)
+        Me.btnload.Name = "btnload"
+        Me.btnload.Size = New System.Drawing.Size(203, 30)
+        Me.btnload.TabIndex = 19
+        Me.btnload.Text = "Load Shift"
+        Me.btnload.UseVisualStyleBackColor = False
+        '
         'Admin_CreateShift
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 681)
+        Me.ContextMenuStrip = Me.ContextMenuStrip1
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel1)
@@ -447,6 +458,7 @@ Partial Class Admin_CreateShift
         CType(Me.DataGridViewShift, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -466,7 +478,6 @@ Partial Class Admin_CreateShift
     Friend WithEvents DataGridViewShift As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnAllocate As Button
-    Friend WithEvents ckbFair As CheckBox
     Friend WithEvents cmbDepartment As ComboBox
     Friend WithEvents dtpEndTime As DateTimePicker
     Friend WithEvents dtpStartTime As DateTimePicker
@@ -482,5 +493,8 @@ Partial Class Admin_CreateShift
     Friend WithEvents btnCreateShift As Button
     Friend WithEvents cmbShiftType As ComboBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents Button2 As Button
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents DeleteRowToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UpDateRowToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnload As Button
 End Class

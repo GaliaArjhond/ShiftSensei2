@@ -51,17 +51,15 @@ Public Class assignForm
             Dim available As String = "SELECT CONCAT(n.fname, ' ', n.mname, ' ', n.Lname) AS Nurse_Name,
                                         n.nurseLicense, 
                                         d.departmentName, 
-                                        p.positionName, 
-                                        e.levelName,
-                                        s.shiftTypeName
+                                        s.shiftTypeName, 
+                                        startDate,
+                                        endDate,
+                                        startTime,
+                                        endTime
                                      FROM 
                                         nurse n 
                                      JOIN 
                                         department d ON n.departmentId = d.departmentId 
-                                     JOIN
-                                        position p ON n.positionId = p.positionId
-                                     JOIN
-                                        explvls e ON n.expLvlsId = e.expLvlsId
                                      JOIN
                                         shiftType s ON n.shiftTypeId = s.shiftTypeId
                                      WHERE
@@ -69,23 +67,21 @@ Public Class assignForm
 
             ' Query for unassigned nurses
             Dim assigned As String = "SELECT CONCAT(n.fname, ' ', n.mname, ' ', n.Lname) AS Nurse_Name,
-                                          n.nurseLicense, 
-                                          d.departmentName, 
-                                          p.positionName, 
-                                          e.levelName,
-                                          s.shiftTypeName
-                                       FROM 
-                                          nurse n 
-                                       JOIN 
-                                          department d ON n.departmentId = d.departmentId 
-                                       JOIN
-                                          position p ON n.positionId = p.positionId
-                                       JOIN
-                                          explvls e ON n.expLvlsId = e.expLvlsId
-                                       JOIN
-                                          shiftType s ON n.shiftTypeId = s.shiftTypeId
-                                       WHERE
-                                          n.shiftTypeId = 1" ' Filter for assigned nurses
+                                        n.nurseLicense, 
+                                        d.departmentName, 
+                                        s.shiftTypeName, 
+                                        startDate,
+                                        endDate,
+                                        startTime,
+                                        endTime
+                                     FROM 
+                                        nurse n 
+                                     JOIN 
+                                        department d ON n.departmentId = d.departmentId 
+                                     JOIN
+                                        shiftType s ON n.shiftTypeId = s.shiftTypeId
+                                     WHERE
+                                        n.shiftTypeId =  1" ' Filter for assigned nurses
 
             da = New MySqlDataAdapter(available, datacon)
             tableInfo = New DataTable

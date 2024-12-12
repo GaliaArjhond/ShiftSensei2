@@ -10,10 +10,30 @@ Public Class Admin_CreateShift
     Dim adp As MySqlDataAdapter
     Dim dtable As DataTable
     Dim shiftName As String
+    Dim dgresult As New DialogResult
     Dim fairDistribution As Boolean
     Dim availableNurses As New List(Of Integer)
-    Dim departmentId, totalAvailableHours, totalShiftDuration, idealShifts, assignedShifts, shiftTimeId, shiftId As Integer
+    Dim departmentId, totalAvailableHours, totalShiftDuration, idealShifts, assignedShifts, shiftTimeId, shiftId, index As Integer
     Dim startDate, endDate, startTime, endTime As DateTime
+
+    Private rowIndex As Integer = -1
+    Private bindingSource1 As New BindingSource()
+    Private dataAdapter As New MySqlDataAdapter()
+
+    Private Sub GetData(ByVal selectCommand As String)
+        Try
+            dataAdapter = New MySqlDataAdapter(selectCommand, datacon)
+            Dim commandBuilder As New MySqlCommandBuilder(dataAdapter)
+            Dim table As New DataTable()
+            dataAdapter.Fill(table)
+
+            bindingSource1.DataSource = table
+            DataGridViewShift.DataSource = bindingSource1
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        End Try
+    End Sub
 
 
     Private Sub btnCreateShift_Click(sender As Object, e As EventArgs) Handles btnCreateShift.Click
@@ -64,8 +84,6 @@ Public Class Admin_CreateShift
                         dtpEndDate.Value = DateTime.Now
                         dtpStartTime.Value = DateTime.Now
                         dtpEndTime.Value = DateTime.Now
-                        cmbDepartment.SelectedIndex = -1
-                        cmbShiftType.SelectedIndex = -1
                         ckbFair.Checked = False
                     Else
                         MsgBox("Failed to create shift.")
@@ -79,56 +97,79 @@ Public Class Admin_CreateShift
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+    Public Sub DeleteRecord()
+        Dim cmd As New MySqlCommand
+        Dim result As Integer
+        Dim dgresult As New DialogResult
+
         Try
-            If datacon.State = ConnectionState.Closed Then
-                datacon.Open()
+            dgresult = MessageBox.Show("Do you really want to delete the record?", "Please select an action", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If dgresult = DialogResult.Yes Then
+                With cmd
+                    datacon.Open()
+                    .Connection = datacon
+                    .CommandText = "DELETE FROM shifts WHERE shiftId = " & Val(DataGridViewShift.CurrentRow.Cells(10).Value)
+                    result = .ExecuteNonQuery()
+                    If result > 0 Then
+                        MsgBox("Deletion successful!")
+                        LoadRecord() ' Refresh the DataGridView
+                    Else
+                        MsgBox("Deletion not successful!")
+                    End If
+                End With
             End If
-
-            query = "SELECT 
-                    s.shiftName,
-                    s.startDate,
-                    s.endDate,
-                    s.startTime,
-                    s.endTime,
-                    d.departmentName AS Department,
-                    t.shiftTimeName AS Shift_Time
-                FROM 
-                    shiftsenseidb.shifts s
-                JOIN 
-                    shiftsenseidb.department d ON s.departmentId = d.departmentId
-                JOIN
-                    shiftsenseidb.shifttime t ON s.shiftTimeId = t.shiftTimeId
-                ORDER BY 
-                    s.createdAt DESC;
-"
-
-            da = New MySqlDataAdapter(query, datacon)
-            tableInfo = New DataTable
-            da.Fill(tableInfo)
-
-            DataGridViewShift.DataSource = tableInfo
-
-            DataGridViewShift.ScrollBars = ScrollBars.Both
-            DataGridViewShift.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
-            DataGridViewShift.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-
         Catch ex As Exception
             MsgBox("Error: " & ex.Message)
-
         Finally
-            ' Ensure the connection is closed
-            If datacon.State = ConnectionState.Open Then
-                datacon.Close()
-            End If
+            datacon.Close()
         End Try
-
     End Sub
+
+    Private Sub btnload_Click(sender As Object, e As EventArgs) Handles btnload.Click
+        LoadRecord()
+    End Sub
+
+    Private Sub LoadRecord()
+        Try
+            Dim query As String =
+                    "SELECT 
+                s.shiftName,
+                s.startDate,
+                s.endDate,
+                s.startTime,
+                s.endTime,
+                d.departmentName AS Department,
+                t.shiftTimeName AS Shift_Time,
+                s.shiftId
+            FROM 
+                shiftsenseidb.shifts s
+            JOIN 
+                shiftsenseidb.department d ON s.departmentId = d.departmentId
+            JOIN
+                shiftsenseidb.shifttime t ON s.shiftTimeId = t.shiftTimeId
+            ORDER BY 
+                s.createdAt DESC"
+            Dim adapter As New MySqlDataAdapter(query, datacon)
+            Dim table As New DataTable()
+            adapter.Fill(table)
+            DataGridViewShift.DataSource = table
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message)
+        End Try
+    End Sub
+
 
     Private Sub Admin_CreateShift_Load(sender As Object, e As EventArgs) Handles Me.Load
         databaseConnect()
         LoadDepartments()
         LoadShiftTime()
+
+        Dim shiftIdColumn As New DataGridViewTextBoxColumn()
+        shiftIdColumn.Name = "shiftId"
+        shiftIdColumn.HeaderText = "Shift ID"
+        DataGridViewShift.Columns.Add(shiftIdColumn)
+        DataGridViewShift.Columns("shiftId").Visible = False
 
         Dim font As New Font("Arial Bold", 8)
         DataGridViewShift.DefaultCellStyle.Font = font
@@ -136,21 +177,50 @@ Public Class Admin_CreateShift
         DataGridViewShift.DefaultCellStyle.WrapMode = DataGridViewTriState.True
         DataGridViewShift.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
-        Dim editButton As New DataGridViewButtonColumn()
-        Dim deleteButton As New DataGridViewButtonColumn()
+        Dim buttonDelete As DataGridViewButtonColumn
+        Dim buttonEdit As DataGridViewButtonColumn
 
-        deleteButton.HeaderText = "Delete"
-        deleteButton.Text = "Delete"
-        deleteButton.Name = "deleteButton"
-        deleteButton.UseColumnTextForButtonValue = True
+        buttonDelete = New DataGridViewButtonColumn()
+        buttonDelete.HeaderText = "Delete Rows"
+        buttonDelete.Name = "remove"
+        buttonDelete.Text = "Remove"
+        buttonDelete.UseColumnTextForButtonValue = True
+        buttonDelete.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        buttonDelete.FlatStyle = FlatStyle.Standard
+        buttonDelete.CellTemplate.Style.BackColor = Color.Beige
 
-        editButton.HeaderText = "Edit"
-        editButton.Text = "Edit"
-        editButton.Name = "editButton" ' Set the Name property
-        editButton.UseColumnTextForButtonValue = True
+        buttonEdit = New DataGridViewButtonColumn()
+        buttonEdit.HeaderText = "Update Rows"
+        buttonEdit.Name = "update"
+        buttonEdit.Text = "Update"
+        buttonEdit.UseColumnTextForButtonValue = True
+        buttonEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        buttonEdit.FlatStyle = FlatStyle.Standard
+        buttonEdit.CellTemplate.Style.BackColor = Color.Beige
 
-        DataGridViewShift.Columns.Add(deleteButton)
-        DataGridViewShift.Columns.Add(editButton)
+        DataGridViewShift.Columns.Add(buttonDelete)
+        DataGridViewShift.Columns.Add(buttonEdit)
+
+        Me.DataGridViewShift.DefaultCellStyle.BackColor = Color.AliceBlue
+
+        Me.DataGridViewShift.DataSource = Me.bindingSource1
+        GetData("SELECT 
+                s.shiftName,
+                s.startDate,
+                s.endDate,
+                s.startTime,
+                s.endTime,
+                d.departmentName AS Department,
+                t.shiftTimeName AS Shift_Time,
+                s.shiftId
+            FROM 
+                shiftsenseidb.shifts s
+            JOIN 
+                shiftsenseidb.department d ON s.departmentId = d.departmentId
+            JOIN
+                shiftsenseidb.shifttime t ON s.shiftTimeId = t.shiftTimeId
+            ORDER BY 
+                s.createdAt DESC")
     End Sub
 
     Private Sub LoadDepartments()
@@ -194,26 +264,37 @@ Public Class Admin_CreateShift
     End Sub
 
     Private Sub DataGridViewShift_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewShift.CellContentClick
-        If e.ColumnIndex >= 0 Then
-            ' Check if the clicked column is the "editButton"
-            If DataGridViewShift.Columns(e.ColumnIndex).Name = "editButton" Then
-                Admin_EditShift.Show()
-                ' Check if the clicked column is the "deleteButton"
-            ElseIf DataGridViewShift.Columns(e.ColumnIndex).Name = "deleteButton" Then
-                ' Show confirmation message box
-                Dim result As DialogResult = MessageBox.Show($"Are you sure you want to delete the this shift?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        If e.ColumnIndex = DataGridViewShift.Columns("remove").Index Then
+            DeleteRecord()
+        ElseIf e.ColumnIndex = DataGridViewShift.Columns("update").Index Then
+            UpdateRecord()
+        End If
 
-                If result = DialogResult.Yes Then
-                    query = "DELETE FROM shiftsenseidb.shifts WHERE shiftId =  '" & shiftId & "'"
-                    If result > 0 Then
+    End Sub
 
-                        MessageBox.Show("Shift deleted successfully.")
-                    Else
-                        MsgBox("Failed to delete the nurse account.")
-                    End If
-                End If
+
+    Private Sub DeleteRowToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteRowToolStripMenuItem.Click
+        DeleteRecord()
+    End Sub
+
+    Private Sub UpDateRowToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles UpDateRowToolStripMenuItem.Click
+        UpdateRecord()
+    End Sub
+
+    Private Sub DataGridView1_CellMouseUp(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles DataGridViewShift.CellMouseUp
+        If e.Button = MouseButtons.Right Then
+            If e.RowIndex >= 0 Then
+                Me.DataGridViewShift.Rows(e.RowIndex).Selected = True
+                Me.DataGridViewShift.CurrentCell = Me.DataGridViewShift.Rows(e.RowIndex).Cells(1) ' Focus on a specific cell
+                Me.ContextMenuStrip1.Show(Me.DataGridViewShift, e.Location)
+                ContextMenuStrip1.Show(Cursor.Position)
             End If
         End If
+    End Sub
+
+    Public Sub UpdateRecord()
+        ' Your update logic here
+        MsgBox("Update functionality to be implemented.")
     End Sub
 
 End Class
