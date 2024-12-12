@@ -328,8 +328,7 @@ Public Class Admin_CreateShift
     End Sub
 
     Public Sub UpdateRecord()
-        ' Your update logic here
-        MsgBox("Update functionality to be implemented.")
+        Admin_EditShift.Show()
     End Sub
 
 End Class
