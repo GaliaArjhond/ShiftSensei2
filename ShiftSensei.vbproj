@@ -133,12 +133,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminForm\Admin_Allocate.Designer.vb">
-      <DependentUpon>Admin_Allocate.vb</DependentUpon>
-    </Compile>
-    <Compile Include="AdminForm\Admin_Allocate.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="AdminForm\Admin_Account1.Designer.vb">
       <DependentUpon>Admin_Account1.vb</DependentUpon>
     </Compile>
@@ -260,9 +254,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AdminForm\Admin_Allocate.resx">
-      <DependentUpon>Admin_Allocate.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminForm\Admin_Account1.resx">
       <DependentUpon>Admin_Account1.vb</DependentUpon>
     </EmbeddedResource>
