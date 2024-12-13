@@ -33,7 +33,7 @@ Partial Class Admin_Report
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
-        Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -174,22 +174,21 @@ Partial Class Admin_Report
         Me.btnCreate.Text = "Create Shift"
         Me.btnCreate.UseVisualStyleBackColor = True
         '
-        'CrystalReportViewer1
+        'Button1
         '
-        Me.CrystalReportViewer1.ActiveViewIndex = -1
-        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.CrystalReportViewer1.Location = New System.Drawing.Point(220, 12)
-        Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1002, 657)
-        Me.CrystalReportViewer1.TabIndex = 1
+        Me.Button1.Location = New System.Drawing.Point(468, 210)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(231, 72)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Print"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Admin_Report
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 681)
-        Me.Controls.Add(Me.CrystalReportViewer1)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -214,5 +213,5 @@ Partial Class Admin_Report
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnReport As Button
     Friend WithEvents btnCreate As Button
-    Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents Button1 As Button
 End Class

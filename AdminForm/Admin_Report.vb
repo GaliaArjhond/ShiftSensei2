@@ -34,4 +34,9 @@
         Me.Hide()
 
     End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        report.Show()
+        report.CrystalReportViewer1.ReportSource = report.crystalReport21
+    End Sub
 End Class
