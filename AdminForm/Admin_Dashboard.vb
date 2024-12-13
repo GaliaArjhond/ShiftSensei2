@@ -7,7 +7,7 @@ Public Class Admin_Dashboard
     Dim query As String
     Dim available, unavailable As Integer
     Dim reader As MySqlDataReader
-    Dim totalNurses, unassignedNurses, assignedNurses As Integer
+    Dim totalNurses, unassignedNurses, assignedNurses, totalMorning, totalEvening, totalNight As Integer
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         Admin_CreateShift.Show()
         Me.Hide()
@@ -58,6 +58,37 @@ Public Class Admin_Dashboard
             lbltotalUnassigned.Text = unassignedNurses
 
         Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub loadShiftDistribution()
+        Try
+            With cmd
+                datacon.Open()
+                .Connection = datacon
+                .CommandText = "SELECT 
+                                COUNT(CASE WHEN shiftTimeId = 1 THEN 1 END) AS MorningShift,
+                                COUNT(CASE WHEN shiftTimeId = 2 THEN 1 END) AS EveningShift,
+                                COUNT(CASE WHEN shiftTimeId = 3 THEN 1 END) AS NightShift
+                                FROM shifts"
+
+                If reader.Read() Then
+                    Chart1.Series("ShiftDistribution").Points.Clear()
+
+                    totalMorning = Convert.ToInt32(reader("MorningShift"))
+                    totalEvening = Convert.ToInt32(reader("EveningShift"))
+                    totalNight = Convert.ToInt32(reader("NightShift"))
+
+                    lblmorning.Text = totalMorning
+                    lblevening.Text = totalEvening
+                    lblnight.Text = totalNight
+                End If
+            End With
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            datacon.Close()
 
         End Try
     End Sub

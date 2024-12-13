@@ -22,14 +22,9 @@ Partial Class Admin_Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Me.NurseAvailabilityChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
-        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.lbltotalUnassigned = New System.Windows.Forms.Label()
         Me.label = New System.Windows.Forms.Label()
@@ -54,8 +49,14 @@ Partial Class Admin_Dashboard
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.DataGridViewShift = New System.Windows.Forms.DataGridView()
-        CType(Me.NurseAvailabilityChart, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.lblmorning = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblevening = New System.Windows.Forms.Label()
+        Me.lblnight = New System.Windows.Forms.Label()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -63,40 +64,9 @@ Partial Class Admin_Dashboard
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridViewShift, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel7.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'NurseAvailabilityChart
-        '
-        ChartArea3.Name = "ChartArea1"
-        Me.NurseAvailabilityChart.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.NurseAvailabilityChart.Legends.Add(Legend3)
-        Me.NurseAvailabilityChart.Location = New System.Drawing.Point(241, 42)
-        Me.NurseAvailabilityChart.Name = "NurseAvailabilityChart"
-        Series3.ChartArea = "ChartArea1"
-        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.NurseAvailabilityChart.Series.Add(Series3)
-        Me.NurseAvailabilityChart.Size = New System.Drawing.Size(367, 267)
-        Me.NurseAvailabilityChart.TabIndex = 10
-        Me.NurseAvailabilityChart.Text = "Chart2"
-        '
-        'Chart1
-        '
-        ChartArea4.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend4)
-        Me.Chart1.Location = New System.Drawing.Point(241, 334)
-        Me.Chart1.Name = "Chart1"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.Chart1.Series.Add(Series4)
-        Me.Chart1.Size = New System.Drawing.Size(367, 271)
-        Me.Chart1.TabIndex = 9
-        Me.Chart1.Text = "Chart1"
         '
         'Panel6
         '
@@ -365,19 +335,115 @@ Partial Class Admin_Dashboard
         'DataGridViewShift
         '
         Me.DataGridViewShift.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridViewShift.Location = New System.Drawing.Point(638, 334)
+        Me.DataGridViewShift.Location = New System.Drawing.Point(703, 334)
         Me.DataGridViewShift.Name = "DataGridViewShift"
-        Me.DataGridViewShift.Size = New System.Drawing.Size(564, 271)
+        Me.DataGridViewShift.Size = New System.Drawing.Size(499, 271)
         Me.DataGridViewShift.TabIndex = 11
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.Color.SteelBlue
+        Me.Panel7.Controls.Add(Me.lblnight)
+        Me.Panel7.Controls.Add(Me.lblevening)
+        Me.Panel7.Controls.Add(Me.Label6)
+        Me.Panel7.Controls.Add(Me.Label5)
+        Me.Panel7.Controls.Add(Me.lblmorning)
+        Me.Panel7.Controls.Add(Me.Label4)
+        Me.Panel7.Location = New System.Drawing.Point(262, 42)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(376, 267)
+        Me.Panel7.TabIndex = 8
+        '
+        'lblmorning
+        '
+        Me.lblmorning.AutoSize = True
+        Me.lblmorning.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblmorning.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblmorning.Location = New System.Drawing.Point(270, 53)
+        Me.lblmorning.Name = "lblmorning"
+        Me.lblmorning.Size = New System.Drawing.Size(30, 32)
+        Me.lblmorning.TabIndex = 6
+        Me.lblmorning.Text = "0"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label4.Location = New System.Drawing.Point(63, 59)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(151, 24)
+        Me.Label4.TabIndex = 5
+        Me.Label4.Text = "Mornign Shift:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label5.Location = New System.Drawing.Point(63, 125)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(152, 24)
+        Me.Label5.TabIndex = 7
+        Me.Label5.Text = "Evening Shift:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label6.Location = New System.Drawing.Point(63, 193)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(121, 24)
+        Me.Label6.TabIndex = 8
+        Me.Label6.Text = "Night Shift:"
+        '
+        'lblevening
+        '
+        Me.lblevening.AutoSize = True
+        Me.lblevening.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblevening.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblevening.Location = New System.Drawing.Point(270, 119)
+        Me.lblevening.Name = "lblevening"
+        Me.lblevening.Size = New System.Drawing.Size(30, 32)
+        Me.lblevening.TabIndex = 9
+        Me.lblevening.Text = "0"
+        '
+        'lblnight
+        '
+        Me.lblnight.AutoSize = True
+        Me.lblnight.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnight.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblnight.Location = New System.Drawing.Point(270, 185)
+        Me.lblnight.Name = "lblnight"
+        Me.lblnight.Size = New System.Drawing.Size(30, 32)
+        Me.lblnight.TabIndex = 10
+        Me.lblnight.Text = "0"
+        '
+        'Chart1
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(262, 331)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(376, 300)
+        Me.Chart1.TabIndex = 12
+        Me.Chart1.Text = "Chart1"
         '
         'Admin_Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 681)
-        Me.Controls.Add(Me.DataGridViewShift)
-        Me.Controls.Add(Me.NurseAvailabilityChart)
         Me.Controls.Add(Me.Chart1)
+        Me.Controls.Add(Me.Panel7)
+        Me.Controls.Add(Me.DataGridViewShift)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
@@ -388,8 +454,6 @@ Partial Class Admin_Dashboard
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Admin_Dashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        CType(Me.NurseAvailabilityChart, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         Me.Panel5.ResumeLayout(False)
@@ -402,12 +466,12 @@ Partial Class Admin_Dashboard
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         CType(Me.DataGridViewShift, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents NurseAvailabilityChart As DataVisualization.Charting.Chart
-    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
     Friend WithEvents Panel6 As Panel
     Friend WithEvents lbltotalUnassigned As Label
     Friend WithEvents label As Label
@@ -432,4 +496,12 @@ Partial Class Admin_Dashboard
     Friend WithEvents btnReport As Button
     Friend WithEvents btnCreate As Button
     Friend WithEvents DataGridViewShift As DataGridView
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents lblnight As Label
+    Friend WithEvents lblevening As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lblmorning As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 End Class
