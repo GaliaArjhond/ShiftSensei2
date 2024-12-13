@@ -11,7 +11,7 @@ Public Class DeleteAccount
     Dim confirmPassword, reason, password As String
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Admin_Account1.Show()
+        Admin_Nurse.Show()
         Me.Hide()
 
     End Sub

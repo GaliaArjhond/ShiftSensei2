@@ -22,7 +22,7 @@ Partial Class Admin_Nurse
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnDashboard = New System.Windows.Forms.Button()
@@ -34,14 +34,13 @@ Partial Class Admin_Nurse
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button9 = New System.Windows.Forms.Button()
+        Me.txtsearch = New System.Windows.Forms.TextBox()
+        Me.btnsearch = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.btnload = New System.Windows.Forms.Button()
         Me.dataRecord = New System.Windows.Forms.DataGridView()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.dataRecord, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -192,60 +191,66 @@ Partial Class Admin_Nurse
         Me.btnCreate.Text = "Create Shift"
         Me.btnCreate.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtsearch
         '
-        Me.TextBox1.Location = New System.Drawing.Point(258, 77)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(292, 26)
-        Me.TextBox1.TabIndex = 2
+        Me.txtsearch.Location = New System.Drawing.Point(258, 77)
+        Me.txtsearch.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
+        Me.txtsearch.Name = "txtsearch"
+        Me.txtsearch.Size = New System.Drawing.Size(292, 26)
+        Me.txtsearch.TabIndex = 2
         '
-        'Button9
+        'btnsearch
         '
-        Me.Button9.Location = New System.Drawing.Point(568, 77)
-        Me.Button9.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(110, 29)
-        Me.Button9.TabIndex = 3
-        Me.Button9.Text = "Search"
-        Me.Button9.UseVisualStyleBackColor = True
+        Me.btnsearch.Location = New System.Drawing.Point(568, 77)
+        Me.btnsearch.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
+        Me.btnsearch.Name = "btnsearch"
+        Me.btnsearch.Size = New System.Drawing.Size(110, 29)
+        Me.btnsearch.TabIndex = 3
+        Me.btnsearch.Text = "Search"
+        Me.btnsearch.UseVisualStyleBackColor = True
         '
         'Button10
         '
-        Me.Button10.Location = New System.Drawing.Point(1064, 195)
+        Me.Button10.Location = New System.Drawing.Point(1096, 195)
         Me.Button10.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(142, 49)
+        Me.Button10.Size = New System.Drawing.Size(110, 49)
         Me.Button10.TabIndex = 4
         Me.Button10.Text = "Filter"
         Me.Button10.UseVisualStyleBackColor = True
         '
         'Button11
         '
-        Me.Button11.Location = New System.Drawing.Point(1064, 265)
+        Me.Button11.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button11.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button11.Location = New System.Drawing.Point(1096, 265)
         Me.Button11.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(142, 49)
+        Me.Button11.Size = New System.Drawing.Size(110, 49)
         Me.Button11.TabIndex = 5
         Me.Button11.Text = "Add"
-        Me.Button11.UseVisualStyleBackColor = True
+        Me.Button11.UseVisualStyleBackColor = False
         '
         'Button12
         '
-        Me.Button12.Location = New System.Drawing.Point(1064, 341)
+        Me.Button12.BackColor = System.Drawing.Color.IndianRed
+        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button12.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button12.Location = New System.Drawing.Point(1096, 341)
         Me.Button12.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(142, 49)
+        Me.Button12.Size = New System.Drawing.Size(110, 49)
         Me.Button12.TabIndex = 6
         Me.Button12.Text = "Remove"
-        Me.Button12.UseVisualStyleBackColor = True
+        Me.Button12.UseVisualStyleBackColor = False
         '
         'btnload
         '
-        Me.btnload.Location = New System.Drawing.Point(1064, 127)
+        Me.btnload.Location = New System.Drawing.Point(1096, 127)
         Me.btnload.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.btnload.Name = "btnload"
-        Me.btnload.Size = New System.Drawing.Size(142, 49)
+        Me.btnload.Size = New System.Drawing.Size(110, 49)
         Me.btnload.TabIndex = 7
         Me.btnload.Text = "Load"
         Me.btnload.UseVisualStyleBackColor = True
@@ -258,32 +263,23 @@ Partial Class Admin_Nurse
         Me.dataRecord.Location = New System.Drawing.Point(258, 127)
         Me.dataRecord.Name = "dataRecord"
         Me.dataRecord.RowHeadersWidth = 51
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dataRecord.RowsDefaultCellStyle = DataGridViewCellStyle6
-        Me.dataRecord.Size = New System.Drawing.Size(758, 501)
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dataRecord.RowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.dataRecord.Size = New System.Drawing.Size(808, 501)
         Me.dataRecord.TabIndex = 8
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(773, 50)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 27)
-        Me.ComboBox1.TabIndex = 9
         '
         'Admin_Nurse
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 680)
-        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.dataRecord)
         Me.Controls.Add(Me.btnload)
         Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Button11)
         Me.Controls.Add(Me.Button10)
-        Me.Controls.Add(Me.Button9)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.btnsearch)
+        Me.Controls.Add(Me.txtsearch)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -310,12 +306,11 @@ Partial Class Admin_Nurse
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnReport As Button
     Friend WithEvents btnCreate As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button9 As Button
+    Friend WithEvents txtsearch As TextBox
+    Friend WithEvents btnsearch As Button
     Friend WithEvents Button10 As Button
     Friend WithEvents Button11 As Button
     Friend WithEvents Button12 As Button
     Friend WithEvents btnload As Button
     Friend WithEvents dataRecord As DataGridView
-    Friend WithEvents ComboBox1 As ComboBox
 End Class

@@ -22,25 +22,25 @@ Partial Class Admin_Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.NurseAvailabilityChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lbltotalUnassigned = New System.Windows.Forms.Label()
+        Me.label = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lbltotalActive = New System.Windows.Forms.Label()
+        Me.labell = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblnurseAssigned = New System.Windows.Forms.Label()
+        Me.lable = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblTotalNurse = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -53,6 +53,7 @@ Partial Class Admin_Dashboard
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
+        Me.DataGridViewShift = New System.Windows.Forms.DataGridView()
         CType(Me.NurseAvailabilityChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
@@ -61,37 +62,38 @@ Partial Class Admin_Dashboard
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.DataGridViewShift, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NurseAvailabilityChart
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.NurseAvailabilityChart.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.NurseAvailabilityChart.Legends.Add(Legend1)
-        Me.NurseAvailabilityChart.Location = New System.Drawing.Point(281, 42)
+        ChartArea3.Name = "ChartArea1"
+        Me.NurseAvailabilityChart.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.NurseAvailabilityChart.Legends.Add(Legend3)
+        Me.NurseAvailabilityChart.Location = New System.Drawing.Point(241, 42)
         Me.NurseAvailabilityChart.Name = "NurseAvailabilityChart"
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.NurseAvailabilityChart.Series.Add(Series1)
+        Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.NurseAvailabilityChart.Series.Add(Series3)
         Me.NurseAvailabilityChart.Size = New System.Drawing.Size(367, 267)
         Me.NurseAvailabilityChart.TabIndex = 10
         Me.NurseAvailabilityChart.Text = "Chart2"
         '
         'Chart1
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend2)
-        Me.Chart1.Location = New System.Drawing.Point(281, 334)
+        ChartArea4.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea4)
+        Legend4.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend4)
+        Me.Chart1.Location = New System.Drawing.Point(241, 334)
         Me.Chart1.Name = "Chart1"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.Chart1.Series.Add(Series2)
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Me.Chart1.Series.Add(Series4)
         Me.Chart1.Size = New System.Drawing.Size(367, 271)
         Me.Chart1.TabIndex = 9
         Me.Chart1.Text = "Chart1"
@@ -99,119 +101,119 @@ Partial Class Admin_Dashboard
         'Panel6
         '
         Me.Panel6.BackColor = System.Drawing.Color.SteelBlue
-        Me.Panel6.Controls.Add(Me.Label9)
-        Me.Panel6.Controls.Add(Me.Label5)
+        Me.Panel6.Controls.Add(Me.lbltotalUnassigned)
+        Me.Panel6.Controls.Add(Me.label)
         Me.Panel6.Location = New System.Drawing.Point(962, 185)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(223, 124)
         Me.Panel6.TabIndex = 6
         '
-        'Label9
+        'lbltotalUnassigned
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label9.Location = New System.Drawing.Point(94, 28)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(30, 32)
-        Me.Label9.TabIndex = 7
-        Me.Label9.Text = "0"
+        Me.lbltotalUnassigned.AutoSize = True
+        Me.lbltotalUnassigned.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltotalUnassigned.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lbltotalUnassigned.Location = New System.Drawing.Point(94, 28)
+        Me.lbltotalUnassigned.Name = "lbltotalUnassigned"
+        Me.lbltotalUnassigned.Size = New System.Drawing.Size(30, 32)
+        Me.lbltotalUnassigned.TabIndex = 7
+        Me.lbltotalUnassigned.Text = "0"
         '
-        'Label5
+        'label
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label5.Location = New System.Drawing.Point(51, 76)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(118, 24)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "Total Open"
+        Me.label.AutoSize = True
+        Me.label.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.label.Location = New System.Drawing.Point(51, 76)
+        Me.label.Name = "label"
+        Me.label.Size = New System.Drawing.Size(118, 24)
+        Me.label.TabIndex = 6
+        Me.label.Text = "Total Open"
         '
         'Panel5
         '
         Me.Panel5.BackColor = System.Drawing.Color.SteelBlue
-        Me.Panel5.Controls.Add(Me.Label8)
-        Me.Panel5.Controls.Add(Me.Label4)
+        Me.Panel5.Controls.Add(Me.lbltotalActive)
+        Me.Panel5.Controls.Add(Me.labell)
         Me.Panel5.Location = New System.Drawing.Point(703, 185)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(223, 124)
         Me.Panel5.TabIndex = 7
         '
-        'Label8
+        'lbltotalActive
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label8.Location = New System.Drawing.Point(100, 28)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(30, 32)
-        Me.Label8.TabIndex = 6
-        Me.Label8.Text = "0"
+        Me.lbltotalActive.AutoSize = True
+        Me.lbltotalActive.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltotalActive.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lbltotalActive.Location = New System.Drawing.Point(100, 28)
+        Me.lbltotalActive.Name = "lbltotalActive"
+        Me.lbltotalActive.Size = New System.Drawing.Size(30, 32)
+        Me.lbltotalActive.TabIndex = 6
+        Me.lbltotalActive.Text = "0"
         '
-        'Label4
+        'labell
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label4.Location = New System.Drawing.Point(17, 76)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(192, 24)
-        Me.Label4.TabIndex = 5
-        Me.Label4.Text = "Total Active Nurse"
+        Me.labell.AutoSize = True
+        Me.labell.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labell.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.labell.Location = New System.Drawing.Point(17, 76)
+        Me.labell.Name = "labell"
+        Me.labell.Size = New System.Drawing.Size(192, 24)
+        Me.labell.TabIndex = 5
+        Me.labell.Text = "Total Active Nurse"
         '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.SteelBlue
-        Me.Panel4.Controls.Add(Me.Label7)
-        Me.Panel4.Controls.Add(Me.Label3)
+        Me.Panel4.Controls.Add(Me.lblnurseAssigned)
+        Me.Panel4.Controls.Add(Me.lable)
         Me.Panel4.Location = New System.Drawing.Point(962, 42)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(223, 124)
         Me.Panel4.TabIndex = 8
         '
-        'Label7
+        'lblnurseAssigned
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label7.Location = New System.Drawing.Point(95, 28)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(30, 32)
-        Me.Label7.TabIndex = 5
-        Me.Label7.Text = "0"
+        Me.lblnurseAssigned.AutoSize = True
+        Me.lblnurseAssigned.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnurseAssigned.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblnurseAssigned.Location = New System.Drawing.Point(95, 28)
+        Me.lblnurseAssigned.Name = "lblnurseAssigned"
+        Me.lblnurseAssigned.Size = New System.Drawing.Size(30, 32)
+        Me.lblnurseAssigned.TabIndex = 5
+        Me.lblnurseAssigned.Text = "0"
         '
-        'Label3
+        'lable
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label3.Location = New System.Drawing.Point(10, 76)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(207, 24)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Total Nurse on Duty"
+        Me.lable.AutoSize = True
+        Me.lable.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lable.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lable.Location = New System.Drawing.Point(10, 76)
+        Me.lable.Name = "lable"
+        Me.lable.Size = New System.Drawing.Size(207, 24)
+        Me.lable.TabIndex = 4
+        Me.lable.Text = "Total Nurse on Duty"
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.SteelBlue
-        Me.Panel3.Controls.Add(Me.Label6)
+        Me.Panel3.Controls.Add(Me.lblTotalNurse)
         Me.Panel3.Controls.Add(Me.Label2)
         Me.Panel3.Location = New System.Drawing.Point(703, 42)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(223, 124)
         Me.Panel3.TabIndex = 5
         '
-        'Label6
+        'lblTotalNurse
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label6.Location = New System.Drawing.Point(95, 28)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(30, 32)
-        Me.Label6.TabIndex = 4
-        Me.Label6.Text = "0"
+        Me.lblTotalNurse.AutoSize = True
+        Me.lblTotalNurse.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalNurse.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblTotalNurse.Location = New System.Drawing.Point(95, 28)
+        Me.lblTotalNurse.Name = "lblTotalNurse"
+        Me.lblTotalNurse.Size = New System.Drawing.Size(30, 32)
+        Me.lblTotalNurse.TabIndex = 4
+        Me.lblTotalNurse.Text = "0"
         '
         'Label2
         '
@@ -360,11 +362,20 @@ Partial Class Admin_Dashboard
         Me.btnCreate.Text = "Create Shift"
         Me.btnCreate.UseVisualStyleBackColor = True
         '
+        'DataGridViewShift
+        '
+        Me.DataGridViewShift.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridViewShift.Location = New System.Drawing.Point(638, 334)
+        Me.DataGridViewShift.Name = "DataGridViewShift"
+        Me.DataGridViewShift.Size = New System.Drawing.Size(564, 271)
+        Me.DataGridViewShift.TabIndex = 11
+        '
         'Admin_Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 681)
+        Me.Controls.Add(Me.DataGridViewShift)
         Me.Controls.Add(Me.NurseAvailabilityChart)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Panel6)
@@ -377,7 +388,6 @@ Partial Class Admin_Dashboard
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Admin_Dashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = " "
         CType(Me.NurseAvailabilityChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
@@ -391,6 +401,7 @@ Partial Class Admin_Dashboard
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        CType(Me.DataGridViewShift, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -398,16 +409,16 @@ Partial Class Admin_Dashboard
     Friend WithEvents NurseAvailabilityChart As DataVisualization.Charting.Chart
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label5 As Label
+    Friend WithEvents lbltotalUnassigned As Label
+    Friend WithEvents label As Label
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label4 As Label
+    Friend WithEvents lbltotalActive As Label
+    Friend WithEvents labell As Label
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblnurseAssigned As Label
+    Friend WithEvents lable As Label
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Label6 As Label
+    Friend WithEvents lblTotalNurse As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label1 As Label
@@ -420,4 +431,5 @@ Partial Class Admin_Dashboard
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnReport As Button
     Friend WithEvents btnCreate As Button
+    Friend WithEvents DataGridViewShift As DataGridView
 End Class

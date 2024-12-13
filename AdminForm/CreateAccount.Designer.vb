@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class CreateAccount
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,15 +20,11 @@ Partial Class CreateAccount
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.Label19 = New System.Windows.Forms.Label()
         Me.txtaddress = New System.Windows.Forms.TextBox()
         Me.txtphone = New System.Windows.Forms.TextBox()
         Me.txtemail = New System.Windows.Forms.TextBox()
@@ -83,7 +79,7 @@ Partial Class CreateAccount
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Location = New System.Drawing.Point(-17, -12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(810, 93)
+        Me.Panel1.Size = New System.Drawing.Size(809, 93)
         Me.Panel1.TabIndex = 0
         '
         'Label1
@@ -99,10 +95,6 @@ Partial Class CreateAccount
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.RadioButton3)
-        Me.GroupBox1.Controls.Add(Me.RadioButton2)
-        Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Controls.Add(Me.Label19)
         Me.GroupBox1.Controls.Add(Me.txtaddress)
         Me.GroupBox1.Controls.Add(Me.txtphone)
         Me.GroupBox1.Controls.Add(Me.txtemail)
@@ -125,52 +117,10 @@ Partial Class CreateAccount
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Personal Info"
         '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(246, 231)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(61, 20)
-        Me.RadioButton3.TabIndex = 23
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "Other"
-        Me.RadioButton3.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(157, 231)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(74, 20)
-        Me.RadioButton2.TabIndex = 22
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Female"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(94, 231)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(57, 20)
-        Me.RadioButton1.TabIndex = 21
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Male"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(29, 231)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(59, 16)
-        Me.Label19.TabIndex = 20
-        Me.Label19.Text = "Gender:"
-        '
         'txtaddress
         '
         Me.txtaddress.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtaddress.Location = New System.Drawing.Point(32, 468)
+        Me.txtaddress.Location = New System.Drawing.Point(32, 427)
         Me.txtaddress.Name = "txtaddress"
         Me.txtaddress.Size = New System.Drawing.Size(268, 22)
         Me.txtaddress.TabIndex = 19
@@ -178,7 +128,7 @@ Partial Class CreateAccount
         'txtphone
         '
         Me.txtphone.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtphone.Location = New System.Drawing.Point(32, 411)
+        Me.txtphone.Location = New System.Drawing.Point(32, 370)
         Me.txtphone.Name = "txtphone"
         Me.txtphone.Size = New System.Drawing.Size(268, 22)
         Me.txtphone.TabIndex = 18
@@ -186,7 +136,7 @@ Partial Class CreateAccount
         'txtemail
         '
         Me.txtemail.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtemail.Location = New System.Drawing.Point(32, 354)
+        Me.txtemail.Location = New System.Drawing.Point(32, 313)
         Me.txtemail.Name = "txtemail"
         Me.txtemail.Size = New System.Drawing.Size(268, 22)
         Me.txtemail.TabIndex = 17
@@ -194,7 +144,7 @@ Partial Class CreateAccount
         'dtpDateOfBIrth
         '
         Me.dtpDateOfBIrth.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpDateOfBIrth.Location = New System.Drawing.Point(32, 295)
+        Me.dtpDateOfBIrth.Location = New System.Drawing.Point(32, 254)
         Me.dtpDateOfBIrth.MaxDate = New Date(9000, 12, 31, 0, 0, 0, 0)
         Me.dtpDateOfBIrth.Name = "dtpDateOfBIrth"
         Me.dtpDateOfBIrth.Size = New System.Drawing.Size(268, 22)
@@ -245,7 +195,7 @@ Partial Class CreateAccount
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(29, 271)
+        Me.Label29.Location = New System.Drawing.Point(29, 230)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(91, 16)
         Me.Label29.TabIndex = 10
@@ -254,7 +204,7 @@ Partial Class CreateAccount
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(29, 449)
+        Me.Label5.Location = New System.Drawing.Point(29, 408)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(62, 16)
         Me.Label5.TabIndex = 3
@@ -263,7 +213,7 @@ Partial Class CreateAccount
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(29, 392)
+        Me.Label4.Location = New System.Drawing.Point(29, 351)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(107, 16)
         Me.Label4.TabIndex = 2
@@ -272,7 +222,7 @@ Partial Class CreateAccount
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(29, 331)
+        Me.Label3.Location = New System.Drawing.Point(29, 290)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(48, 16)
         Me.Label3.TabIndex = 1
@@ -560,7 +510,7 @@ Partial Class CreateAccount
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(819, 653)
+        Me.ClientSize = New System.Drawing.Size(814, 653)
         Me.Controls.Add(Me.btnback)
         Me.Controls.Add(Me.btncreate)
         Me.Controls.Add(Me.GroupBox1)
@@ -632,8 +582,4 @@ Partial Class CreateAccount
     Friend WithEvents cmbExp As ComboBox
     Friend WithEvents cmbPosition As ComboBox
     Friend WithEvents cmbDepartment As ComboBox
-    Friend WithEvents RadioButton3 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents Label19 As Label
 End Class

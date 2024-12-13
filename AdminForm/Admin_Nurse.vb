@@ -6,7 +6,7 @@ Public Class Admin_Nurse
 
     Private Sub Admin_Nurse_Load(sender As Object, e As EventArgs) Handles Me.Load
         databaseConnect()
-        Dim font As New Font("Arial Bold", 8)
+        Dim font As New Font("Arial Bold", 6)
         dataRecord.DefaultCellStyle.Font = font
         dataRecord.ColumnHeadersDefaultCellStyle.Font = font
 
@@ -16,20 +16,25 @@ Public Class Admin_Nurse
 
     Private Sub btnload_Click(sender As Object, e As EventArgs) Handles btnload.Click
         Try
-            querry = "SELECT CONCAT(n.fname, ' ', n.mname, ' ', n.Lname) AS Nurse_Name, 
-                            n.nurseLicense, 
-                            d.departmentName, 
-                            p.positionName, 
-                            e.levelName,
-                            isActive 
-                        FROM 
-                            nurse n 
-                        JOIN 
-                            department d ON n.departmentId = d.departmentId 
-                        JOIN
-                            position p ON n.positionId = p.positionId
-                        JOIN
-                            explvls e ON n.expLvlsId = e.expLvlsId"
+            querry = "SELECT 
+                        CONCAT(n.fname, ' ', n.mname, ' ', n.Lname) AS Nurse_Name, 
+                        n.nurseLicense, 
+                        d.departmentName, 
+                        p.positionName, 
+                        e.levelName,
+                        n.startDate, 
+                        n.endDate, 
+                        n.startTime, 
+                        n.endTime, 
+                        n.isActive 
+                    FROM 
+                        nurse n
+                    JOIN 
+                        department d ON n.departmentId = d.departmentId 
+                    JOIN
+                        position p ON n.positionId = p.positionId
+                    JOIN
+                        explvls e ON n.expLvlsId = e.expLvlsId"
 
             da = New MySqlDataAdapter(querry, datacon)
             tableInfo = New DataTable
@@ -78,6 +83,16 @@ Public Class Admin_Nurse
     Private Sub btnAccount_Click(sender As Object, e As EventArgs) Handles btnAccount.Click
         Admin_Account1.Show()
         Me.Hide()
+
+    End Sub
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        CreateAccount.Show()
+
+    End Sub
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        DeleteAccount.Show()
 
     End Sub
 End Class

@@ -36,7 +36,6 @@ Partial Class Admin_Account1
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
-        Me.btnCreateAccount = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -69,7 +68,6 @@ Partial Class Admin_Account1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -232,16 +230,6 @@ Partial Class Admin_Account1
         Me.Button10.TabIndex = 7
         Me.Button10.Text = "Change Password"
         Me.Button10.UseVisualStyleBackColor = True
-        '
-        'btnCreateAccount
-        '
-        Me.btnCreateAccount.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCreateAccount.Location = New System.Drawing.Point(724, 583)
-        Me.btnCreateAccount.Name = "btnCreateAccount"
-        Me.btnCreateAccount.Size = New System.Drawing.Size(161, 37)
-        Me.btnCreateAccount.TabIndex = 9
-        Me.btnCreateAccount.Text = "Create Account"
-        Me.btnCreateAccount.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -566,26 +554,14 @@ Partial Class Admin_Account1
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Name:"
         '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(944, 583)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(161, 37)
-        Me.Button2.TabIndex = 19
-        Me.Button2.Text = "Delete Account"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
         'Admin_Account1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 681)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.btnCreateAccount)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -618,7 +594,6 @@ Partial Class Admin_Account1
     Friend WithEvents btnCreate As Button
     Friend WithEvents Button9 As Button
     Friend WithEvents Button10 As Button
-    Friend WithEvents btnCreateAccount As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Label21 As Label
     Friend WithEvents Label19 As Label
@@ -651,5 +626,4 @@ Partial Class Admin_Account1
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
 End Class

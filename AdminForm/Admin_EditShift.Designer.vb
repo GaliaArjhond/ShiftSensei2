@@ -24,7 +24,6 @@ Partial Class Admin_EditShift
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.DateTimePicker4 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
@@ -56,17 +55,6 @@ Partial Class Admin_EditShift
         Me.Button2.TabIndex = 7
         Me.Button2.Text = "Back"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(49, 411)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.CheckBox1.Size = New System.Drawing.Size(203, 23)
-        Me.CheckBox1.TabIndex = 33
-        Me.CheckBox1.Text = "Fair Distribution Check"
-        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'ComboBox1
         '
@@ -174,7 +162,6 @@ Partial Class Admin_EditShift
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(499, 546)
-        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.DateTimePicker4)
         Me.Controls.Add(Me.DateTimePicker3)
@@ -201,7 +188,6 @@ Partial Class Admin_EditShift
     End Sub
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents DateTimePicker4 As DateTimePicker
     Friend WithEvents DateTimePicker3 As DateTimePicker

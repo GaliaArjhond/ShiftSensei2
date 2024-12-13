@@ -24,19 +24,17 @@ Public Class assignForm
         dataAssigned.DefaultCellStyle.Font = font
         dataAssigned.ColumnHeadersDefaultCellStyle.Font = font
 
-        ' Add Allocate button to dataAvailable DataGridView
         Dim allocateButton As New DataGridViewButtonColumn()
         allocateButton.HeaderText = "Action"
         allocateButton.Text = "Allocate"
-        allocateButton.Name = "AllocateButton" ' Set the Name property
+        allocateButton.Name = "AllocateButton"
         allocateButton.UseColumnTextForButtonValue = True
         dataAvailable.Columns.Add(allocateButton)
 
-        ' Add Deallocate button to dataAssigned DataGridView
         Dim deallocateButton As New DataGridViewButtonColumn()
         deallocateButton.HeaderText = "Action"
         deallocateButton.Text = "Deallocate"
-        deallocateButton.Name = "DeallocateButton" ' Set the Name property
+        deallocateButton.Name = "DeallocateButton"
         deallocateButton.UseColumnTextForButtonValue = True
         dataAssigned.Columns.Add(deallocateButton)
     End Sub
