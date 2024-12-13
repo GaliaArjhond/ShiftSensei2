@@ -181,7 +181,7 @@ Partial Class Admin_Report
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(220, 12)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(873, 657)
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1002, 657)
         Me.CrystalReportViewer1.TabIndex = 1
         '
         'Admin_Report
