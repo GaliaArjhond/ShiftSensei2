@@ -30,7 +30,7 @@ Partial Class Schedule
         Me.btnNurse = New System.Windows.Forms.Button()
         Me.btnSchedule = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
-        Me.btnDashboard = New System.Windows.Forms.Button()
+        Me.btnHome = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
@@ -47,7 +47,7 @@ Partial Class Schedule
         Me.Panel1.Controls.Add(Me.btnNurse)
         Me.Panel1.Controls.Add(Me.btnSchedule)
         Me.Panel1.Controls.Add(Me.btnCreate)
-        Me.Panel1.Controls.Add(Me.btnDashboard)
+        Me.Panel1.Controls.Add(Me.btnHome)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Location = New System.Drawing.Point(-4, -8)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
@@ -141,16 +141,16 @@ Partial Class Schedule
         '
         'btnDashboard
         '
-        Me.btnDashboard.BackColor = System.Drawing.Color.SteelBlue
-        Me.btnDashboard.FlatAppearance.BorderSize = 0
-        Me.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDashboard.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnDashboard.Location = New System.Drawing.Point(4, 135)
-        Me.btnDashboard.Name = "btnDashboard"
-        Me.btnDashboard.Size = New System.Drawing.Size(214, 69)
-        Me.btnDashboard.TabIndex = 1
-        Me.btnDashboard.Text = "Dashboard"
-        Me.btnDashboard.UseVisualStyleBackColor = False
+        Me.btnHome.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnHome.FlatAppearance.BorderSize = 0
+        Me.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnHome.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.btnHome.Location = New System.Drawing.Point(4, 135)
+        Me.btnHome.Name = "btnDashboard"
+        Me.btnHome.Size = New System.Drawing.Size(214, 69)
+        Me.btnHome.TabIndex = 1
+        Me.btnHome.Text = "Dashboard"
+        Me.btnHome.UseVisualStyleBackColor = False
         '
         'Panel2
         '
@@ -196,7 +196,7 @@ Partial Class Schedule
     Friend WithEvents btnNurse As Button
     Friend WithEvents btnSchedule As Button
     Friend WithEvents btnCreate As Button
-    Friend WithEvents btnDashboard As Button
+    Friend WithEvents btnHome As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label1 As Label
 End Class

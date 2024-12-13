@@ -279,6 +279,36 @@
     <Compile Include="NurseForm\Nurse_Schedule.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UserForm\AccountSettings.Designer.vb">
+      <DependentUpon>AccountSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\AccountSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\AccountSettingsChangePass.Designer.vb">
+      <DependentUpon>AccountSettingsChangePass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\AccountSettingsChangePass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\AccountSettingsMenu.Designer.vb">
+      <DependentUpon>AccountSettingsMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\AccountSettingsMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\Profile.Designer.vb">
+      <DependentUpon>Profile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\Profile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm\Schedule.Designer.vb">
+      <DependentUpon>Schedule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm\Schedule.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdminForm\Admin_Account1.resx">
@@ -347,6 +377,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NurseForm\Nurse_Schedule.resx">
       <DependentUpon>Nurse_Schedule.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\AccountSettings.resx">
+      <DependentUpon>AccountSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\AccountSettingsChangePass.resx">
+      <DependentUpon>AccountSettingsChangePass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\AccountSettingsMenu.resx">
+      <DependentUpon>AccountSettingsMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\Profile.resx">
+      <DependentUpon>Profile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm\Schedule.resx">
+      <DependentUpon>Schedule.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
