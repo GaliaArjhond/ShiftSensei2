@@ -22,13 +22,13 @@ Partial Class Admin_Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Me.NurseAvailabilityChart = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -53,7 +53,7 @@ Partial Class Admin_Dashboard
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
-        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NurseAvailabilityChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -63,35 +63,35 @@ Partial Class Admin_Dashboard
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Chart2
+        'NurseAvailabilityChart
         '
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend3)
-        Me.Chart2.Location = New System.Drawing.Point(281, 42)
-        Me.Chart2.Name = "Chart2"
-        Series3.ChartArea = "ChartArea1"
-        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.Chart2.Series.Add(Series3)
-        Me.Chart2.Size = New System.Drawing.Size(367, 267)
-        Me.Chart2.TabIndex = 10
-        Me.Chart2.Text = "Chart2"
+        ChartArea1.Name = "ChartArea1"
+        Me.NurseAvailabilityChart.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.NurseAvailabilityChart.Legends.Add(Legend1)
+        Me.NurseAvailabilityChart.Location = New System.Drawing.Point(281, 42)
+        Me.NurseAvailabilityChart.Name = "NurseAvailabilityChart"
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.NurseAvailabilityChart.Series.Add(Series1)
+        Me.NurseAvailabilityChart.Size = New System.Drawing.Size(367, 267)
+        Me.NurseAvailabilityChart.TabIndex = 10
+        Me.NurseAvailabilityChart.Text = "Chart2"
         '
         'Chart1
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend4)
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend2)
         Me.Chart1.Location = New System.Drawing.Point(281, 334)
         Me.Chart1.Name = "Chart1"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.Chart1.Series.Add(Series4)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.Chart1.Series.Add(Series2)
         Me.Chart1.Size = New System.Drawing.Size(367, 271)
         Me.Chart1.TabIndex = 9
         Me.Chart1.Text = "Chart1"
@@ -365,7 +365,7 @@ Partial Class Admin_Dashboard
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 681)
-        Me.Controls.Add(Me.Chart2)
+        Me.Controls.Add(Me.NurseAvailabilityChart)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel5)
@@ -378,7 +378,7 @@ Partial Class Admin_Dashboard
         Me.Name = "Admin_Dashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = " "
-        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NurseAvailabilityChart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
@@ -395,7 +395,7 @@ Partial Class Admin_Dashboard
 
     End Sub
 
-    Friend WithEvents Chart2 As DataVisualization.Charting.Chart
+    Friend WithEvents NurseAvailabilityChart As DataVisualization.Charting.Chart
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Label9 As Label

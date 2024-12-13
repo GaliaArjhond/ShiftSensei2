@@ -99,10 +99,10 @@ Public Class CreateAccount
         End If
     End Sub
     Private Sub CreateAccount_Load(sender As Object, e As EventArgs) Handles Me.Load
-        databaseConnect() 'connection for database
-        LoadDepartments() 'combobox for departments 
-        LoadPosition() 'combobox for Position
-        LoadExp() 'combobox for experience
+        databaseConnect()
+        LoadDepartments()
+        LoadPosition()
+        LoadExp()
         LoadSecurityQuestion()
     End Sub
 
