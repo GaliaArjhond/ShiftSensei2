@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+
 Public Class assignForm
     Dim cmd As New MySqlCommand
     Dim result As Integer

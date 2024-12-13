@@ -4,6 +4,7 @@ Public Class Admin_Nurse
     Dim tableInfo As DataTable
     Dim da As MySqlDataAdapter
 
+
     Private Sub Admin_Nurse_Load(sender As Object, e As EventArgs) Handles Me.Load
         databaseConnect()
         Dim font As New Font("Arial Bold", 6)
