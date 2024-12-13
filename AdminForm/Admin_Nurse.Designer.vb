@@ -36,7 +36,6 @@ Partial Class Admin_Nurse
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.btnsearch = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.btnload = New System.Windows.Forms.Button()
@@ -209,22 +208,12 @@ Partial Class Admin_Nurse
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = True
         '
-        'Button10
-        '
-        Me.Button10.Location = New System.Drawing.Point(1096, 195)
-        Me.Button10.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(110, 49)
-        Me.Button10.TabIndex = 4
-        Me.Button10.Text = "Filter"
-        Me.Button10.UseVisualStyleBackColor = True
-        '
         'Button11
         '
         Me.Button11.BackColor = System.Drawing.Color.CornflowerBlue
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button11.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button11.Location = New System.Drawing.Point(1096, 265)
+        Me.Button11.Location = New System.Drawing.Point(1096, 205)
         Me.Button11.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(110, 49)
@@ -237,7 +226,7 @@ Partial Class Admin_Nurse
         Me.Button12.BackColor = System.Drawing.Color.IndianRed
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button12.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Button12.Location = New System.Drawing.Point(1096, 341)
+        Me.Button12.Location = New System.Drawing.Point(1096, 281)
         Me.Button12.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(110, 49)
@@ -277,7 +266,6 @@ Partial Class Admin_Nurse
         Me.Controls.Add(Me.btnload)
         Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Button11)
-        Me.Controls.Add(Me.Button10)
         Me.Controls.Add(Me.btnsearch)
         Me.Controls.Add(Me.txtsearch)
         Me.Controls.Add(Me.Panel1)
@@ -308,7 +296,6 @@ Partial Class Admin_Nurse
     Friend WithEvents btnCreate As Button
     Friend WithEvents txtsearch As TextBox
     Friend WithEvents btnsearch As Button
-    Friend WithEvents Button10 As Button
     Friend WithEvents Button11 As Button
     Friend WithEvents Button12 As Button
     Friend WithEvents btnload As Button

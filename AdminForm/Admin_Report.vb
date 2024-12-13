@@ -35,7 +35,7 @@
 
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
         report.Show()
         report.CrystalReportViewer1.ReportSource = report.crystalReport21
     End Sub
