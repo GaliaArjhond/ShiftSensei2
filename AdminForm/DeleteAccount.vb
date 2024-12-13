@@ -7,7 +7,7 @@ Public Class DeleteAccount
     Dim ds As DataSet
     Dim dtable As DataTable
     Dim adp As MySqlDataAdapter
-    Dim nurseId, passwordMatch As Integer
+    Dim nurseId As Integer
     Dim confirmPassword, reason, password As String
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -42,37 +42,39 @@ Public Class DeleteAccount
     End Sub
 
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
+        Dim dgresult As New DialogResult
         Try
-            ' Check if a valid nurse is selected
-            If cmbNurseName.SelectedValue Is Nothing OrElse Not IsNumeric(cmbNurseName.SelectedValue) Then
-                MessageBox.Show("Please select a valid nurse.")
-                Return
-            End If
+            dgresult = MessageBox.Show("Are you sure you want to delete the account for this Nurse?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If dgresult = Windows.Forms.DialogResult.Yes Then
+                With cmd
+                    datacon.Open()
+                    .Connection = datacon
+                    .CommandText = "DELETE FROM nurse WHERE nurseId = '" & cmbNurseName.SelectedValue & "'"
+                    result = .ExecuteNonQuery
+                    If result > 0 Then
+                        ' Successfully deleted
+                        cmbNurseName.SelectedIndex = -1
+                        rtbReason.Clear()
+                        MessageBox.Show("Nurse account deleted successfully.")
+                    Else
+                        MsgBox("Failed to delete the nurse account.")
+                    End If
+                End With
+                ClearData()
 
-            ' Confirm deletion
-            If MessageBox.Show("Are you sure you want to delete the account for this Nurse?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
-                query = "DELETE FROM nurse WHERE nurseId = @nurseId"
-                Try
-                    Using cmd As New MySqlCommand(query, datacon)
-                        cmd.Parameters.AddWithValue("@nurseId", cmbNurseName.SelectedValue)
-
-                        Dim result As Integer = cmd.ExecuteNonQuery()
-                        If result > 0 Then
-                            ' Successfully deleted
-                            cmbNurseName.SelectedIndex = -1
-                            rtbReason.Clear()
-                            MessageBox.Show("Nurse account deleted successfully.")
-                        Else
-                            MsgBox("Failed to delete the nurse account.")
-                        End If
-                    End Using
-                Catch ex As Exception
-                    MsgBox("Error: " & ex.Message)
-                End Try
             End If
         Catch ex As Exception
-            MsgBox("An unexpected error occurred: " & ex.Message)
+            MsgBox("Error: " & ex.Message)
+        Finally
+            datacon.Close()
         End Try
+    End Sub
+    Public Sub ClearData()
+        For Each ctrl As Control In Me.Controls
+            If TypeOf ctrl Is ComboBox Then
+                CType(ctrl, ComboBox).SelectedIndex = -1
+            End If
+        Next
     End Sub
 End Class
 

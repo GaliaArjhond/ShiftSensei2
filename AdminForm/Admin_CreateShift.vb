@@ -11,7 +11,6 @@ Public Class Admin_CreateShift
     Dim dtable As DataTable
     Dim shiftName As String
     Dim dgresult As New DialogResult
-    Dim fairDistribution As Boolean
     Dim availableNurses As New List(Of Integer)
     Dim departmentId, totalAvailableHours, totalShiftDuration, idealShifts, assignedShifts, shiftTimeId, shiftId, index As Integer
     Dim startDate, endDate, startTime, endTime As DateTime
@@ -98,8 +97,6 @@ Public Class Admin_CreateShift
 
 
     Public Sub DeleteRecord()
-        Dim cmd As New MySqlCommand
-        Dim result As Integer
         Dim dgresult As New DialogResult
 
         Try
@@ -150,6 +147,11 @@ Public Class Admin_CreateShift
     Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
         Admin_Report.Show()
         Me.Hide()
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Admin_EditShift.Show()
 
     End Sub
 
@@ -213,7 +215,6 @@ Public Class Admin_CreateShift
         DataGridViewShift.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
         Dim buttonDelete As DataGridViewButtonColumn
-        Dim buttonEdit As DataGridViewButtonColumn
 
         buttonDelete = New DataGridViewButtonColumn()
         buttonDelete.HeaderText = "Delete Rows"
@@ -224,17 +225,8 @@ Public Class Admin_CreateShift
         buttonDelete.FlatStyle = FlatStyle.Standard
         buttonDelete.CellTemplate.Style.BackColor = Color.Beige
 
-        buttonEdit = New DataGridViewButtonColumn()
-        buttonEdit.HeaderText = "Update Rows"
-        buttonEdit.Name = "update"
-        buttonEdit.Text = "Update"
-        buttonEdit.UseColumnTextForButtonValue = True
-        buttonEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        buttonEdit.FlatStyle = FlatStyle.Standard
-        buttonEdit.CellTemplate.Style.BackColor = Color.Beige
-
         DataGridViewShift.Columns.Add(buttonDelete)
-        DataGridViewShift.Columns.Add(buttonEdit)
+
 
         Me.DataGridViewShift.DefaultCellStyle.BackColor = Color.AliceBlue
 
@@ -304,7 +296,6 @@ Public Class Admin_CreateShift
         ElseIf e.ColumnIndex = DataGridViewShift.Columns("update").Index Then
             UpdateRecord()
         End If
-
     End Sub
 
 
@@ -312,8 +303,8 @@ Public Class Admin_CreateShift
         DeleteRecord()
     End Sub
 
-    Private Sub UpDateRowToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles UpDateRowToolStripMenuItem.Click
-        UpdateRecord()
+    Public Sub UpdateRecord()
+        Admin_EditShift.Show()
     End Sub
 
     Private Sub DataGridView1_CellMouseUp(ByVal sender As Object, ByVal e As DataGridViewCellMouseEventArgs) Handles DataGridViewShift.CellMouseUp
@@ -327,8 +318,5 @@ Public Class Admin_CreateShift
         End If
     End Sub
 
-    Public Sub UpdateRecord()
-        Admin_EditShift.Show()
-    End Sub
 
 End Class

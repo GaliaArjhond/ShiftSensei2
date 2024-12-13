@@ -58,6 +58,7 @@ Partial Class Admin_CreateShift
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DeleteRowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpDateRowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -205,6 +206,7 @@ Partial Class Admin_CreateShift
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Controls.Add(Me.btnload)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.DataGridViewShift)
@@ -221,7 +223,7 @@ Partial Class Admin_CreateShift
         Me.btnload.FlatAppearance.BorderSize = 0
         Me.btnload.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnload.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnload.Location = New System.Drawing.Point(696, 35)
+        Me.btnload.Location = New System.Drawing.Point(482, 35)
         Me.btnload.Name = "btnload"
         Me.btnload.Size = New System.Drawing.Size(203, 30)
         Me.btnload.TabIndex = 19
@@ -436,6 +438,19 @@ Partial Class Admin_CreateShift
         Me.UpDateRowToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.UpDateRowToolStripMenuItem.Text = "UpDate Row"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.DarkGreen
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Button1.Location = New System.Drawing.Point(724, 35)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(174, 30)
+        Me.Button1.TabIndex = 25
+        Me.Button1.Text = "Edit Shift"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Admin_CreateShift
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
@@ -498,4 +513,5 @@ Partial Class Admin_CreateShift
     Friend WithEvents DeleteRowToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UpDateRowToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btnload As Button
+    Friend WithEvents Button1 As Button
 End Class
