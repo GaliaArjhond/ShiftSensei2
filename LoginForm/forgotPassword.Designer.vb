@@ -27,15 +27,15 @@ Partial Class forgotPassword
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtLicenseNumber = New System.Windows.Forms.TextBox()
+        Me.lblSecurityQuestion = New System.Windows.Forms.Label()
+        Me.txtanswer = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txtnewPass = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -89,28 +89,28 @@ Partial Class forgotPassword
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "License Number:"
         '
-        'TextBox1
+        'txtLicenseNumber
         '
-        Me.TextBox1.Location = New System.Drawing.Point(459, 163)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(464, 26)
-        Me.TextBox1.TabIndex = 4
+        Me.txtLicenseNumber.Location = New System.Drawing.Point(459, 163)
+        Me.txtLicenseNumber.Name = "txtLicenseNumber"
+        Me.txtLicenseNumber.Size = New System.Drawing.Size(464, 26)
+        Me.txtLicenseNumber.TabIndex = 4
         '
-        'Label5
+        'lblSecurityQuestion
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(455, 214)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(151, 19)
-        Me.Label5.TabIndex = 5
-        Me.Label5.Text = "Security Question:"
+        Me.lblSecurityQuestion.AutoSize = True
+        Me.lblSecurityQuestion.Location = New System.Drawing.Point(455, 222)
+        Me.lblSecurityQuestion.Name = "lblSecurityQuestion"
+        Me.lblSecurityQuestion.Size = New System.Drawing.Size(151, 19)
+        Me.lblSecurityQuestion.TabIndex = 5
+        Me.lblSecurityQuestion.Text = "Security Question:"
         '
-        'TextBox3
+        'txtanswer
         '
-        Me.TextBox3.Location = New System.Drawing.Point(459, 342)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(464, 26)
-        Me.TextBox3.TabIndex = 8
+        Me.txtanswer.Location = New System.Drawing.Point(459, 342)
+        Me.txtanswer.Name = "txtanswer"
+        Me.txtanswer.Size = New System.Drawing.Size(464, 26)
+        Me.txtanswer.TabIndex = 8
         '
         'Label6
         '
@@ -121,12 +121,12 @@ Partial Class forgotPassword
         Me.Label6.TabIndex = 7
         Me.Label6.Text = "Answer:"
         '
-        'TextBox4
+        'txtnewPass
         '
-        Me.TextBox4.Location = New System.Drawing.Point(459, 439)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(464, 26)
-        Me.TextBox4.TabIndex = 10
+        Me.txtnewPass.Location = New System.Drawing.Point(459, 439)
+        Me.txtnewPass.Name = "txtnewPass"
+        Me.txtnewPass.Size = New System.Drawing.Size(464, 26)
+        Me.txtnewPass.TabIndex = 10
         '
         'Label7
         '
@@ -136,14 +136,6 @@ Partial Class forgotPassword
         Me.Label7.Size = New System.Drawing.Size(130, 19)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "New Password:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(459, 255)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(464, 27)
-        Me.ComboBox1.TabIndex = 11
         '
         'Button1
         '
@@ -163,20 +155,29 @@ Partial Class forgotPassword
         Me.Button2.Text = "Back"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(459, 260)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(204, 27)
+        Me.Button3.TabIndex = 14
+        Me.Button3.Text = "Retrieve Question"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'forgotPassword
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 561)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.txtnewPass)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.txtanswer)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.lblSecurityQuestion)
+        Me.Controls.Add(Me.txtLicenseNumber)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel1)
@@ -198,13 +199,13 @@ Partial Class forgotPassword
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtLicenseNumber As TextBox
+    Friend WithEvents lblSecurityQuestion As Label
+    Friend WithEvents txtanswer As TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents txtnewPass As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class
