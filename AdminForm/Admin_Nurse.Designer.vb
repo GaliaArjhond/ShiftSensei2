@@ -34,8 +34,6 @@ Partial Class Admin_Nurse
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
-        Me.txtsearch = New System.Windows.Forms.TextBox()
-        Me.btnsearch = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.btnload = New System.Windows.Forms.Button()
@@ -63,7 +61,7 @@ Partial Class Admin_Nurse
         Me.Label1.Location = New System.Drawing.Point(29, 46)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(149, 28)
+        Me.Label1.Size = New System.Drawing.Size(188, 34)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Shift Sensei"
         '
@@ -190,24 +188,6 @@ Partial Class Admin_Nurse
         Me.btnCreate.Text = "Create Shift"
         Me.btnCreate.UseVisualStyleBackColor = True
         '
-        'txtsearch
-        '
-        Me.txtsearch.Location = New System.Drawing.Point(258, 77)
-        Me.txtsearch.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
-        Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Size = New System.Drawing.Size(292, 26)
-        Me.txtsearch.TabIndex = 2
-        '
-        'btnsearch
-        '
-        Me.btnsearch.Location = New System.Drawing.Point(568, 77)
-        Me.btnsearch.Margin = New System.Windows.Forms.Padding(2, 4, 2, 4)
-        Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(110, 29)
-        Me.btnsearch.TabIndex = 3
-        Me.btnsearch.Text = "Search"
-        Me.btnsearch.UseVisualStyleBackColor = True
-        '
         'Button11
         '
         Me.Button11.BackColor = System.Drawing.Color.CornflowerBlue
@@ -259,15 +239,13 @@ Partial Class Admin_Nurse
         '
         'Admin_Nurse
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 680)
         Me.Controls.Add(Me.dataRecord)
         Me.Controls.Add(Me.btnload)
         Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Button11)
-        Me.Controls.Add(Me.btnsearch)
-        Me.Controls.Add(Me.txtsearch)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -280,7 +258,6 @@ Partial Class Admin_Nurse
         Me.Panel1.ResumeLayout(False)
         CType(Me.dataRecord, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Panel2 As Panel
@@ -294,8 +271,6 @@ Partial Class Admin_Nurse
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnReport As Button
     Friend WithEvents btnCreate As Button
-    Friend WithEvents txtsearch As TextBox
-    Friend WithEvents btnsearch As Button
     Friend WithEvents Button11 As Button
     Friend WithEvents Button12 As Button
     Friend WithEvents btnload As Button

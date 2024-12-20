@@ -1,4 +1,6 @@
-﻿Public Class Admin_Report
+﻿Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
+Public Class Admin_Report
     Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
         Admin_Dashboard.Show()
         Me.Hide()
@@ -37,6 +39,10 @@
 
     Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
         report.Show()
-        report.CrystalReportViewer1.ReportSource = report.crystalReport21
+        Dim reports As New ReportDocument
+        reports.Load("C:\Users\PC\Source\Repos\ShiftSensei2234\AdminForm\CrystalReport2.rpt")
+        report.CrystalReportViewer1.ReportSource = reports
+        report.CrystalReportViewer1.Refresh()
+
     End Sub
 End Class

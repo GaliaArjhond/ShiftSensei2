@@ -23,6 +23,7 @@ Partial Class Admin_Schedule
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnDashboard = New System.Windows.Forms.Button()
         Me.btnSchedule = New System.Windows.Forms.Button()
@@ -33,52 +34,35 @@ Partial Class Admin_Schedule
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnReport = New System.Windows.Forms.Button()
         Me.btnCreate = New System.Windows.Forms.Button()
-        Me.SchedulePanel = New System.Windows.Forms.Panel()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Panel16 = New System.Windows.Forms.Panel()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Panel15 = New System.Windows.Forms.Panel()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Panel14 = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Panel13 = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.MonthYearContainer = New System.Windows.Forms.Panel()
+        Me.DaysOfWeekContainer = New System.Windows.Forms.Panel()
+        Me.DaysRow0Container = New System.Windows.Forms.Panel()
+        Me.DaysRow1Container = New System.Windows.Forms.Panel()
+        Me.DaysRow2Container = New System.Windows.Forms.Panel()
+        Me.DaysRow3Container = New System.Windows.Forms.Panel()
+        Me.DaysRow4Container = New System.Windows.Forms.Panel()
+        Me.DaysRow5Container = New System.Windows.Forms.Panel()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.SchedulePanel.SuspendLayout()
-        Me.Panel16.SuspendLayout()
-        Me.Panel15.SuspendLayout()
-        Me.Panel14.SuspendLayout()
-        Me.Panel13.SuspendLayout()
-        Me.Panel12.SuspendLayout()
-        Me.Panel11.SuspendLayout()
-        Me.Panel5.SuspendLayout()
-        Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.MidnightBlue
+        Me.Panel2.Controls.Add(Me.FlowLayoutPanel1)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Location = New System.Drawing.Point(4, 4)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(214, 107)
         Me.Panel2.TabIndex = 1
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(213, 82)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1019, 592)
+        Me.FlowLayoutPanel1.TabIndex = 26
         '
         'Label1
         '
@@ -176,10 +160,11 @@ Partial Class Admin_Schedule
         Me.Panel1.Controls.Add(Me.btnCreate)
         Me.Panel1.Controls.Add(Me.btnDashboard)
         Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Location = New System.Drawing.Point(-4, -8)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(217, 1013)
+        Me.Panel1.Size = New System.Drawing.Size(217, 679)
         Me.Panel1.TabIndex = 0
         '
         'btnReport
@@ -206,256 +191,83 @@ Partial Class Admin_Schedule
         Me.btnCreate.Text = "Create Shift"
         Me.btnCreate.UseVisualStyleBackColor = True
         '
-        'SchedulePanel
+        'MonthYearContainer
         '
-        Me.SchedulePanel.AutoScroll = True
-        Me.SchedulePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SchedulePanel.Controls.Add(Me.Button5)
-        Me.SchedulePanel.Controls.Add(Me.TextBox1)
-        Me.SchedulePanel.Controls.Add(Me.Label10)
-        Me.SchedulePanel.Controls.Add(Me.Button4)
-        Me.SchedulePanel.Controls.Add(Me.Button3)
-        Me.SchedulePanel.Controls.Add(Me.Label9)
-        Me.SchedulePanel.Controls.Add(Me.Panel16)
-        Me.SchedulePanel.Controls.Add(Me.Panel15)
-        Me.SchedulePanel.Controls.Add(Me.Panel14)
-        Me.SchedulePanel.Controls.Add(Me.Panel13)
-        Me.SchedulePanel.Controls.Add(Me.Panel12)
-        Me.SchedulePanel.Controls.Add(Me.Panel11)
-        Me.SchedulePanel.Controls.Add(Me.Panel5)
-        Me.SchedulePanel.Controls.Add(Me.Panel6)
-        Me.SchedulePanel.Location = New System.Drawing.Point(221, -4)
-        Me.SchedulePanel.Name = "SchedulePanel"
-        Me.SchedulePanel.Size = New System.Drawing.Size(1013, 630)
-        Me.SchedulePanel.TabIndex = 2
+        Me.MonthYearContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.MonthYearContainer.Location = New System.Drawing.Point(217, 7)
+        Me.MonthYearContainer.Name = "MonthYearContainer"
+        Me.MonthYearContainer.Size = New System.Drawing.Size(1019, 77)
+        Me.MonthYearContainer.TabIndex = 1
         '
-        'Button5
+        'DaysOfWeekContainer
         '
-        Me.Button5.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(902, 29)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(115, 30)
-        Me.Button5.TabIndex = 25
-        Me.Button5.Text = "Search"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.DaysOfWeekContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.DaysOfWeekContainer.Location = New System.Drawing.Point(217, 92)
+        Me.DaysOfWeekContainer.Name = "DaysOfWeekContainer"
+        Me.DaysOfWeekContainer.Size = New System.Drawing.Size(1055, 77)
+        Me.DaysOfWeekContainer.TabIndex = 2
         '
-        'TextBox1
+        'DaysRow0Container
         '
-        Me.TextBox1.Location = New System.Drawing.Point(683, 33)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(213, 26)
-        Me.TextBox1.TabIndex = 24
+        Me.DaysRow0Container.BackColor = System.Drawing.Color.Lime
+        Me.DaysRow0Container.Location = New System.Drawing.Point(217, 177)
+        Me.DaysRow0Container.Name = "DaysRow0Container"
+        Me.DaysRow0Container.Size = New System.Drawing.Size(1062, 77)
+        Me.DaysRow0Container.TabIndex = 3
         '
-        'Label10
+        'DaysRow1Container
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(241, 36)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(47, 20)
-        Me.Label10.TabIndex = 23
-        Me.Label10.Text = "Today"
+        Me.DaysRow1Container.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DaysRow1Container.Location = New System.Drawing.Point(217, 261)
+        Me.DaysRow1Container.Name = "DaysRow1Container"
+        Me.DaysRow1Container.Size = New System.Drawing.Size(1062, 77)
+        Me.DaysRow1Container.TabIndex = 4
         '
-        'Button4
+        'DaysRow2Container
         '
-        Me.Button4.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(294, 33)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(31, 23)
-        Me.Button4.TabIndex = 22
-        Me.Button4.Text = ">"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.DaysRow2Container.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.DaysRow2Container.Location = New System.Drawing.Point(217, 353)
+        Me.DaysRow2Container.Name = "DaysRow2Container"
+        Me.DaysRow2Container.Size = New System.Drawing.Size(1062, 77)
+        Me.DaysRow2Container.TabIndex = 5
         '
-        'Button3
+        'DaysRow3Container
         '
-        Me.Button3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(204, 33)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(31, 23)
-        Me.Button3.TabIndex = 21
-        Me.Button3.Text = "<"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.DaysRow3Container.BackColor = System.Drawing.Color.Blue
+        Me.DaysRow3Container.Location = New System.Drawing.Point(217, 438)
+        Me.DaysRow3Container.Name = "DaysRow3Container"
+        Me.DaysRow3Container.Size = New System.Drawing.Size(1062, 77)
+        Me.DaysRow3Container.TabIndex = 6
         '
-        'Label9
+        'DaysRow4Container
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(16, 33)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(173, 24)
-        Me.Label9.TabIndex = 20
-        Me.Label9.Text = "November, 2024"
+        Me.DaysRow4Container.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DaysRow4Container.Location = New System.Drawing.Point(217, 527)
+        Me.DaysRow4Container.Name = "DaysRow4Container"
+        Me.DaysRow4Container.Size = New System.Drawing.Size(1062, 51)
+        Me.DaysRow4Container.TabIndex = 7
         '
-        'Panel16
+        'DaysRow5Container
         '
-        Me.Panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel16.Controls.Add(Me.Label8)
-        Me.Panel16.Location = New System.Drawing.Point(880, 69)
-        Me.Panel16.Name = "Panel16"
-        Me.Panel16.Size = New System.Drawing.Size(138, 36)
-        Me.Panel16.TabIndex = 16
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(38, 9)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(65, 16)
-        Me.Label8.TabIndex = 8
-        Me.Label8.Text = "Saturday"
-        '
-        'Panel15
-        '
-        Me.Panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel15.Controls.Add(Me.Label7)
-        Me.Panel15.Location = New System.Drawing.Point(736, 69)
-        Me.Panel15.Name = "Panel15"
-        Me.Panel15.Size = New System.Drawing.Size(138, 36)
-        Me.Panel15.TabIndex = 17
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(44, 9)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(48, 16)
-        Me.Label7.TabIndex = 7
-        Me.Label7.Text = "Friday"
-        '
-        'Panel14
-        '
-        Me.Panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel14.Controls.Add(Me.Label6)
-        Me.Panel14.Location = New System.Drawing.Point(592, 69)
-        Me.Panel14.Name = "Panel14"
-        Me.Panel14.Size = New System.Drawing.Size(138, 36)
-        Me.Panel14.TabIndex = 18
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(33, 9)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(66, 16)
-        Me.Label6.TabIndex = 6
-        Me.Label6.Text = "Thursday"
-        '
-        'Panel13
-        '
-        Me.Panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel13.Controls.Add(Me.Label5)
-        Me.Panel13.Location = New System.Drawing.Point(448, 69)
-        Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(138, 36)
-        Me.Panel13.TabIndex = 19
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(29, 9)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(82, 16)
-        Me.Label5.TabIndex = 5
-        Me.Label5.Text = "Wednesday"
-        '
-        'Panel12
-        '
-        Me.Panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel12.Controls.Add(Me.Label4)
-        Me.Panel12.Location = New System.Drawing.Point(304, 69)
-        Me.Panel12.Name = "Panel12"
-        Me.Panel12.Size = New System.Drawing.Size(138, 36)
-        Me.Panel12.TabIndex = 15
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(40, 9)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 16)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Tuesday"
-        '
-        'Panel11
-        '
-        Me.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel11.Controls.Add(Me.Label3)
-        Me.Panel11.Location = New System.Drawing.Point(160, 69)
-        Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(138, 36)
-        Me.Panel11.TabIndex = 14
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(40, 9)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(58, 16)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Monday"
-        '
-        'Panel5
-        '
-        Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel5.Controls.Add(Me.LinkLabel1)
-        Me.Panel5.Controls.Add(Me.Label11)
-        Me.Panel5.Location = New System.Drawing.Point(16, 111)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(138, 127)
-        Me.Panel5.TabIndex = 13
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel1.Location = New System.Drawing.Point(67, 34)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(70, 16)
-        Me.LinkLabel1.TabIndex = 12
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "LinkLabel1"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(118, 2)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(15, 16)
-        Me.Label11.TabIndex = 12
-        Me.Label11.Text = "1"
-        '
-        'Panel6
-        '
-        Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel6.Controls.Add(Me.Label2)
-        Me.Panel6.Location = New System.Drawing.Point(16, 69)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(138, 36)
-        Me.Panel6.TabIndex = 12
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(41, 9)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(56, 16)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Sunday"
+        Me.DaysRow5Container.BackColor = System.Drawing.Color.Magenta
+        Me.DaysRow5Container.Location = New System.Drawing.Point(217, 616)
+        Me.DaysRow5Container.Name = "DaysRow5Container"
+        Me.DaysRow5Container.Size = New System.Drawing.Size(1062, 51)
+        Me.DaysRow5Container.TabIndex = 8
         '
         'Admin_Schedule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1234, 681)
-        Me.Controls.Add(Me.SchedulePanel)
+        Me.ClientSize = New System.Drawing.Size(1234, 679)
+        Me.Controls.Add(Me.DaysRow5Container)
+        Me.Controls.Add(Me.DaysRow4Container)
+        Me.Controls.Add(Me.DaysRow3Container)
+        Me.Controls.Add(Me.DaysRow2Container)
+        Me.Controls.Add(Me.DaysRow1Container)
+        Me.Controls.Add(Me.DaysRow0Container)
+        Me.Controls.Add(Me.DaysOfWeekContainer)
+        Me.Controls.Add(Me.MonthYearContainer)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -466,24 +278,6 @@ Partial Class Admin_Schedule
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
-        Me.SchedulePanel.ResumeLayout(False)
-        Me.SchedulePanel.PerformLayout()
-        Me.Panel16.ResumeLayout(False)
-        Me.Panel16.PerformLayout()
-        Me.Panel15.ResumeLayout(False)
-        Me.Panel15.PerformLayout()
-        Me.Panel14.ResumeLayout(False)
-        Me.Panel14.PerformLayout()
-        Me.Panel13.ResumeLayout(False)
-        Me.Panel13.PerformLayout()
-        Me.Panel12.ResumeLayout(False)
-        Me.Panel12.PerformLayout()
-        Me.Panel11.ResumeLayout(False)
-        Me.Panel11.PerformLayout()
-        Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
-        Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -498,28 +292,13 @@ Partial Class Admin_Schedule
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnReport As Button
     Friend WithEvents btnCreate As Button
-    Friend WithEvents SchedulePanel As Panel
-    Friend WithEvents Button5 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Panel16 As Panel
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Panel15 As Panel
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Panel14 As Panel
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Panel13 As Panel
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Panel12 As Panel
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Panel11 As Panel
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Panel5 As Panel
-    Friend WithEvents LinkLabel1 As LinkLabel
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Panel6 As Panel
-    Friend WithEvents Label2 As Label
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents MonthYearContainer As Panel
+    Friend WithEvents DaysRow0Container As Panel
+    Friend WithEvents DaysRow1Container As Panel
+    Friend WithEvents DaysRow2Container As Panel
+    Friend WithEvents DaysRow3Container As Panel
+    Friend WithEvents DaysRow4Container As Panel
+    Friend WithEvents DaysRow5Container As Panel
+    Friend WithEvents DaysOfWeekContainer As Panel
 End Class

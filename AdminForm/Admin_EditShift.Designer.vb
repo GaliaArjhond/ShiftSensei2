@@ -38,11 +38,13 @@ Partial Class Admin_EditShift
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmbShiftName = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmbShiftType = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(49, 485)
+        Me.Button1.Location = New System.Drawing.Point(49, 527)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(160, 32)
         Me.Button1.TabIndex = 6
@@ -51,7 +53,7 @@ Partial Class Admin_EditShift
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(300, 485)
+        Me.Button2.Location = New System.Drawing.Point(300, 527)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(160, 32)
         Me.Button2.TabIndex = 7
@@ -61,92 +63,92 @@ Partial Class Admin_EditShift
         'cmbDepartment
         '
         Me.cmbDepartment.FormattingEnabled = True
-        Me.cmbDepartment.Location = New System.Drawing.Point(176, 405)
+        Me.cmbDepartment.Location = New System.Drawing.Point(176, 462)
         Me.cmbDepartment.Name = "cmbDepartment"
-        Me.cmbDepartment.Size = New System.Drawing.Size(284, 27)
+        Me.cmbDepartment.Size = New System.Drawing.Size(284, 32)
         Me.cmbDepartment.TabIndex = 32
         '
         'dtpEndTime
         '
         Me.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpEndTime.Location = New System.Drawing.Point(176, 338)
+        Me.dtpEndTime.Location = New System.Drawing.Point(176, 395)
         Me.dtpEndTime.Name = "dtpEndTime"
         Me.dtpEndTime.ShowUpDown = True
-        Me.dtpEndTime.Size = New System.Drawing.Size(120, 26)
+        Me.dtpEndTime.Size = New System.Drawing.Size(120, 30)
         Me.dtpEndTime.TabIndex = 31
         '
         'dtpStartTime
         '
         Me.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtpStartTime.Location = New System.Drawing.Point(176, 281)
+        Me.dtpStartTime.Location = New System.Drawing.Point(176, 338)
         Me.dtpStartTime.Name = "dtpStartTime"
         Me.dtpStartTime.ShowUpDown = True
-        Me.dtpStartTime.Size = New System.Drawing.Size(120, 26)
+        Me.dtpStartTime.Size = New System.Drawing.Size(120, 30)
         Me.dtpStartTime.TabIndex = 30
         '
         'dtpEndDate
         '
-        Me.dtpEndDate.Location = New System.Drawing.Point(176, 220)
+        Me.dtpEndDate.Location = New System.Drawing.Point(176, 277)
         Me.dtpEndDate.Name = "dtpEndDate"
-        Me.dtpEndDate.Size = New System.Drawing.Size(284, 26)
+        Me.dtpEndDate.Size = New System.Drawing.Size(284, 30)
         Me.dtpEndDate.TabIndex = 29
         '
         'dtpStartDate
         '
-        Me.dtpStartDate.Location = New System.Drawing.Point(176, 161)
+        Me.dtpStartDate.Location = New System.Drawing.Point(176, 218)
         Me.dtpStartDate.Name = "dtpStartDate"
-        Me.dtpStartDate.Size = New System.Drawing.Size(284, 26)
+        Me.dtpStartDate.Size = New System.Drawing.Size(284, 30)
         Me.dtpStartDate.TabIndex = 28
         '
         'txtShiftName
         '
         Me.txtShiftName.Location = New System.Drawing.Point(176, 102)
         Me.txtShiftName.Name = "txtShiftName"
-        Me.txtShiftName.Size = New System.Drawing.Size(284, 26)
+        Me.txtShiftName.Size = New System.Drawing.Size(284, 30)
         Me.txtShiftName.TabIndex = 27
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(47, 411)
+        Me.Label7.Location = New System.Drawing.Point(47, 468)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(104, 19)
+        Me.Label7.Size = New System.Drawing.Size(127, 24)
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Dapartment:"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(45, 344)
+        Me.Label6.Location = New System.Drawing.Point(45, 401)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(82, 19)
+        Me.Label6.Size = New System.Drawing.Size(100, 24)
         Me.Label6.TabIndex = 25
         Me.Label6.Text = "End time:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(47, 287)
+        Me.Label5.Location = New System.Drawing.Point(47, 344)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(87, 19)
+        Me.Label5.Size = New System.Drawing.Size(109, 24)
         Me.Label5.TabIndex = 24
         Me.Label5.Text = "Start time:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(47, 226)
+        Me.Label4.Location = New System.Drawing.Point(47, 283)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(85, 19)
+        Me.Label4.Size = New System.Drawing.Size(103, 24)
         Me.Label4.TabIndex = 23
         Me.Label4.Text = "End Date:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(45, 167)
+        Me.Label3.Location = New System.Drawing.Point(45, 224)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(84, 19)
+        Me.Label3.Size = New System.Drawing.Size(105, 24)
         Me.Label3.TabIndex = 22
         Me.Label3.Text = "Start Date"
         '
@@ -155,7 +157,7 @@ Partial Class Admin_EditShift
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(47, 105)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(98, 19)
+        Me.Label2.Size = New System.Drawing.Size(120, 24)
         Me.Label2.TabIndex = 21
         Me.Label2.Text = "Shift Name:"
         '
@@ -164,7 +166,7 @@ Partial Class Admin_EditShift
         Me.cmbShiftName.FormattingEnabled = True
         Me.cmbShiftName.Location = New System.Drawing.Point(176, 29)
         Me.cmbShiftName.Name = "cmbShiftName"
-        Me.cmbShiftName.Size = New System.Drawing.Size(284, 27)
+        Me.cmbShiftName.Size = New System.Drawing.Size(284, 32)
         Me.cmbShiftName.TabIndex = 33
         '
         'Label1
@@ -172,15 +174,35 @@ Partial Class Admin_EditShift
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(45, 32)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(99, 19)
+        Me.Label1.Size = New System.Drawing.Size(123, 24)
         Me.Label1.TabIndex = 34
         Me.Label1.Text = "Select shift:"
         '
+        'cmbShiftType
+        '
+        Me.cmbShiftType.FormattingEnabled = True
+        Me.cmbShiftType.Location = New System.Drawing.Point(174, 158)
+        Me.cmbShiftType.Name = "cmbShiftType"
+        Me.cmbShiftType.Size = New System.Drawing.Size(286, 32)
+        Me.cmbShiftType.TabIndex = 36
+        Me.cmbShiftType.UseWaitCursor = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(45, 166)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(113, 24)
+        Me.Label8.TabIndex = 35
+        Me.Label8.Text = "Shift Type:"
+        '
         'Admin_EditShift
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(499, 546)
+        Me.ClientSize = New System.Drawing.Size(499, 589)
+        Me.Controls.Add(Me.cmbShiftType)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmbShiftName)
         Me.Controls.Add(Me.cmbDepartment)
@@ -223,4 +245,6 @@ Partial Class Admin_EditShift
     Friend WithEvents Label2 As Label
     Friend WithEvents cmbShiftName As ComboBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents cmbShiftType As ComboBox
+    Friend WithEvents Label8 As Label
 End Class

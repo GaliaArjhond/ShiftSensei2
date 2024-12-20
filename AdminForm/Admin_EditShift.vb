@@ -14,6 +14,13 @@ Public Class Admin_EditShift
     Dim departmentId, totalAvailableHours, totalShiftDuration, idealShifts, assignedShifts, shiftTimeId, shiftId, index As Integer
     Dim startDate, endDate, startTime, endTime As DateTime
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Admin_CreateShift.Show()
+        Me.Hide()
+
+
+    End Sub
+
     Private rowIndex As Integer = -1
     Private bindingSource1 As New BindingSource()
     Private dataAdapter As New MySqlDataAdapter()
@@ -56,10 +63,29 @@ Public Class Admin_EditShift
         End Try
     End Sub
 
+    Private Sub LoadShiftTime()
+        Try
+            query = "SELECT * FROM shiftsenseidb.shifttime"
+            cmd = New MySqlCommand(query, datacon)
+            adp = New MySqlDataAdapter(cmd)
+            ds = New DataSet()
+            adp.Fill(ds)
+            dtable = ds.Tables(0)
+
+            cmbShiftType.DataSource = dtable
+            cmbShiftType.ValueMember = "shiftTimeId"
+            cmbShiftType.DisplayMember = "shiftTimeName"
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim dgresult As New DialogResult
 
         shiftName = txtShiftName.Text
+        shiftTimeId = cmbShiftType.SelectedValue
         startDate = dtpStartDate.Value
         endDate = dtpEndDate.Value
         startTime = dtpStartTime.Value
@@ -73,7 +99,7 @@ Public Class Admin_EditShift
                 With cmd
                     datacon.Open()
                     .Connection = datacon
-                    .CommandText = "UPDATE shifts SET shiftName = '" & txtShiftName.Text & "', startDate = '" & startDate.ToString("yyyy-MM-dd HH:mm:ss") & "', endDate = '" & endDate.ToString("yyyy-MM-dd HH:mm:ss") & "', 
+                    .CommandText = "UPDATE shifts SET shiftName = '" & txtShiftName.Text & "', shiftTimeId = '" & cmbShiftType.SelectedValue & "', startDate = '" & startDate.ToString("yyyy-MM-dd HH:mm:ss") & "', endDate = '" & endDate.ToString("yyyy-MM-dd HH:mm:ss") & "', 
                                      startTime = '" & startTime.ToString("HH:mm:ss") & "', endTime = '" & endTime.ToString("HH:mm:ss") & "', departmentId = '" & cmbDepartment.SelectedValue & "' WHERE shiftId = '" & shiftId & "'"
                     result = .ExecuteNonQuery
                     If result > 0 Then
@@ -127,5 +153,6 @@ Public Class Admin_EditShift
         LoadDepartments()
         databaseConnect()
         LoadShifts()
+        LoadShiftTime()
     End Sub
 End Class

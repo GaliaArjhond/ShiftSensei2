@@ -22,8 +22,8 @@ Partial Class report
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.crystalReport2 = New ShiftSensei2.CrystalReport2()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
-        Me.crystalReport21 = New ShiftSensei2.CrystalReport2()
         Me.SuspendLayout()
         '
         'CrystalReportViewer1
@@ -34,21 +34,21 @@ Partial Class report
         Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(800, 450)
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1067, 554)
         Me.CrystalReportViewer1.TabIndex = 0
         '
         'report
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 554)
         Me.Controls.Add(Me.CrystalReportViewer1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "report"
         Me.Text = "report"
         Me.ResumeLayout(False)
 
     End Sub
-
+    Friend WithEvents crystalReport2 As CrystalReport2
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Friend WithEvents crystalReport21 As CrystalReport2
 End Class
