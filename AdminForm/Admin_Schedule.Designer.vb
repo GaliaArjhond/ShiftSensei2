@@ -193,7 +193,7 @@ Partial Class Admin_Schedule
         '
         'MonthYearContainer
         '
-        Me.MonthYearContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.MonthYearContainer.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.MonthYearContainer.Location = New System.Drawing.Point(217, 7)
         Me.MonthYearContainer.Name = "MonthYearContainer"
         Me.MonthYearContainer.Size = New System.Drawing.Size(1019, 77)
@@ -201,7 +201,7 @@ Partial Class Admin_Schedule
         '
         'DaysOfWeekContainer
         '
-        Me.DaysOfWeekContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.DaysOfWeekContainer.BackColor = System.Drawing.Color.CadetBlue
         Me.DaysOfWeekContainer.Location = New System.Drawing.Point(217, 92)
         Me.DaysOfWeekContainer.Name = "DaysOfWeekContainer"
         Me.DaysOfWeekContainer.Size = New System.Drawing.Size(1055, 77)
@@ -209,7 +209,7 @@ Partial Class Admin_Schedule
         '
         'DaysRow0Container
         '
-        Me.DaysRow0Container.BackColor = System.Drawing.Color.Lime
+        Me.DaysRow0Container.BackColor = System.Drawing.Color.White
         Me.DaysRow0Container.Location = New System.Drawing.Point(217, 177)
         Me.DaysRow0Container.Name = "DaysRow0Container"
         Me.DaysRow0Container.Size = New System.Drawing.Size(1062, 77)
@@ -217,7 +217,7 @@ Partial Class Admin_Schedule
         '
         'DaysRow1Container
         '
-        Me.DaysRow1Container.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.DaysRow1Container.BackColor = System.Drawing.Color.White
         Me.DaysRow1Container.Location = New System.Drawing.Point(217, 261)
         Me.DaysRow1Container.Name = "DaysRow1Container"
         Me.DaysRow1Container.Size = New System.Drawing.Size(1062, 77)
@@ -225,7 +225,7 @@ Partial Class Admin_Schedule
         '
         'DaysRow2Container
         '
-        Me.DaysRow2Container.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.DaysRow2Container.BackColor = System.Drawing.Color.White
         Me.DaysRow2Container.Location = New System.Drawing.Point(217, 353)
         Me.DaysRow2Container.Name = "DaysRow2Container"
         Me.DaysRow2Container.Size = New System.Drawing.Size(1062, 77)
@@ -233,7 +233,7 @@ Partial Class Admin_Schedule
         '
         'DaysRow3Container
         '
-        Me.DaysRow3Container.BackColor = System.Drawing.Color.Blue
+        Me.DaysRow3Container.BackColor = System.Drawing.Color.White
         Me.DaysRow3Container.Location = New System.Drawing.Point(217, 438)
         Me.DaysRow3Container.Name = "DaysRow3Container"
         Me.DaysRow3Container.Size = New System.Drawing.Size(1062, 77)
@@ -241,18 +241,18 @@ Partial Class Admin_Schedule
         '
         'DaysRow4Container
         '
-        Me.DaysRow4Container.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DaysRow4Container.BackColor = System.Drawing.Color.White
         Me.DaysRow4Container.Location = New System.Drawing.Point(217, 527)
         Me.DaysRow4Container.Name = "DaysRow4Container"
-        Me.DaysRow4Container.Size = New System.Drawing.Size(1062, 51)
+        Me.DaysRow4Container.Size = New System.Drawing.Size(1062, 75)
         Me.DaysRow4Container.TabIndex = 7
         '
         'DaysRow5Container
         '
-        Me.DaysRow5Container.BackColor = System.Drawing.Color.Magenta
-        Me.DaysRow5Container.Location = New System.Drawing.Point(217, 616)
+        Me.DaysRow5Container.BackColor = System.Drawing.Color.White
+        Me.DaysRow5Container.Location = New System.Drawing.Point(217, 608)
         Me.DaysRow5Container.Name = "DaysRow5Container"
-        Me.DaysRow5Container.Size = New System.Drawing.Size(1062, 51)
+        Me.DaysRow5Container.Size = New System.Drawing.Size(1062, 68)
         Me.DaysRow5Container.TabIndex = 8
         '
         'Admin_Schedule

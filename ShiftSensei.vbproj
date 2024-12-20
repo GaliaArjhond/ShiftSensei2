@@ -190,6 +190,7 @@
     <Compile Include="AdminForm\assignForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AdminForm\MonthlyCalendarInfo.vb" />
     <Compile Include="AdminForm\CreateAccount.Designer.vb">
       <DependentUpon>CreateAccount.vb</DependentUpon>
     </Compile>
@@ -206,12 +207,6 @@
       <DependentUpon>DeleteAccount.vb</DependentUpon>
     </Compile>
     <Compile Include="AdminForm\DeleteAccount.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminForm\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="AdminForm\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminForm\report.Designer.vb">
@@ -344,9 +339,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForm\DeleteAccount.resx">
       <DependentUpon>DeleteAccount.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminForm\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForm\report.resx">
       <DependentUpon>report.vb</DependentUpon>
