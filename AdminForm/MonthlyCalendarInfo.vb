@@ -3,43 +3,36 @@
     Private _Year As Integer
     Private ReadOnly _Days(5, 6) As DateTime
 
-    Public ReadOnly Property Month
+    Public ReadOnly Property Month As Integer
         Get
             Return _Month
         End Get
     End Property
 
-    Public ReadOnly Property Year
+    Public ReadOnly Property Year As Integer
         Get
             Return _Year
         End Get
     End Property
 
-    Public Sub New(v As Integer, v1 As Integer)
-        _Month = Now.Month
-        _Year = Now.Year
+    Public Sub New(year As Integer, month As Integer)
+        _Year = year
+        _Month = month
         setDays()
     End Sub
 
     Private Sub setDays()
-        Dim firstDayOfMonth As DateTime
-        Dim column As Integer
-        Dim firstDayOfGrid As DateTime
-        Dim gridDate As DateTime
+        Dim firstDayOfMonth As DateTime = New Date(_Year, _Month, 1)
+        Dim column As Integer = CInt(firstDayOfMonth.DayOfWeek)
+        Dim firstDayOfGrid As DateTime = firstDayOfMonth.AddDays(column * -1)
+        Dim gridDate As DateTime = firstDayOfGrid
 
-        firstDayOfMonth = New Date(_Year, _Month, 1)
-        column = CInt(firstDayOfMonth.DayOfWeek)
-        firstDayOfGrid = firstDayOfMonth.AddDays(column * -1)
-
-        gridDate = firstDayOfGrid
         For rowIndex = 0 To 5
             For colIndex = 0 To 6
                 _Days(rowIndex, colIndex) = gridDate
                 gridDate = gridDate.AddDays(1)
             Next
         Next
-
-        Return
     End Sub
 
     Public Sub GoToMonth(year As Integer, month As Integer)
@@ -54,10 +47,9 @@
         _Year = year
         _Month = month
         setDays()
-
     End Sub
 
-    Public Function DayInMonth(row As Integer, column As Integer) As Integer
+    Public Function DayInMonth(row As Integer, column As Integer) As DateTime
         If row < 0 Or row > 5 Then
             Throw New ArgumentOutOfRangeException("Row")
         End If
@@ -66,7 +58,7 @@
             Throw New ArgumentOutOfRangeException("Column")
         End If
 
-        Return _Days(row, column).Day
+        Return _Days(row, column)
     End Function
 
     Public Function isActiveMonth(row As Integer, column As Integer) As Boolean
@@ -94,37 +86,30 @@
     End Function
 
     Public Function row(dt As DateTime) As Integer
-        Dim colIndex = 0
-        Dim rowIndex = 0
-
         For rowIndex = 0 To 5
-            If _Days(rowIndex, colIndex) = dt Then
-                Return rowIndex
-            End If
+            For colIndex = 0 To 6
+                If _Days(rowIndex, colIndex) = dt Then
+                    Return rowIndex
+                End If
+            Next
         Next
 
         Return -1
     End Function
 
     Public Function col(dt As DateTime) As Integer
-        Dim colIndex = 0
-        Dim rowIndex = 0
-
         For rowIndex = 0 To 5
-            If _Days(rowIndex, colIndex) = dt Then
-                Return rowIndex
-            End If
+            For colIndex = 0 To 6
+                If _Days(rowIndex, colIndex) = dt Then
+                    Return colIndex
+                End If
+            Next
         Next
 
         Return -1
     End Function
 
     Public Function dateExists(dt As DateTime) As Boolean
-        If row(dt) > -1 Then
-            Return True
-        End If
-
-        Return False
+        Return row(dt) > -1
     End Function
-
 End Class

@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+
 Public Class Admin_Schedule
     Private Const DaysInMonth As Integer = 42
     Private calendarInfo As MonthlyCalendarInfo
@@ -6,37 +7,31 @@ Public Class Admin_Schedule
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         Admin_CreateShift.Show()
         Me.Hide()
-
     End Sub
 
     Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
         Admin_Dashboard.Show()
         Me.Hide()
-
     End Sub
 
     Private Sub btnNurse_Click(sender As Object, e As EventArgs) Handles btnNurse.Click
         Admin_Nurse.Show()
         Me.Hide()
-
     End Sub
 
     Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
         Admin_Report.Show()
         Me.Hide()
-
     End Sub
 
     Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
         Admin_Profile.Show()
         Me.Hide()
-
     End Sub
 
     Private Sub btnAccount_Click(sender As Object, e As EventArgs) Handles btnAccount.Click
         Admin_Account1.Show()
         Me.Hide()
-
     End Sub
 
     Private Sub sizeContainers()
@@ -79,25 +74,19 @@ Public Class Admin_Schedule
 
         DaysRow5Container.Size = New Size(availableWidth, daysHeight)
         DaysRow5Container.Location = New Point(tabWidth, daysYStart + (daysHeight * 5))
-
-
     End Sub
 
     Private Sub SizeMonthYearLabel()
-
         Dim x As Integer
         Dim y As Integer
         Dim label As Label
 
         If MonthYearContainer.Controls.Count > 0 Then
-
             label = MonthYearContainer.Controls.Find("LblMonthYear", False).First
             x = (MonthYearContainer.Width - label.Width) / 2
             y = (MonthYearContainer.Height - label.Height) / 2
             label.Location = New Point(x, y)
-
         End If
-
     End Sub
 
     Private Sub CreateMonthYearLabel()
@@ -113,9 +102,9 @@ Public Class Admin_Schedule
 
         ' Center the label horizontally and vertically within the container
         label.Location = New Point(
-        (MonthYearContainer.Width - label.Width) \ 2, ' Center horizontally
-        (MonthYearContainer.Height - label.Height) \ 2 ' Center vertically
-    )
+            (MonthYearContainer.Width - label.Width) \ 2, ' Center horizontally
+            (MonthYearContainer.Height - label.Height) \ 2 ' Center vertically
+        )
     End Sub
 
     Private Sub CreateDaysOfWeekLabels()
@@ -147,9 +136,7 @@ Public Class Admin_Schedule
     End Sub
 
     Private Sub SizeDaysOfWeekLabels()
-
         SizeWidthEqually(DaysOfWeekContainer)
-
     End Sub
 
     Private Sub SizeWidthEqually(ByVal c As Control)
@@ -172,7 +159,6 @@ Public Class Admin_Schedule
     End Sub
 
     Private Sub CreateDaysControls()
-
         Dim dayPanel As Panel
         Dim dayOfMonthLbl As Label
 
@@ -180,10 +166,12 @@ Public Class Admin_Schedule
             For colIndex = 0 To 6
                 dayPanel = New Panel
                 dayPanel.Name = String.Format("PnlDay{0}{1}", rowIndex, colIndex)
+                dayPanel.BorderStyle = BorderStyle.FixedSingle
+
                 dayOfMonthLbl = New Label
                 dayOfMonthLbl.Name = String.Format("LblDayOfMonth{0}{1}", rowIndex, colIndex)
-                dayOfMonthLbl.Text = dayOfMonthLbl.Name
                 dayOfMonthLbl.Font = New Font("Segoe UI", 9, FontStyle.Regular)
+                dayOfMonthLbl.Dock = DockStyle.Top
                 dayPanel.Controls.Add(dayOfMonthLbl)
 
                 Select Case rowIndex
@@ -200,18 +188,16 @@ Public Class Admin_Schedule
                     Case 5
                         DaysRow5Container.Controls.Add(dayPanel)
                 End Select
-
             Next
         Next
-
     End Sub
 
     Private Sub SizeDaysControls()
         ' Array to hold all day row containers
         Dim dayRowContainers As Panel() = {
-        DaysRow0Container, DaysRow1Container, DaysRow2Container,
-        DaysRow3Container, DaysRow4Container, DaysRow5Container
-    }
+            DaysRow0Container, DaysRow1Container, DaysRow2Container,
+            DaysRow3Container, DaysRow4Container, DaysRow5Container
+        }
 
         ' Apply SizeWidthEqually to each container
         For Each container As Panel In dayRowContainers
@@ -220,7 +206,6 @@ Public Class Admin_Schedule
     End Sub
 
     Private Sub MonthYearContainer_Click(sender As Object, e As EventArgs) Handles MonthYearContainer.Click
-
         Dim pointClicked As Point
         Dim midPointX As Integer
         Dim activeMonth As DateTime
@@ -237,30 +222,28 @@ Public Class Admin_Schedule
         End If
 
         calendarInfo.GoToMonth(newMonth.Year, newMonth.Month)
-
         PopulateCalendarInfo()
-
-
     End Sub
 
     Private Sub PopulateCalendarInfo()
-
         Dim label As Control
         Dim labelName As String
-        Dim shifts As New Dictionary(Of DateTime, String)
+        Dim shifts As New Dictionary(Of DateTime, (String, DateTime, Integer))
 
         ' MySQL query to fetch shifts
         Try
-            Dim query As String = "SELECT shift_date, shift_name FROM shifts WHERE MONTH(shift_date) = @month AND YEAR(shift_date) = @year"
+            Dim query As String = "SELECT startDate, endDate, shiftName, shiftTimeId FROM shifts WHERE MONTH(startDate) = @month AND YEAR(startDate) = @year"
             Dim command As New MySqlCommand(query, datacon)
             command.Parameters.AddWithValue("@month", calendarInfo.Month)
             command.Parameters.AddWithValue("@year", calendarInfo.Year)
 
             Dim reader As MySqlDataReader = command.ExecuteReader()
             While reader.Read()
-                Dim shiftDate As DateTime = reader.GetDateTime("shift_date")
-                Dim shiftName As String = reader.GetString("shift_name")
-                shifts(shiftDate) = shiftName
+                Dim shiftDate As DateTime = reader.GetDateTime("startDate")
+                Dim endDate As DateTime = reader.GetDateTime("endDate")
+                Dim shiftName As String = reader.GetString("shiftName")
+                Dim shiftTimeId As Integer = reader.GetInt32("shiftTimeId")
+                shifts(shiftDate) = (shiftName, endDate, shiftTimeId)
             End While
             reader.Close()
         Catch ex As Exception
@@ -268,44 +251,68 @@ Public Class Admin_Schedule
             Return
         End Try
 
-        ' Update the calendar with days and shift information
-        label = MonthYearContainer.Controls.Find("LblMonthYear", False).First
-        label.Text = String.Format("{0} {1}", MonthName(calendarInfo.Month), calendarInfo.Year)
+        ' Update the month-year label
+        label = MonthYearContainer.Controls.Find("LblMonthYear", False).FirstOrDefault()
+        If label IsNot Nothing Then
+            label.Text = String.Format("{0} {1}", MonthName(calendarInfo.Month), calendarInfo.Year)
+        End If
 
+        ' Clear existing shift labels and update the calendar with days and shift information
         For rowIndex = 0 To 5
             For colIndex = 0 To 6
-                labelName = String.Format("LblDayOfMonth{0}{1}", rowIndex, colIndex)
-                label = Me.Controls.Find(labelName, True).First
-                Dim dayDate As DateTime = calendarInfo.DayInMonth(rowIndex, colIndex)
+                Dim parentPanelName As String = String.Format("PnlDay{0}{1}", rowIndex, colIndex)
+                Dim parentPanel As Control = Me.Controls.Find(parentPanelName, True).FirstOrDefault()
+                If parentPanel IsNot Nothing Then
+                    parentPanel.Controls.Clear()
 
-                ' Update day label text
-                label.Text = dayDate.Day.ToString()
-
-                ' Style the day based on its status
-                If calendarInfo.isActiveMonth(rowIndex, colIndex) Then
-                    label.ForeColor = Color.Black
-                Else
-                    label.ForeColor = Color.Gray
-                End If
-
-                If calendarInfo.isToday(rowIndex, colIndex) Then
-                    label.ForeColor = Color.Red
-                End If
-
-                ' Display shift information if available
-                If shifts.ContainsKey(dayDate) Then
-                    Dim parentPanelName As String = String.Format("PnlDay{0}{1}", rowIndex, colIndex)
-                    Dim parentPanel As Control = Me.Controls.Find(parentPanelName, True).FirstOrDefault()
-
-                    If parentPanel IsNot Nothing Then
-                        Dim shiftLabel As New Label With {
-                        .Text = shifts(dayDate),
-                        .Font = New Font("Segoe UI", 8, FontStyle.Italic),
-                        .ForeColor = Color.Blue,
-                        .Dock = DockStyle.Bottom,
-                        .TextAlign = ContentAlignment.MiddleCenter
+                    ' Create a day label for the number
+                    Dim dayDate As DateTime = calendarInfo.DayInMonth(rowIndex, colIndex)
+                    Dim dayOfMonthLbl As New Label With {
+                        .Text = dayDate.Day.ToString(),
+                        .Font = New Font("Segoe UI", 9, FontStyle.Regular),
+                        .Dock = DockStyle.Top
                     }
+
+                    ' Check if the date is today and set the color to red
+                    If dayDate.Date = DateTime.Today Then
+                        dayOfMonthLbl.ForeColor = Color.Red
+                    End If
+
+                    parentPanel.Controls.Add(dayOfMonthLbl)
+
+                    ' Display shift information if available and the endDate has not passed
+                    If shifts.ContainsKey(dayDate) AndAlso shifts(dayDate).Item2 >= DateTime.Now Then
+                        ' Access the tuple elements directly from the dictionary
+                        Dim shiftInfo = shifts(dayDate)
+                        Dim shiftName = shiftInfo.Item1
+                        Dim endDate = shiftInfo.Item2
+                        Dim shiftTimeId = shiftInfo.Item3
+
+                        ' Create and configure the shift label
+                        Dim shiftLabel As New Label With {
+                            .Text = String.Format("{0} ({1:HH:mm} - {2:HH:mm})", shiftName, dayDate, endDate),
+                            .Font = New Font("Arial", 8, FontStyle.Bold Or FontStyle.Italic),
+                            .ForeColor = GetShiftColor(shiftTimeId),
+                            .Dock = DockStyle.Bottom,
+                            .TextAlign = ContentAlignment.MiddleCenter
+                        }
+                        AddHandler shiftLabel.Click, AddressOf ShiftLabel_Click
+                        shiftLabel.Tag = dayDate ' Store the shift date in the Tag property
                         parentPanel.Controls.Add(shiftLabel)
+
+                        ' Draw a line to the endDate if the shift spans multiple days
+                        If dayDate.Date <> endDate.Date Then
+                            Dim endDayPanelName As String = String.Format("PnlDay{0}{1}", endDate.Day \ 7, endDate.Day Mod 7)
+                            Dim endDayPanel As Control = Me.Controls.Find(endDayPanelName, True).FirstOrDefault()
+                            If endDayPanel IsNot Nothing Then
+                                Dim line As New Label With {
+                                    .BackColor = Color.Black,
+                                    .Height = 2,
+                                    .Dock = DockStyle.Bottom
+                                }
+                                parentPanel.Controls.Add(line)
+                            End If
+                        End If
                     End If
                 End If
             Next
@@ -314,6 +321,81 @@ Public Class Admin_Schedule
         SizeMonthYearLabel()
     End Sub
 
+    Private Function GetShiftColor(shiftTimeId As Integer) As Color
+        Select Case shiftTimeId
+            Case 1 ' Morning Shift
+                Return Color.Green
+            Case 2 ' Evening Shift
+                Return Color.Blue
+            Case 3 ' Night Shift
+                Return Color.Salmon
+            Case Else
+                Return Color.Gray ' Default color for unknown shiftTimeId
+        End Select
+    End Function
+
+    Private Sub ShiftLabel_Click(sender As Object, e As EventArgs)
+        Dim shiftLabel As Label = CType(sender, Label)
+        Dim shiftDate As DateTime = CType(shiftLabel.Tag, DateTime)
+
+        ' Fetch detailed information about the shift
+        Dim shiftName As String = ""
+        Dim startTime As String = ""
+        Dim endTime As String = ""
+        Dim nurseList As New List(Of String)
+
+        Try
+            ' Query to get shift details
+            Dim shiftQuery As String = "SELECT shiftName, startTime, endTime FROM shifts WHERE startDate = @startDate"
+            Dim shiftCommand As New MySqlCommand(shiftQuery, datacon)
+            shiftCommand.Parameters.AddWithValue("@startDate", shiftDate)
+
+            Dim reader As MySqlDataReader = shiftCommand.ExecuteReader()
+            If reader.Read() Then
+                shiftName = reader.GetString("shiftName")
+                startTime = reader.GetTimeSpan("startTime").ToString()
+                endTime = reader.GetTimeSpan("endTime").ToString()
+            End If
+            reader.Close()
+
+            ' Query to get assigned nurses for the shift
+            Dim nurseQuery As String = "SELECT n.fname, n.lname 
+                            FROM shift_nurses sn 
+                            INNER JOIN nurse n ON sn.nurseId = n.nurseId 
+                            INNER JOIN shifts s ON sn.shiftId = s.shiftId 
+                            WHERE s.startDate = @startDate"
+
+            Dim nurseCommand As New MySqlCommand(nurseQuery, datacon)
+            nurseCommand.Parameters.AddWithValue("@startDate", shiftDate)
+
+            reader = nurseCommand.ExecuteReader()
+            While reader.Read()
+                nurseList.Add(reader.GetString("fname") & " " & reader.GetString("lname"))
+            End While
+            reader.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error loading shift details: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
+        End Try
+
+        ' Prepare nurse information
+        Dim nurseDetails As String
+        If nurseList.Count > 0 Then
+            nurseDetails = String.Join(Environment.NewLine, nurseList)
+        Else
+            nurseDetails = "No nurses assigned to this shift."
+        End If
+
+        ' Display the detailed information
+        Dim details As String = String.Format(
+        "Shift Name: {0}{1}" &
+        "Start Time: {2}{1}" &
+        "End Time: {3}{1}" &
+        "Assigned Nurses ({4}):{1}{5}",
+        shiftName, Environment.NewLine, startTime, endTime, nurseList.Count, nurseDetails)
+
+        MessageBox.Show(details, "Shift Details", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
 
     Private Sub Admin_Schedule_Load(sender As Object, e As EventArgs) Handles Me.Load
         databaseConnect()
