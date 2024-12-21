@@ -412,4 +412,12 @@ Public Class Nurse_Dashboard
             MsgBox("Error: " & ex.Message)
         End Try
     End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            Login.Show()
+            Me.Close()
+        End If
+    End Sub
 End Class

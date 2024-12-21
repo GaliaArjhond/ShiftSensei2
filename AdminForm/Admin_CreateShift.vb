@@ -105,11 +105,11 @@ Public Class Admin_CreateShift
                 With cmd
                     datacon.Open()
                     .Connection = datacon
-                    .CommandText = "DELETE FROM shifts WHERE shiftId = " & Val(DataGridViewShift.CurrentRow.Cells(10).Value)
+                    .CommandText = "DELETE FROM shifts WHERE shiftId = " & Val(DataGridViewShift.CurrentRow.Cells(9).Value)
                     result = .ExecuteNonQuery()
                     If result > 0 Then
                         MsgBox("Deletion successful!")
-                        LoadRecord() ' Refresh the DataGridView
+                        LoadRecord()
                     Else
                         MsgBox("Deletion not successful!")
                     End If

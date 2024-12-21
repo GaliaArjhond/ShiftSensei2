@@ -386,4 +386,22 @@ Public Class Nurse_schedule2
             Me.Close()
         End If
     End Sub
+
+    Private Sub btnDashboard_Click(sender As Object, e As EventArgs) Handles btnDashboard.Click
+        Nurse_Dashboard.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
+        Nurse_Profile.Show()
+        Me.Hide()
+
+    End Sub
+
+    Private Sub btnAccount_Click(sender As Object, e As EventArgs) Handles btnAccount.Click
+        Nurse_Account.Show()
+        Me.Hide()
+
+    End Sub
 End Class
