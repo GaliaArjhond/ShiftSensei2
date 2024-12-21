@@ -1,40 +1,48 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class Nurse_Dashboard
-    Dim query As String
-    Dim tableInfo As DataTable
-    Dim da As MySqlDataAdapter
-
-    Private Const DaysInWeek As Integer = 7 ' Number of days in a week
+Public Class Nurse_schedule2
+    Private Const DaysInMonth As Integer = 42
     Private calendarInfo As MonthlyCalendarInfo
-
     Private Sub sizeContainers()
         ' Define the total panel dimensions and the left tab width
-        Dim totalWidth As Integer = 855
-        Dim totalHeight As Integer = 343
+        Dim totalWidth As Integer = 1250
+        Dim totalHeight As Integer = 718
+        Dim tabWidth As Integer = 217
 
         ' Calculate the available width and height
-        Dim availableWidth As Integer = totalWidth
+        Dim availableWidth As Integer = totalWidth - tabWidth
         Dim availableHeight As Integer = totalHeight
 
         ' MonthYearContainer
         MonthYearContainer.Size = New Size(availableWidth, 55)
-        MonthYearContainer.Location = New Point(310, 261) ' Set the exact location
+        MonthYearContainer.Location = New Point(tabWidth, 0) ' Shift by tabWidth to account for the left tab
 
         ' DaysOfWeekContainer
         DaysOfWeekContainer.Size = New Size(availableWidth, 30)
-        DaysOfWeekContainer.Location = New Point(310, 261 + MonthYearContainer.Height) ' Adjust for MonthYearContainer height
+        DaysOfWeekContainer.Location = New Point(tabWidth, MonthYearContainer.Height)
 
         ' Calculate daysHeight and daysYStart
-        Dim daysHeight As Integer = (availableHeight - MonthYearContainer.Height - DaysOfWeekContainer.Height) / 2
-        Dim daysYStart As Integer = 261 + MonthYearContainer.Height + DaysOfWeekContainer.Height
+        Dim daysHeight As Integer = (availableHeight - MonthYearContainer.Height - DaysOfWeekContainer.Height) / 6
+        Dim daysYStart As Integer = MonthYearContainer.Height + DaysOfWeekContainer.Height
 
         ' DaysRow Containers
         DaysRow0Container.Size = New Size(availableWidth, daysHeight)
-        DaysRow0Container.Location = New Point(310, daysYStart)
+        DaysRow0Container.Location = New Point(tabWidth, daysYStart)
 
         DaysRow1Container.Size = New Size(availableWidth, daysHeight)
-        DaysRow1Container.Location = New Point(310, daysYStart + daysHeight)
+        DaysRow1Container.Location = New Point(tabWidth, daysYStart + daysHeight)
+
+        DaysRow2Container.Size = New Size(availableWidth, daysHeight)
+        DaysRow2Container.Location = New Point(tabWidth, daysYStart + (daysHeight * 2))
+
+        DaysRow3Container.Size = New Size(availableWidth, daysHeight)
+        DaysRow3Container.Location = New Point(tabWidth, daysYStart + (daysHeight * 3))
+
+        DaysRow4Container.Size = New Size(availableWidth, daysHeight)
+        DaysRow4Container.Location = New Point(tabWidth, daysYStart + (daysHeight * 4))
+
+        DaysRow5Container.Size = New Size(availableWidth, daysHeight)
+        DaysRow5Container.Location = New Point(tabWidth, daysYStart + (daysHeight * 5))
     End Sub
 
     Private Sub SizeMonthYearLabel()
@@ -123,7 +131,7 @@ Public Class Nurse_Dashboard
         Dim dayPanel As Panel
         Dim dayOfMonthLbl As Label
 
-        For rowIndex = 0 To 1
+        For rowIndex = 0 To 5
             For colIndex = 0 To 6
                 dayPanel = New Panel
                 dayPanel.Name = String.Format("PnlDay{0}{1}", rowIndex, colIndex)
@@ -140,6 +148,14 @@ Public Class Nurse_Dashboard
                         DaysRow0Container.Controls.Add(dayPanel)
                     Case 1
                         DaysRow1Container.Controls.Add(dayPanel)
+                    Case 2
+                        DaysRow2Container.Controls.Add(dayPanel)
+                    Case 3
+                        DaysRow3Container.Controls.Add(dayPanel)
+                    Case 4
+                        DaysRow4Container.Controls.Add(dayPanel)
+                    Case 5
+                        DaysRow5Container.Controls.Add(dayPanel)
                 End Select
             Next
         Next
@@ -148,7 +164,8 @@ Public Class Nurse_Dashboard
     Private Sub SizeDaysControls()
         ' Array to hold all day row containers
         Dim dayRowContainers As Panel() = {
-            DaysRow0Container, DaysRow1Container
+            DaysRow0Container, DaysRow1Container, DaysRow2Container,
+            DaysRow3Container, DaysRow4Container, DaysRow5Container
         }
 
         ' Apply SizeWidthEqually to each container
@@ -182,16 +199,12 @@ Public Class Nurse_Dashboard
         Dim labelName As String
         Dim shifts As New Dictionary(Of DateTime, (String, DateTime, Integer))
 
-        ' Determine the start of the current week (most recent Sunday)
-        Dim today As DateTime = DateTime.Today
-        Dim startOfWeek As DateTime = today.AddDays(-(today.DayOfWeek))
-
-        ' MySQL query to fetch shifts for the current and next week
+        ' MySQL query to fetch shifts
         Try
-            Dim query As String = "SELECT startDate, endDate, shiftName, shiftTimeId FROM shifts WHERE startDate >= @startOfWeek AND startDate < @endOfNextWeek"
+            Dim query As String = "SELECT startDate, endDate, shiftName, shiftTimeId FROM shifts WHERE MONTH(startDate) = @month AND YEAR(startDate) = @year"
             Dim command As New MySqlCommand(query, datacon)
-            command.Parameters.AddWithValue("@startOfWeek", startOfWeek)
-            command.Parameters.AddWithValue("@endOfNextWeek", startOfWeek.AddDays(14)) ' 14 days from the start of the current week
+            command.Parameters.AddWithValue("@month", calendarInfo.Month)
+            command.Parameters.AddWithValue("@year", calendarInfo.Year)
 
             Dim reader As MySqlDataReader = command.ExecuteReader()
             While reader.Read()
@@ -210,21 +223,19 @@ Public Class Nurse_Dashboard
         ' Update the month-year label
         label = MonthYearContainer.Controls.Find("LblMonthYear", False).FirstOrDefault()
         If label IsNot Nothing Then
-            label.Text = String.Format("{0} - {1}", MonthName(startOfWeek.Month), startOfWeek.Year)
+            label.Text = String.Format("{0} {1}", MonthName(calendarInfo.Month), calendarInfo.Year)
         End If
 
         ' Clear existing shift labels and update the calendar with days and shift information
-        For rowIndex = 0 To 1
+        For rowIndex = 0 To 5
             For colIndex = 0 To 6
                 Dim parentPanelName As String = String.Format("PnlDay{0}{1}", rowIndex, colIndex)
                 Dim parentPanel As Control = Me.Controls.Find(parentPanelName, True).FirstOrDefault()
                 If parentPanel IsNot Nothing Then
                     parentPanel.Controls.Clear()
 
-                    ' Calculate the date for this cell
-                    Dim dayDate As DateTime = startOfWeek.AddDays(rowIndex * DaysInWeek + colIndex)
-
                     ' Create a day label for the number
+                    Dim dayDate As DateTime = calendarInfo.DayInMonth(rowIndex, colIndex)
                     Dim dayOfMonthLbl As New Label With {
                         .Text = dayDate.Day.ToString(),
                         .Font = New Font("Segoe UI", 9, FontStyle.Regular),
@@ -260,7 +271,7 @@ Public Class Nurse_Dashboard
 
                         ' Draw a line to the endDate if the shift spans multiple days
                         If dayDate.Date <> endDate.Date Then
-                            Dim endDayPanelName As String = String.Format("PnlDay{0}{1}", (endDate - startOfWeek).Days \ DaysInWeek, (endDate - startOfWeek).Days Mod DaysInWeek)
+                            Dim endDayPanelName As String = String.Format("PnlDay{0}{1}", endDate.Day \ 7, endDate.Day Mod 7)
                             Dim endDayPanel As Control = Me.Controls.Find(endDayPanelName, True).FirstOrDefault()
                             If endDayPanel IsNot Nothing Then
                                 Dim line As New Label With {
@@ -355,19 +366,8 @@ Public Class Nurse_Dashboard
         MessageBox.Show(details, "Shift Details", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub btnSchedule_Click(sender As Object, e As EventArgs) Handles btnSchedule.Click
-        Nurse_schedule2.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
-        Nurse_Profile.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub Nurse_Dashboard_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub Admin_Schedule_Load(sender As Object, e As EventArgs) Handles Me.Load
         databaseConnect()
-        LoadRecord()
         sizeContainers()
         CreateMonthYearLabel()
         SizeMonthYearLabel()
@@ -375,41 +375,15 @@ Public Class Nurse_Dashboard
         SizeDaysOfWeekLabels()
         CreateDaysControls()
         SizeDaysControls()
-        calendarInfo = New MonthlyCalendarInfo(Now.Year, Now.Month)
+        calendarInfo = New MonthlyCalendarInfo(2024, 12)
         PopulateCalendarInfo()
-        Dim font As New Font("Arial Bold", 10)
-        dataRecord.DefaultCellStyle.Font = font
-        dataRecord.ColumnHeadersDefaultCellStyle.Font = font
-
-        dataRecord.DefaultCellStyle.WrapMode = DataGridViewTriState.True
-        dataRecord.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
     End Sub
 
-    Private Sub LoadRecord()
-        Try
-            query = "SELECT 
-                        s.shiftName,
-                        s.startDate,
-                        s.endDate,
-                        s.startTime,
-                        s.endTime,
-                        d.departmentName AS Department,
-                        t.shiftTimeName AS Shift_Time,
-                        s.shiftId
-                    FROM 
-                        shiftsenseidb.shifts s
-                    JOIN 
-                        shiftsenseidb.department d ON s.departmentId = d.departmentId
-                    JOIN
-                        shiftsenseidb.shifttime t ON s.shiftTimeId = t.shiftTimeId
-                    ORDER BY 
-                        s.createdAt DESC"
-            Dim adapter As New MySqlDataAdapter(query, datacon)
-            Dim table As New DataTable()
-            adapter.Fill(table)
-            dataRecord.DataSource = table
-        Catch ex As Exception
-            MsgBox("Error: " & ex.Message)
-        End Try
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            Login.Show()
+            Me.Close()
+        End If
     End Sub
 End Class

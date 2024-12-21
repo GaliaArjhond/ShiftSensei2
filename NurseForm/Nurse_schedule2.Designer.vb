@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Nurse_Dashboard
+Partial Class Nurse_schedule2
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -31,14 +31,16 @@ Partial Class Nurse_Dashboard
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnAccount = New System.Windows.Forms.Button()
         Me.btnSchedule = New System.Windows.Forms.Button()
-        Me.dataRecord = New System.Windows.Forms.DataGridView()
+        Me.DaysRow5Container = New System.Windows.Forms.Panel()
+        Me.DaysRow4Container = New System.Windows.Forms.Panel()
+        Me.DaysRow3Container = New System.Windows.Forms.Panel()
+        Me.DaysRow2Container = New System.Windows.Forms.Panel()
         Me.DaysRow1Container = New System.Windows.Forms.Panel()
         Me.DaysRow0Container = New System.Windows.Forms.Panel()
         Me.DaysOfWeekContainer = New System.Windows.Forms.Panel()
         Me.MonthYearContainer = New System.Windows.Forms.Panel()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.dataRecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -148,67 +150,93 @@ Partial Class Nurse_Dashboard
         Me.btnSchedule.Text = "Schedule"
         Me.btnSchedule.UseVisualStyleBackColor = True
         '
-        'dataRecord
+        'DaysRow5Container
         '
-        Me.dataRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dataRecord.Location = New System.Drawing.Point(306, 42)
-        Me.dataRecord.Name = "dataRecord"
-        Me.dataRecord.Size = New System.Drawing.Size(860, 198)
-        Me.dataRecord.TabIndex = 1
+        Me.DaysRow5Container.BackColor = System.Drawing.Color.White
+        Me.DaysRow5Container.Location = New System.Drawing.Point(214, 605)
+        Me.DaysRow5Container.Name = "DaysRow5Container"
+        Me.DaysRow5Container.Size = New System.Drawing.Size(1062, 68)
+        Me.DaysRow5Container.TabIndex = 16
+        '
+        'DaysRow4Container
+        '
+        Me.DaysRow4Container.BackColor = System.Drawing.Color.White
+        Me.DaysRow4Container.Location = New System.Drawing.Point(214, 524)
+        Me.DaysRow4Container.Name = "DaysRow4Container"
+        Me.DaysRow4Container.Size = New System.Drawing.Size(1062, 75)
+        Me.DaysRow4Container.TabIndex = 15
+        '
+        'DaysRow3Container
+        '
+        Me.DaysRow3Container.BackColor = System.Drawing.Color.White
+        Me.DaysRow3Container.Location = New System.Drawing.Point(214, 435)
+        Me.DaysRow3Container.Name = "DaysRow3Container"
+        Me.DaysRow3Container.Size = New System.Drawing.Size(1062, 77)
+        Me.DaysRow3Container.TabIndex = 14
+        '
+        'DaysRow2Container
+        '
+        Me.DaysRow2Container.BackColor = System.Drawing.Color.White
+        Me.DaysRow2Container.Location = New System.Drawing.Point(214, 350)
+        Me.DaysRow2Container.Name = "DaysRow2Container"
+        Me.DaysRow2Container.Size = New System.Drawing.Size(1062, 77)
+        Me.DaysRow2Container.TabIndex = 13
         '
         'DaysRow1Container
         '
         Me.DaysRow1Container.BackColor = System.Drawing.Color.White
-        Me.DaysRow1Container.Location = New System.Drawing.Point(306, 528)
+        Me.DaysRow1Container.Location = New System.Drawing.Point(214, 258)
         Me.DaysRow1Container.Name = "DaysRow1Container"
-        Me.DaysRow1Container.Size = New System.Drawing.Size(972, 52)
-        Me.DaysRow1Container.TabIndex = 20
+        Me.DaysRow1Container.Size = New System.Drawing.Size(1062, 77)
+        Me.DaysRow1Container.TabIndex = 12
         '
         'DaysRow0Container
         '
         Me.DaysRow0Container.BackColor = System.Drawing.Color.White
-        Me.DaysRow0Container.Location = New System.Drawing.Point(306, 444)
+        Me.DaysRow0Container.Location = New System.Drawing.Point(214, 174)
         Me.DaysRow0Container.Name = "DaysRow0Container"
-        Me.DaysRow0Container.Size = New System.Drawing.Size(972, 52)
-        Me.DaysRow0Container.TabIndex = 19
+        Me.DaysRow0Container.Size = New System.Drawing.Size(1062, 77)
+        Me.DaysRow0Container.TabIndex = 11
         '
         'DaysOfWeekContainer
         '
         Me.DaysOfWeekContainer.BackColor = System.Drawing.Color.CadetBlue
-        Me.DaysOfWeekContainer.Location = New System.Drawing.Point(306, 359)
+        Me.DaysOfWeekContainer.Location = New System.Drawing.Point(214, 89)
         Me.DaysOfWeekContainer.Name = "DaysOfWeekContainer"
-        Me.DaysOfWeekContainer.Size = New System.Drawing.Size(965, 52)
-        Me.DaysOfWeekContainer.TabIndex = 18
+        Me.DaysOfWeekContainer.Size = New System.Drawing.Size(1055, 77)
+        Me.DaysOfWeekContainer.TabIndex = 10
         '
         'MonthYearContainer
         '
         Me.MonthYearContainer.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.MonthYearContainer.Location = New System.Drawing.Point(306, 274)
+        Me.MonthYearContainer.Location = New System.Drawing.Point(214, 4)
         Me.MonthYearContainer.Name = "MonthYearContainer"
-        Me.MonthYearContainer.Size = New System.Drawing.Size(929, 52)
-        Me.MonthYearContainer.TabIndex = 17
+        Me.MonthYearContainer.Size = New System.Drawing.Size(1019, 77)
+        Me.MonthYearContainer.TabIndex = 9
         '
-        'Nurse_Dashboard
+        'Nurse_schedule2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 681)
+        Me.Controls.Add(Me.DaysRow5Container)
+        Me.Controls.Add(Me.DaysRow4Container)
+        Me.Controls.Add(Me.DaysRow3Container)
+        Me.Controls.Add(Me.DaysRow2Container)
         Me.Controls.Add(Me.DaysRow1Container)
         Me.Controls.Add(Me.DaysRow0Container)
         Me.Controls.Add(Me.DaysOfWeekContainer)
         Me.Controls.Add(Me.MonthYearContainer)
-        Me.Controls.Add(Me.dataRecord)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "Nurse_Dashboard"
+        Me.Name = "Nurse_schedule2"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Nurse Dashboard"
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.dataRecord, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -221,7 +249,10 @@ Partial Class Nurse_Dashboard
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents dataRecord As DataGridView
+    Friend WithEvents DaysRow5Container As Panel
+    Friend WithEvents DaysRow4Container As Panel
+    Friend WithEvents DaysRow3Container As Panel
+    Friend WithEvents DaysRow2Container As Panel
     Friend WithEvents DaysRow1Container As Panel
     Friend WithEvents DaysRow0Container As Panel
     Friend WithEvents DaysOfWeekContainer As Panel

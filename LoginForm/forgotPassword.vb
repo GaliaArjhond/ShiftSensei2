@@ -56,7 +56,6 @@ Public Class forgotPassword
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim dgresult As New DialogResult
         LicenseNumber = txtLicenseNumber.Text
-
         answer = txtanswer.Text
         newPass = txtnewPass.Text
 
@@ -65,40 +64,42 @@ Public Class forgotPassword
             Return
         End If
 
-        Try
-
-        Catch ex As Exception
-
-        End Try
-
-        Dim storedAnswer As Object = cmd.ExecuteScalar()
-
-
-        If storedAnswer IsNot Nothing AndAlso storedAnswer.ToString() = answer Then
-
-            Dim newPassword As String = InputBox("Please enter your new password:", "New Password")
-
-            If String.IsNullOrEmpty(newPassword) Then
-                MessageBox.Show("Please enter a valid password.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-            End If
-
-            ' This is where we Update the password in the database
-            Dim updateQuery As String = "UPDATE Users SET Password = @NewPassword WHERE Username = @Username"
-            cmd = New MySqlCommand(updateQuery, datacon)
-
-
-            cmd.ExecuteNonQuery()
-
-            MessageBox.Show("Your password has been updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-            Dim loginForm As New Login()
-            loginForm.Show()
-            Me.Close()
-        Else
-
-            MessageBox.Show("The answer to the security question is incorrect. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If String.IsNullOrEmpty(newPass) Then
+            MessageBox.Show("Please enter a new password.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
         End If
+
+        Try
+            datacon.Open()
+            query = "SELECT securityAnswer FROM nurse WHERE nurseLicense = @nurseLicense"
+            cmd = New MySqlCommand(query, datacon)
+            cmd.Parameters.AddWithValue("@nurseLicense", LicenseNumber)
+            Dim storedAnswer As Object = cmd.ExecuteScalar()
+
+            If storedAnswer IsNot Nothing AndAlso storedAnswer.ToString() = answer Then
+
+
+                query = "UPDATE nurse SET passwordHash = @newPassword WHERE nurseLicense = @nurseLicense"
+                cmd = New MySqlCommand(query, datacon)
+                cmd.Parameters.AddWithValue("@newPassword", newPass)
+                cmd.Parameters.AddWithValue("@nurseLicense", LicenseNumber)
+                cmd.ExecuteNonQuery()
+
+                MessageBox.Show("Your password has been updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                ' Show the login form
+                Login.Show()
+                Me.Close()
+            Else
+                MessageBox.Show("The answer to the security question is incorrect. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            If datacon.State = ConnectionState.Open Then
+                datacon.Close()
+            End If
+        End Try
 
     End Sub
 End Class
