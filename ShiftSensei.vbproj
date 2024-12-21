@@ -268,12 +268,6 @@
     <Compile Include="NurseForm\Nurse_Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NurseForm\Nurse_Schedule.Designer.vb">
-      <DependentUpon>Nurse_Schedule.vb</DependentUpon>
-    </Compile>
-    <Compile Include="NurseForm\Nurse_Schedule.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="UserForm\AccountSettings.Designer.vb">
       <DependentUpon>AccountSettings.vb</DependentUpon>
     </Compile>
@@ -366,9 +360,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NurseForm\Nurse_Dashboard.resx">
       <DependentUpon>Nurse_Dashboard.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NurseForm\Nurse_Schedule.resx">
-      <DependentUpon>Nurse_Schedule.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm\AccountSettings.resx">
       <DependentUpon>AccountSettings.vb</DependentUpon>

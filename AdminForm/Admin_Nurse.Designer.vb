@@ -61,7 +61,7 @@ Partial Class Admin_Nurse
         Me.Label1.Location = New System.Drawing.Point(29, 46)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(188, 34)
+        Me.Label1.Size = New System.Drawing.Size(149, 28)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Shift Sensei"
         '
@@ -239,7 +239,7 @@ Partial Class Admin_Nurse
         '
         'Admin_Nurse
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 680)
         Me.Controls.Add(Me.dataRecord)

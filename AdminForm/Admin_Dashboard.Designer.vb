@@ -50,12 +50,12 @@ Partial Class Admin_Dashboard
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.DataGridViewShift = New System.Windows.Forms.DataGridView()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.lblnight = New System.Windows.Forms.Label()
+        Me.lblevening = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.lblmorning = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.lblevening = New System.Windows.Forms.Label()
-        Me.lblnight = New System.Windows.Forms.Label()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Panel6.SuspendLayout()
         Me.Panel5.SuspendLayout()
@@ -354,6 +354,50 @@ Partial Class Admin_Dashboard
         Me.Panel7.Size = New System.Drawing.Size(376, 267)
         Me.Panel7.TabIndex = 8
         '
+        'lblnight
+        '
+        Me.lblnight.AutoSize = True
+        Me.lblnight.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblnight.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblnight.Location = New System.Drawing.Point(270, 185)
+        Me.lblnight.Name = "lblnight"
+        Me.lblnight.Size = New System.Drawing.Size(30, 32)
+        Me.lblnight.TabIndex = 10
+        Me.lblnight.Text = "0"
+        '
+        'lblevening
+        '
+        Me.lblevening.AutoSize = True
+        Me.lblevening.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblevening.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.lblevening.Location = New System.Drawing.Point(270, 119)
+        Me.lblevening.Name = "lblevening"
+        Me.lblevening.Size = New System.Drawing.Size(30, 32)
+        Me.lblevening.TabIndex = 9
+        Me.lblevening.Text = "0"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label6.Location = New System.Drawing.Point(63, 193)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(121, 24)
+        Me.Label6.TabIndex = 8
+        Me.Label6.Text = "Night Shift:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label5.Location = New System.Drawing.Point(63, 125)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(152, 24)
+        Me.Label5.TabIndex = 7
+        Me.Label5.Text = "Evening Shift:"
+        '
         'lblmorning
         '
         Me.lblmorning.AutoSize = True
@@ -375,50 +419,6 @@ Partial Class Admin_Dashboard
         Me.Label4.Size = New System.Drawing.Size(151, 24)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Mornign Shift:"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label5.Location = New System.Drawing.Point(63, 125)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(152, 24)
-        Me.Label5.TabIndex = 7
-        Me.Label5.Text = "Evening Shift:"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label6.Location = New System.Drawing.Point(63, 193)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(121, 24)
-        Me.Label6.TabIndex = 8
-        Me.Label6.Text = "Night Shift:"
-        '
-        'lblevening
-        '
-        Me.lblevening.AutoSize = True
-        Me.lblevening.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblevening.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lblevening.Location = New System.Drawing.Point(270, 119)
-        Me.lblevening.Name = "lblevening"
-        Me.lblevening.Size = New System.Drawing.Size(30, 32)
-        Me.lblevening.TabIndex = 9
-        Me.lblevening.Text = "0"
-        '
-        'lblnight
-        '
-        Me.lblnight.AutoSize = True
-        Me.lblnight.Font = New System.Drawing.Font("Arial", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblnight.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.lblnight.Location = New System.Drawing.Point(270, 185)
-        Me.lblnight.Name = "lblnight"
-        Me.lblnight.Size = New System.Drawing.Size(30, 32)
-        Me.lblnight.TabIndex = 10
-        Me.lblnight.Text = "0"
         '
         'Chart1
         '

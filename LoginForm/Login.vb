@@ -21,33 +21,36 @@ Public Class Login
             ' Check if user is an admin
             cmd.CommandText = "SELECT adminId FROM admin WHERE adminLicense = @license AND passwordHash = @passwordHash"
             cmd.Parameters.AddWithValue("@license", license)
-            cmd.Parameters.AddWithValue("@passwordHash", password) ' Add hashing for the password
+            cmd.Parameters.AddWithValue("@passwordHash", password)
 
             Dim adminId As Object = cmd.ExecuteScalar()
             If adminId IsNot Nothing Then
-                ' Redirect to Admin Dashboard
+                MessageBox.Show("Welcome, Admin!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                TextBox1.Clear()
+                TextBox2.Clear()
+
                 Admin_Dashboard.Show()
                 Me.Hide()
                 Return
             End If
 
-            ' Clear previous parameters
             cmd.Parameters.Clear()
 
             ' Check if user is a nurse
             cmd.CommandText = "SELECT nurseId FROM nurse WHERE nurseLicense = @license AND passwordHash = @passwordHash"
             cmd.Parameters.AddWithValue("@license", license)
-            cmd.Parameters.AddWithValue("@passwordHash", password) ' Add hashing for the password
+            cmd.Parameters.AddWithValue("@passwordHash", password)
 
             Dim nurseId As Object = cmd.ExecuteScalar()
             If nurseId IsNot Nothing Then
-                ' Redirect to Nurse Dashboard
+                MessageBox.Show("Welcome, Nurse!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Nurse_Dashboard.Show()
+                TextBox1.Clear()
+                TextBox2.Clear()
                 Me.Hide()
                 Return
             End If
 
-            ' If no match is found
             MessageBox.Show("Invalid License or Password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Catch ex As Exception

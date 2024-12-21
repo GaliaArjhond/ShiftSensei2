@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Admin_Schedule
+Partial Class Nurse_Schedule
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -141,7 +141,7 @@ Partial Class Admin_Schedule
         Me.btnLogOut.FlatAppearance.BorderSize = 0
         Me.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogOut.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnLogOut.Location = New System.Drawing.Point(4, 654)
+        Me.btnLogOut.Location = New System.Drawing.Point(4, 639)
         Me.btnLogOut.Name = "btnLogOut"
         Me.btnLogOut.Size = New System.Drawing.Size(214, 40)
         Me.btnLogOut.TabIndex = 6

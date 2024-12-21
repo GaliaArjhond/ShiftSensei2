@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class Admin_Schedule
+Public Class Nurse_Schedule
     Private Const DaysInMonth As Integer = 42
     Private calendarInfo As MonthlyCalendarInfo
 
@@ -408,5 +408,13 @@ Public Class Admin_Schedule
         SizeDaysControls()
         calendarInfo = New MonthlyCalendarInfo(2024, 12)
         PopulateCalendarInfo()
+    End Sub
+
+    Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            Login.Show()
+            Me.Close()
+        End If
     End Sub
 End Class

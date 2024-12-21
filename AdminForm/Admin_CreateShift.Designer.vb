@@ -84,7 +84,7 @@ Partial Class Admin_CreateShift
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Location = New System.Drawing.Point(29, 46)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(188, 34)
+        Me.Label1.Size = New System.Drawing.Size(149, 28)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Shift Sensei"
         '
@@ -248,7 +248,7 @@ Partial Class Admin_CreateShift
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(9, 9)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(0, 24)
+        Me.Label9.Size = New System.Drawing.Size(0, 19)
         Me.Label9.TabIndex = 24
         '
         'DataGridViewShift
@@ -291,7 +291,7 @@ Partial Class Admin_CreateShift
         Me.cmbShiftType.FormattingEnabled = True
         Me.cmbShiftType.Location = New System.Drawing.Point(163, 117)
         Me.cmbShiftType.Name = "cmbShiftType"
-        Me.cmbShiftType.Size = New System.Drawing.Size(238, 32)
+        Me.cmbShiftType.Size = New System.Drawing.Size(238, 27)
         Me.cmbShiftType.TabIndex = 18
         Me.cmbShiftType.UseWaitCursor = True
         '
@@ -300,7 +300,7 @@ Partial Class Admin_CreateShift
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(34, 125)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(113, 24)
+        Me.Label8.Size = New System.Drawing.Size(91, 19)
         Me.Label8.TabIndex = 17
         Me.Label8.Text = "Shift Type:"
         '
@@ -335,7 +335,7 @@ Partial Class Admin_CreateShift
         Me.cmbDepartment.FormattingEnabled = True
         Me.cmbDepartment.Location = New System.Drawing.Point(579, 122)
         Me.cmbDepartment.Name = "cmbDepartment"
-        Me.cmbDepartment.Size = New System.Drawing.Size(284, 32)
+        Me.cmbDepartment.Size = New System.Drawing.Size(284, 27)
         Me.cmbDepartment.TabIndex = 12
         '
         'dtpEndTime
@@ -345,7 +345,7 @@ Partial Class Admin_CreateShift
         Me.dtpEndTime.Location = New System.Drawing.Point(779, 60)
         Me.dtpEndTime.Name = "dtpEndTime"
         Me.dtpEndTime.ShowUpDown = True
-        Me.dtpEndTime.Size = New System.Drawing.Size(118, 30)
+        Me.dtpEndTime.Size = New System.Drawing.Size(118, 26)
         Me.dtpEndTime.TabIndex = 11
         '
         'dtpStartTime
@@ -355,14 +355,14 @@ Partial Class Admin_CreateShift
         Me.dtpStartTime.Location = New System.Drawing.Point(550, 60)
         Me.dtpStartTime.Name = "dtpStartTime"
         Me.dtpStartTime.ShowUpDown = True
-        Me.dtpStartTime.Size = New System.Drawing.Size(118, 30)
+        Me.dtpStartTime.Size = New System.Drawing.Size(118, 26)
         Me.dtpStartTime.TabIndex = 10
         '
         'dtpEndDate
         '
         Me.dtpEndDate.Location = New System.Drawing.Point(165, 234)
         Me.dtpEndDate.Name = "dtpEndDate"
-        Me.dtpEndDate.Size = New System.Drawing.Size(238, 30)
+        Me.dtpEndDate.Size = New System.Drawing.Size(238, 26)
         Me.dtpEndDate.TabIndex = 9
         '
         'dtpStartDate
@@ -370,14 +370,14 @@ Partial Class Admin_CreateShift
         Me.dtpStartDate.Location = New System.Drawing.Point(165, 175)
         Me.dtpStartDate.MaxDate = New Date(9000, 12, 31, 0, 0, 0, 0)
         Me.dtpStartDate.Name = "dtpStartDate"
-        Me.dtpStartDate.Size = New System.Drawing.Size(238, 30)
+        Me.dtpStartDate.Size = New System.Drawing.Size(238, 26)
         Me.dtpStartDate.TabIndex = 8
         '
         'txtshiftName
         '
         Me.txtshiftName.Location = New System.Drawing.Point(163, 60)
         Me.txtshiftName.Name = "txtshiftName"
-        Me.txtshiftName.Size = New System.Drawing.Size(238, 30)
+        Me.txtshiftName.Size = New System.Drawing.Size(238, 26)
         Me.txtshiftName.TabIndex = 7
         '
         'Label7
@@ -385,7 +385,7 @@ Partial Class Admin_CreateShift
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(457, 125)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(127, 24)
+        Me.Label7.Size = New System.Drawing.Size(104, 19)
         Me.Label7.TabIndex = 5
         Me.Label7.Text = "Dapartment:"
         '
@@ -394,7 +394,7 @@ Partial Class Admin_CreateShift
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(691, 63)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(100, 24)
+        Me.Label6.Size = New System.Drawing.Size(82, 19)
         Me.Label6.TabIndex = 4
         Me.Label6.Text = "End time:"
         '
@@ -403,7 +403,7 @@ Partial Class Admin_CreateShift
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(457, 63)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(109, 24)
+        Me.Label5.Size = New System.Drawing.Size(87, 19)
         Me.Label5.TabIndex = 3
         Me.Label5.Text = "Start time:"
         '
@@ -412,7 +412,7 @@ Partial Class Admin_CreateShift
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(36, 240)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(103, 24)
+        Me.Label4.Size = New System.Drawing.Size(85, 19)
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "End Date:"
         '
@@ -421,7 +421,7 @@ Partial Class Admin_CreateShift
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(34, 181)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(105, 24)
+        Me.Label3.Size = New System.Drawing.Size(84, 19)
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "Start Date"
         '
@@ -430,7 +430,7 @@ Partial Class Admin_CreateShift
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(34, 63)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(120, 24)
+        Me.Label2.Size = New System.Drawing.Size(98, 19)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Shift Name:"
         '
@@ -439,23 +439,23 @@ Partial Class Admin_CreateShift
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteRowToolStripMenuItem, Me.UpDateRowToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(163, 52)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(140, 48)
         '
         'DeleteRowToolStripMenuItem
         '
         Me.DeleteRowToolStripMenuItem.Name = "DeleteRowToolStripMenuItem"
-        Me.DeleteRowToolStripMenuItem.Size = New System.Drawing.Size(162, 24)
+        Me.DeleteRowToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.DeleteRowToolStripMenuItem.Text = "Delete Row"
         '
         'UpDateRowToolStripMenuItem
         '
         Me.UpDateRowToolStripMenuItem.Name = "UpDateRowToolStripMenuItem"
-        Me.UpDateRowToolStripMenuItem.Size = New System.Drawing.Size(162, 24)
+        Me.UpDateRowToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.UpDateRowToolStripMenuItem.Text = "UpDate Row"
         '
         'Admin_CreateShift
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1234, 681)
         Me.ContextMenuStrip = Me.ContextMenuStrip1
